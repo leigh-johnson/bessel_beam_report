@@ -1,0 +1,146 @@
+% ============================================================
+%  Pi2 Final Report — PRL-style (REVTeX 4.2)
+%  Target length: ~5 pages in PRL format
+%
+%  Compile:  latexmk -pdf main.tex   (or use the Makefile: `make`)
+%  Overleaf: upload this folder as a project; it compiles as-is.
+%
+%  Submission: export the PDF and name it
+%      Zaman_Leigh_Pi2_Report.pdf
+%  (`make submission` does this automatically)
+% ============================================================
+\documentclass[
+  aps,
+  prl,
+  twocolumn,
+  reprint,              % journal-style layout; use `preprint` for single-column draft
+  superscriptaddress,
+  amsmath,
+  amssymb,
+  floatfix,
+  longbibliography      % show article titles in the bibliography (optional)
+]{revtex4-2}
+
+\usepackage{graphicx}   % \includegraphics
+\graphicspath{{figures/}}
+\usepackage{dcolumn}    % aligned-decimal table columns
+\usepackage{bm}         % bold math
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{siunitx}    % \SI{1}{\meter}, \si{\micro\radian}, ...
+
+% --- Handy custom macros (add your own here) ----------------
+% \newcommand{\Sr}{$^{87}$Sr}
+
+\begin{document}
+
+% ============================================================
+%  TITLE BLOCK
+%  Guide asks for: Project Title / Scholar name / Mentor name /
+%  Professor lab
+% ============================================================
+\title{Project Title}   % TODO: project title
+
+\author{Leigh Zaman}
+\email{hi@leighjohnson.me}   % optional; delete if not wanted
+\affiliation{Physics Innovators Initiative (Pi$^2$), Department of Physics, University of California, Berkeley, CA 94720, USA}
+
+% TODO: mentor name
+\author{Mentor Name}
+\thanks{Mentor}
+\affiliation{Kolkowitz Group, Department of Physics, University of California, Berkeley, CA 94720, USA}
+
+\date{\today}
+
+% ============================================================
+%  ABSTRACT (comes BEFORE \maketitle in REVTeX)
+% ============================================================
+\begin{abstract}
+  % TODO: abstract (~100–150 words): context, what was done, key
+  % quantitative result, significance.
+\end{abstract}
+
+\maketitle
+
+% ============================================================
+%  I. BACKGROUND AND AIMS
+%  - Background and motivation of the project
+%  - Major questions to address
+%  - Hypothesis in addressing the question
+% ============================================================
+\section{Background and Aims}
+% TODO
+
+% Example citation: optical lattice clocks~\cite{example2020}.
+
+% ============================================================
+%  II. EXPERIMENTAL/THEORETICAL APPROACHES
+%  - Describe in detail the experimental and/or theoretical
+%    approaches of the project
+% ============================================================
+\section{Experimental and Theoretical Approaches}
+% TODO
+
+% Example numbered equation:
+% \begin{equation}
+%   I(r) \propto J_0^2(k_r r),
+%   \label{eq:bessel}
+% \end{equation}
+% referenced as Eq.~\eqref{eq:bessel}.
+
+% ============================================================
+%  III. EXPERIMENTAL/THEORETICAL RESULTS
+%  - Descriptions/figures/tables of findings
+%  - New techniques and methods developed
+%  - How the research addresses the posed questions
+% ============================================================
+\section{Results}
+% TODO
+
+% Example single-column figure (put files in figures/):
+% \begin{figure}[tb]
+%   \centering
+%   \includegraphics[width=\columnwidth]{example.pdf}
+%   \caption{Caption text. \label{fig:example}}
+% \end{figure}
+% Referenced as Fig.~\ref{fig:example}.
+
+% Example two-column-spanning figure:
+% \begin{figure*}[tb]
+%   \centering
+%   \includegraphics[width=\textwidth]{example_wide.pdf}
+%   \caption{Wide caption text. \label{fig:wide}}
+% \end{figure*}
+
+% Example table:
+% \begin{table}[tb]
+%   \caption{Table caption. \label{tab:example}}
+%   \begin{ruledtabular}
+%     \begin{tabular}{lcc}
+%       Quantity & Measured & Model \\
+%       \colrule
+%       $k_r$ & -- & -- \\
+%     \end{tabular}
+%   \end{ruledtabular}
+% \end{table}
+
+% ============================================================
+%  IV. CONCLUSION AND PERSPECTIVE
+%  - Major conclusion of the project
+%  - Proposed future work, and why
+% ============================================================
+\section{Conclusion and Perspective}
+% TODO
+
+% ============================================================
+%  ACKNOWLEDGMENTS
+% ============================================================
+\begin{acknowledgments}
+  % TODO: mentor, PI, lab members, Pi2 program / funding.
+\end{acknowledgments}
+
+% ============================================================
+%  BIBLIOGRAPHY (entries live in references.bib)
+% ============================================================
+\bibliography{references}
+
+\end{document}
