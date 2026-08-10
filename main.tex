@@ -98,35 +98,22 @@
 
 % ------------------------------------------------------------
 % Results summary table.
-% Model values computed 2026-08-10 with calc/zranges.py, which
-% reimplements the webapp's geometric() (exact-Snell meridional
-% rays, input rays out to w0, i.e. 86.5% of the power) and the
-% QDHT on-axis window FWHM from run_wave() (N=4096, pad 2.5 w0,
-% lambda = 650 nm, n = 1.4585). All z measured from axicon 3.
-% Input waists w0 = recorded GaussianBeamWaist_mm / 2 (that field
-% stores the 1/e^2 DIAMETER).
-% ------------------------------------------------------------
 \begin{table*}[tb]
-  \caption{Measured three-axicon configurations
-  ($\alpha_{1}=\alpha_{2}=\SI{5}{\degree}$,
-  $\alpha_{3}=\SI{0.5}{\degree}$, $\lambda=\SI{650}{\nano\meter}$).
-  $L_{12}$ and $L_{23}$ are the axicon separations and $2 w_{0}$ is the
-  $1/e^{2}$ diameter of the Gaussian input beam. $z$ ranges are measured from
-  axicon3. The geometric range is calculated by method described in TODO.
-  The $z$ QDHT range
-  is the FWHM of the modeled on-axis intensity $I(0,z)$ described in TODO.
-  \label{tab:summary}}
+  \caption{Measured and modeled Bessel-window extent for the three
+    configuration candidates of \autoref{tab:configs}. $z$ is measured from
+    axicon~3. The geometric range is calculated by method described in TODO.
+    The $z$ QDHT range
+    is the FWHM of the modeled on-axis intensity $I(0,z)$ described in TODO.
+    \label{tab:summary}}
   \begin{ruledtabular}
-    \begin{tabular}{lcccccc}
-      Dataset          & $L_{12}$ (mm)     & $L_{23}$ (mm) & $2 w_{0}$ (mm) &
-      $z$ measured (m) & $z$ geometric (m) & $z$ QDHT (m)                                                          \\
+    \begin{tabular}{lcccc}
+      Candidate & Dataset   & $z_R$ measured (m)        & $z_R$ geometric (m) & $z_R$ QDHT (m) \\
       \colrule
-      Jul 22-23        & 190               & \phantom{0}50 & 4.60           & 1.36--1.86 & 1.34--1.91 & 1.39--1.76 \\
-      Jul 29-30        & 240               & 220           & 4.75           & TODO       & 1.22--2.41 & 1.30--2.19 \\
-      Aug 5-6          & 175               & 415           & 4.66           & TODO       & 1.18--1.76 & 1.23--1.60 \\
+      \#1       & Jul 22-23 & 0.5 ($z \in [1.36,1.86]$) & 1.34-1.91           & 1.39-1.76      \\
+      \#2       & Jul 29-30 & TODO                      & 1.23-2.41           & 1.34-2.18      \\
+      \#3       & Aug 5-6   & TODO                      & 1.18-1.76           & 1.24-1.60      \\
     \end{tabular}
   \end{ruledtabular}
-
 \end{table*}
 
 % Example single-column figure (put files in figures/):
@@ -181,17 +168,17 @@
   1~in.\ (\SI{25.4}{\milli\meter}) axicons with base angles
   $\alpha_{1}=\alpha_{2}=\SI{5}{\degree}$ and
   $\alpha_{3}=\SI{0.5}{\degree}$; $L_{12}$ and $L_{23}$ are the
-  axicon~1-2 and axicon~2-3 separations, and $D$ is the $1/e^{2}$
-  diameter of the Gaussian input beam at axicon~1. Axicons sourced from Thorlabs (AX255-A, AX2505-A), manufactured from UV Fused Silica substrate ($n \approx 1.4565$ at 650nm) with AR coating for 350-700nm range.
+  axicon~1-2 and axicon~2-3 separations, $D_{\text{in}}$is the $1/e^{2}$
+  diameter of the Gaussian input beam at axicon~1, and ($\lambda=\SI{650}{\nano\meter}$) is the wavelength of the input laser diode. Axicons were sourced from Thorlabs (AX255-A, AX2505-A), manufactured from UV Fused Silica substrate ($n \approx 1.4565$ at 650nm) with AR coating for 350-700nm range.
   \label{tab:configs}}
   \begin{ruledtabular}
     \begin{tabular}{lcccc}
-      Candidate \#, Description                          & $L_{12}$ (mm) & $L_{23}$ (mm) & $D$ (mm) &
-      $2\times$ telescope                                                                                                         \\
+      Candidate \#, Description                          & $L_{12}$ (mm) & $L_{23}$ (mm) & $D_{\text{in}}$ (mm) &
+      $2\times$ telescope                                                                                                                     \\
       \colrule
-      \#1, baseline                                      & 190           & \phantom{0}50 & 4.59     & ---                         \\
-      \#2, Gaussian input beam magnified 2x vs. baseline & 240           & 220           & 9.44     & input\footnotemark[1]       \\
-      \#3, Bessel region beam magnified 2x vs. baseline  & 175           & 415           & 4.59     & Bessel zone\footnotemark[2] \\
+      \#1, baseline                                      & 190           & \phantom{0}50 & 4.59                 & ---                         \\
+      \#2, Gaussian input beam magnified 2x vs. baseline & 240           & 220           & 9.44                 & input\footnotemark[1]       \\
+      \#3, Bessel region beam magnified 2x vs. baseline  & 175           & 415           & 4.59                 & Bessel zone\footnotemark[2] \\
     \end{tabular}
   \end{ruledtabular}
   \footnotetext[1]{$2\times$ magnification telescope before axicon~1,
@@ -199,6 +186,8 @@
   \footnotetext[2]{$2\times$ magnification telescope placed within the
     Bessel zone at $z = $ TODO (after axicon~3)}
 \end{table*}
+
+
 
 % ============================================================
 %  BIBLIOGRAPHY (entries live in references.bib)
