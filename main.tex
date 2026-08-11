@@ -45,8 +45,7 @@
 %  ABSTRACT (comes BEFORE \maketitle in REVTeX)
 % ============================================================
 \begin{abstract}
-  % TODO: abstract (~100–150 words): context, what was done, key
-  % quantitative result, significance.
+  TODO: abstract context, what was done, key quantitative result, significance.
 \end{abstract}
 
 \maketitle
@@ -89,22 +88,25 @@
 % ------------------------------------------------------------
 % Results summary table.
 \begin{table}[b]
-  \caption{Measured and modeled Bessel-window extent for the three
-    configuration candidates of \autoref{tab:configs}. $z$ is measured from
+  \caption{Measured and modeled on-axisBessel range $z_R$ for the three
+    configuration candidates of \autoref{tab:configs}. All $z$ values are measured from
     axicon~3. The geometric range is calculated by method described in TODO.
     The $z$ QDHT range
     is the FWHM of the modeled on-axis intensity $I(0,z)$ described in TODO.
     \label{tab:summary}}
   \begin{ruledtabular}
     \begin{tabular}{lccc}
-      Config & $z_R$ measured (m)  & $z_R$ geometricz  (m) & $z_R$ QDHT (m)      \\
+      Config & $z_R$ measured (m)                   & $z_R$ geometric (m) & $z_R$ QDHT (m)      \\
       \colrule
-      \#1    & 0.45 $[1.36,1.86]$  & 0.57 $[1.34,1.91]$    & 0.37 $[1.40,1.77]$  \\
-      \#2    & $[1.25, 2,]$        & 1.18 $[1.23,2.41]$    & 0.90 $[1.29, 2.19]$ \\
-      \#3    & 0.19 $[1.24, 1.43]$ & 0.57 $[1.18,1.76]$    & 0.41 $[1.21, 1.62]$ \\
-      \#4    & TODO                & ---                   & ---                 \\
+      \#1    & 0.43 $[1.26,1.16]$                   & 0.57 $[1.34,1.91]$  & 0.37 $[1.40,1.77]$  \\
+      \#2    & 0.79 $[1.21, 2.00]$ \footnotemark[1] & 1.18 $[1.23,2.41]$  & 0.90 $[1.29, 2.19]$ \\
+      \#3    & 0.31 $[1.12, 1.43]$ \footnotemark[2] & 0.57 $[1.18,1.76]$  & 0.41 $[1.21, 1.62]$ \\
+      \#4    & 0.32 $[0.47, 0.79]$ \footnotemark[3] & ---                 & ---                 \\
     \end{tabular}
   \end{ruledtabular}
+  \footnotetext[1]{Experimental setup did not allow for full measurement of the Bessel zone after 2.0~m. The measured range is a lower bound.}
+  \footnotetext[2]{Alignment of axicon~2 and axicon~3 was sub-optimal, resulting in a reduced Bessel range.}
+  \footnotetext[3]{The alignment in this configuration was optimized. Due to time constraints, a full dataset was not collected.}
 \end{table}
 
 % Example single-column figure (put files in figures/):
@@ -160,7 +162,9 @@ Axicon lenses in \autoref{tab:configs} were sourced from Thorlabs (AX255-A, AX25
 
 An adjustable focus laser diode (Thorlabs CPS650F) was coupled to a single-mode fiber using a fiber optic coupler (Schafter+Kirchhoff 60FC-L-4-M25-24) to produce a Gaussian input beam with $1/e^2$ diameter of $D_{\text{in}} = \SI{4.59}{\milli\meter}$ at axicon~1. The laser diode wavelength was nominally given as $\lambda = \SI{650}{\nano\meter}$, with a measured $\SI{1.2}{\milli\watt}$ power output after the fiber coupling.
 
-Axicon lenses were mounted in XY translation mounts for alignment, and the axicon~1-2 and axicon~2-3 separations were set using a ruler ()
+Axicon lenses were mounted in XY translation mounts for alignment, and the axicon separations $L_{12}$ and $L_{23}$ were measured using a stainless steel ruler.
+
+The Bessel zone was imaged using a CMOS camera (Thorlabs DCC1545M) with a 50~mm lens (Thorlabs MVL50M23) and a 650~nm bandpass filter (Thorlabs FB650-10). The camera was mounted on a translation stage to image the Bessel zone at different $z$ positions.
 
 \begin{table*}[h]
   \caption{Optics configuration candidates. All configurations use
