@@ -1,12 +1,23 @@
 % --- Packages + Configuration ----------------
 \usepackage{graphicx}   % \includegraphics
-\graphicspath{{figures/}}
+\graphicspath{
+    {figures/}
+        {../bessel_beam_simulator/notebooks/images/final_report_theory_2026_08_12/prl/}
+        {../bessel_beam_simulator/notebooks/images/final_report_calcs_2026_08_10/prl/}
+}
 \usepackage{dcolumn}    % aligned-decimal table columns
 \usepackage{bm}         % bold math
-\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{siunitx}    % \SI{1}{\meter}, \si{\micro\radian}, ...
+\usepackage{array} % \raggedright in table
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 
 % Bibliography
+
+% table row colors
+\usepackage[table]{xcolor}
+\definecolor{rowgeo}{gray}{0.93}   % light grey
+\definecolor{rowqdht}{gray}{0.86}  % slightly darker grey
+\definecolor{rowqdht}{gray}{0.79}  % even darker grey
 
 
 % --- Custom Macros ----------------
