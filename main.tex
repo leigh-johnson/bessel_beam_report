@@ -200,10 +200,17 @@ Candidate \#3 repeated the setup of Candidate \#1, with only the distance betwee
 Candidate \#4 repeated the setup of Candidate \#3, with a $2\times$ magnification telescope placed within the Bessel zone at $z = \SI{120}{\milli\meter}$ after axicon~3. TODO summarize surprising result
 
 \subsection{Ripples in On-Axis Intensity}
-The ripple \% metric is defined as the ratio of the peak-to-peak variation in the on-axis intensity $I(0,z)$ to the mean on-axis intensity within the measured Bessel zone.
+The ripple \% metric is defined as the ratio of the peak-to-peak variation in the on-axis intensity $I(0,z)$ to the mean on-axis intensity within the measured Bessel zone. The on-axis intensity was not uniform within the measured Bessel zone for
+any candidate (\autoref{fig:measured_window_envelopes_lobe_diam_colored}).
+The measured ripple ranged from 48\% to 63\% of the mean on-axis intensity
+(\autoref{tab:results_summary}). Uniformity of clock interrogation intensity was stated as a requirement for the Bessel beam design. Although no acceptable threshold has yet been defined for the on-axis intensity uniformity, the measured ripple was significant enough to rule out all candidates.
+
+When I developed a model based on Fourier wave optics was originally developed, it was suggested that the on-axis intensity ripples were a simulation/sampling artifact of Fast-Fourier Transform (FFT) implementation. However, the measured on-axis intensity ripples were consistent with the QDHT modeled on-axis intensity ripples, suggesting that the ripples are the same physical effect described by Rao as on-axis intensity modulations.
+
+
 \begin{figure*}[bh]
   \includegraphics[width=\textwidth]{measured_window_envelopes_lobe_diam_colored}
-  \caption{\label{fig:measured_window_envelopes_lobe_diam_colored} Optics configuration 2. (a) }
+  \caption{\label{fig:measured_window_envelopes_lobe_diam_colored} TODO label parts abcd and caption}
 \end{figure*}
 
 \subsection{Axicon Alignment Drift}
