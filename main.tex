@@ -84,7 +84,14 @@
 % ============================================================
 \section{Results}
 
-A suitable candidate meeting all design requirements was not found using 1 in. diameter axicon lenses with base angles $\alpha_1 = \alpha_2 = \SI{5}{\degree}$ and $\alpha_3=0.\SI{5}{\degree}$. The measured Bessel zone for each configuration is summarized in \autoref{tab:results_summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges. Four candidates were evaluated, with a description of each in \autoref{tab:configs}. In two out of four candidates, the Bessel zone length was within $8\%$ agreement with the QDHT simulation. Comparatively, the geometric model consistently overestimated the Bessel zone length by $+42\%$ to $+89\%$.
+A suitable candidate meeting all design requirements was not found using 1 in. diameter axicon lenses with base angles $\alpha_1 = \alpha_2 = \SI{5}{\degree}$ and $\alpha_3=0.\SI{5}{\degree}$. The measured Bessel zone for each configuration is summarized in \autoref{tab:results_summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges. Four candidates were evaluated, with a description of each in \autoref{tab:configs}. The QDHT simulation consistently predicted the starting point of the Bessel range for three candidates within $9\%$ agreement. In two out of four candidates, the Bessel zone length was within $8\%$ agreement with the QDHT simulation. Comparatively, the geometric model consistently predicted the start of the Bessel zone within $3.6\%$ to $5.5\%$ agreement but overestimated the Bessel zone length by $+42\%$ to $+89\%$.
+
+\subsection{Measured Bessel Zone}
+
+\begin{figure}[bh]
+  \includegraphics[width=\linewidth]{placement_cmp_report_jul29}
+  \caption{\label{fig:placement_cmp_report_jul29} Data from the Bessel zone of optics configuration \#2 in \autoref{tab:configs}. (a) Cross-section image of beam profile at $z=$ \SI{175}{\centi\meter}. Image data is cropped to $\pm$ \SI{200}{\micro\meter} of the central Bessel lobe, colored by intensity (pixel counts / exposure time) and normalized.  (b) Measured intensity sampled on a 2x2 pixel grid (6.9 x 6.9 \si{\micro\meter}) and fit to a $J_0^2$ function (black line) to extract the core diameter and FWHM. (c) $z =$ \SI{180}{\centi\meter} cross-section, intensity normalized against the peak intensity measurement at $z=$ \SI{175}{\centi\meter} shown in (a). (d) $J_0^2$ fit to the $z =$ \SI{180}{\centi\meter} cross-section.}
+\end{figure}
 
 The measured Bessel zone was imaged using a monochrome CMOS camera mounted on a motorized 3-axis CNC gantry, which allowed us to sample the beam profile along \SI{2}{\meter} of propagation with repeatable sub-millimeter positioning. See \autoref{sec:experimental_setup} for details on the experimental setup and optics design candidates. The core diameter and FWHM were extracted from $J_0^2$ fits within the measured Bessel zone (see \autoref{fig:placement_cmp_report_jul29}).
 
@@ -92,41 +99,85 @@ Candidate \#1 was the baseline configuration, with a measured Bessel zone length
 
 Candidate \#2 used a $2\times$ magnification telescope before axicon~1 to expand the Gaussian input beam, resulting in a measured Bessel zone length of $\Delta Z_R > 0.83$ m. Due to space limitations on the optics table, the Bessel zone was not fully characterized. The spacing between axicon~1 and axicon~2 ($L_{12} =$ \SI{240}{\milli\meter}) was the maximum allowed by the 1 in. aperature of axicon~2. The measured Bessel zone range $Z_R \in [1.18, >2.01]$ m was $\approx$ 10 cm from the predicted QDHT range. The mean measured core diameter and FWHM were within 5\% of the ideal $J_0^2$ values at all points measured within the Bessel zone, with a mean core diameter of \SI{118.2}{\micro\meter} and FWHM of \SI{55.4}{\micro\meter}.
 
-\begin{figure}[bh]
-  \includegraphics[width=\linewidth]{placement_cmp_report_jul29}
-  \caption{\label{fig:placement_cmp_report_jul29} Data from the Bessel zone of optics configuration \#2 in \autoref{tab:configs}. (a) Cross-section image of beam profile at $z=$ \SI{175}{\centi\meter}. Image data is cropped to $\pm$ \SI{200}{\micro\meter} of the central Bessel lobe, colored by intensity (pixel counts / exposure time) and normalized.  (b) Measured intensity sampled on a 2x2 pixel grid (6.9 x 6.9 \si{\micro\meter}) and fit to a $J_0^2$ function (black line) to extract the core diameter and FWHM. (c) $z =$ \SI{180}{\centi\meter} cross-section, intensity normalized against the peak intensity measurement at $z=$ \SI{175}{\centi\meter} shown in (a). (d) $J_0^2$ fit to the $z =$ \SI{180}{\centi\meter} cross-section.}
-\end{figure}
+Candidate \#3 repeated the setup of Candidate \#1, with only the distance between axicon~1 and axicon~2 modified ($L_12 = \SI{175}{\milli\meter}$ vs. $L_12 = \SI{190}{\milli\meter}$), resulting in a measured Bessel zone length of $\Delta Z_R = 0.30 \pm 0.01$ m. The measured Bessel zone range $Z_R \in [1.12, 1.42]$ m was $\approx$ 8 cm from the predicted QDHT range start point. The mean measured core diameter and FWHM were within 1\% of the ideal $J_0^2$ values at all points measured within the Bessel zone, with a mean core diameter of \SI{125.0}{\micro\meter} and FWHM of \SI{58.5}{\micro\meter}. Notably, the alignment of axicon~2 and axicon~3 was sub-optimal, resulting in a reduced $\Delta Z_R$ (see \autoref{fig:annulus_composites} for a comparison of candidate $\#1$ and $\#3$ alignment).
+
+Candidate \#4 repeated the setup of Candidate \#3, with a $2\times$ magnification telescope placed within the Bessel zone at $z = \SI{120}{\milli\meter}$ after axicon~3. TODO summarize surprising results
+
+\subsection{Ripples in On-Axis Intensity}
 
 
+\subsection{Axicon Alignment Drift}
 
+% \begin{table*}[!t]
+%   \caption{Measured and modeled Bessel zone for the optics configuration
+%     candidates described in \autoref{tab:configs}. All $z$ values are measured along the propagation direction from
+%     the face of axicon~3. $Z_R$ is the range of the Bessel region and $\Delta Z_R$ its length ($\pm$ imaging system z-step size in parentheses). The mean core
+%     diameter and core FWHM are averages of the per-plane
+%     $J_0^2$ fits within the measured Bessel zone (deviation fromideal value in parentheses). The geometric range is calculated by the method
+%     described in TODO and the QDHT range is the FWHM of the modeled on-axis
+%     intensity $I(0,z)$ described in TODO (percentage error in parentheses). No simulation/model was developed for configuration \#4.
+%     \label{tab:results_summary}}
+%   \begin{ruledtabular}
+%     \begin{tabular}{llllcccccc}
+%                             &            & \multicolumn{4}{c}{Measured} & \multicolumn{2}{c}{Geometric Model} & \multicolumn{2}{c}{QDHT Model}                                                                                                                                                                  \\
+%       \cline{3-6} \cline{7-8} \cline{9-10}
+%       Config                & Dataset    & $Z_R$ (m)                    & $\Delta Z_R$ (m)                    & core $\varnothing$ (\si{\micro\meter}) & FWHM (\si{\micro\meter}) & $Z_R$ (m)                               & $\Delta Z_R$ (m)    & $Z_R$ (m)                              & $\Delta Z_R$ (m)   \\
+%       \colrule
+%       \#1                   & Jul 22--23 & $[1.29, 1.68]$               & 0.38 $\pm$ 0.01                     & 126.4 ($+1.7\%$)                       & 59.2                     & $[1.34\,(+3.6\%),\ 1.91\,(+13\%)]$      & 0.57 ($+49\%$)      & $[1.40\,(+8.2\%),\ 1.77\,(+4.9\%)]$    & 0.37 ($-3\%$)      \\
+%       \#2  \footnotemark[1] & Jul 29--30 & $[1.18, {>}2.01]$            & ${>} 0.83$                          & 118.2 ($-5.0\%$)                       & 55.4                     & $[1.23\,(+4.2\%),\ 2.41\,({<}{+}20\%)]$ & 1.18 (${<}{+}42\%$) & $[1.29\,(+9.3\%),\ 2.19\,({<}{+}9\%)]$ & 0.90 (${<}{+}8\%$) \\
+%       \#3 \footnotemark[2]  & Aug 5--6   & $[1.12, 1.42]$               & 0.30 $\pm$ 0.01                     & 125.0 ($+0.5\%$)                       & 58.5                     & $[1.18\,(+5.6\%),\ 1.76\,(+24\%)]$      & 0.57 ($+89\%$)      & $[1.21\,(+8.3\%),\ 1.62\,(+14\%)]$     & 0.41 ($+36\%$)     \\
+%       \#4  \footnotemark[3] & Aug 6      & $[0.47, 0.79]$               & 0.32 $\pm$ 0.01                     & 268.1 ($+7.8\%$)                       & 125.6                    & ---                                     & ---                 & ---                                    & ---                \\
+%     \end{tabular}
+%   \end{ruledtabular}
+%   \footnotetext[1]{Experimental setup did not allow for measurement of the
+%     Bessel zone beyond \SI{2.0}{\meter}. The measured $Z_R$ and $\Delta Z_R$ are lower bounds.}
+%   \footnotetext[2]{Alignment of axicons~2 and 3 was sub-optimal, resulting
+%     in a reduced $\Delta Z_R$.}
+%   \footnotetext[3]{A limited dataset was collected for configuration \#4.
+%     The $z$ axis measurements are taken after the telescope output lens instead of after axicon~3.}
+% \end{table*}
 
 \begin{table*}[!t]
   \caption{Measured and modeled Bessel zone for the optics configuration
-    candidates described in \autoref{tab:configs}. All $z$ values are measured along the propagation direction from
-    the face of axicon~3. $Z_R$ is the range of the Bessel region and $\Delta Z_R$ its length ($\pm$ imaging system z-step size in parentheses). The mean core
-    diameter and core FWHM are averages of the per-plane
-    $J_0^2$ fits within the measured Bessel zone (deviation fromideal value in parentheses). The geometric range is calculated by the method
-    described in TODO and the QDHT range is the FWHM of the modeled on-axis
-    intensity $I(0,z)$ described in TODO (percentage error in parentheses). No simulation/model was developed for configuration \#4.
+    candidates described in \autoref{tab:configs}. All $z$ values are
+    measured along the propagation direction from the face of axicon~3.
+    $Z_R$ is the range of the Bessel region and $\Delta Z_R$ its length
+    ($\pm$ imaging system $z$-step size). The mean core diameter and core
+    FWHM are averages of the per-plane $J_0^2$ fits within the measured
+    Bessel zone (deviation from ideal value in parentheses). The geometric
+    range is calculated by the method described in TODO; the QDHT range is
+    the FWHM of the modeled on-axis intensity $I(0,z)$ described in TODO.
+    Parenthetical percentages on model rows give the deviation from the
+    measured value, and are upper limits where the measurement is a lower
+    bound. No simulation/model was developed for configuration \#4.
     \label{tab:results_summary}}
   \begin{ruledtabular}
-    \begin{tabular}{llllcccccc}
-                            &            & \multicolumn{4}{c}{Measured} & \multicolumn{2}{c}{Geometric Model} & \multicolumn{2}{c}{QDHT Model}                                                                                                                                                                  \\
-      \cline{3-6} \cline{7-8} \cline{9-10}
-      Config                & Dataset    & $Z_R$ (m)                    & $\Delta Z_R$ (m)                    & core $\varnothing$ (\si{\micro\meter}) & FWHM (\si{\micro\meter}) & $Z_R$ (m)                               & $\Delta Z_R$ (m)    & $Z_R$ (m)                              & $\Delta Z_R$ (m)   \\
+    \begin{tabular}{lllcccc}
+      Config & Dataset    & Method    & $Z_R$ (m)                               & $\Delta Z_R$ (m)    & core $\varnothing$ (\si{\micro\meter}) & FWHM (\si{\micro\meter}) \\
       \colrule
-      \#1                   & Jul 22--23 & $[1.29, 1.68]$               & 0.38 $\pm$ 0.01                     & 126.4 ($+1.7\%$)                       & 59.2                     & $[1.34\,(+3.6\%),\ 1.91\,(+13\%)]$      & 0.57 ($+49\%$)      & $[1.40\,(+8.2\%),\ 1.77\,(+4.9\%)]$    & 0.37 ($-3\%$)      \\
-      \#2  \footnotemark[1] & Jul 29--30 & $[1.18, {>}2.01]$            & ${>} 0.83$                          & 118.2 ($-5.0\%$)                       & 55.4                     & $[1.23\,(+4.2\%),\ 2.41\,({<}{+}20\%)]$ & 1.18 (${<}{+}42\%$) & $[1.29\,(+9.3\%),\ 2.19\,({<}{+}9\%)]$ & 0.90 (${<}{+}8\%$) \\
-      \#3 \footnotemark[2]  & Aug 5--6   & $[1.12, 1.42]$               & 0.30 $\pm$ 0.01                     & 125.0 ($+0.5\%$)                       & 58.5                     & $[1.18\,(+5.6\%),\ 1.76\,(+24\%)]$      & 0.57 ($+89\%$)      & $[1.21\,(+8.3\%),\ 1.62\,(+14\%)]$     & 0.41 ($+36\%$)     \\
-      \#4  \footnotemark[3] & Aug 6      & $[0.47, 0.79]$               & 0.32 $\pm$ 0.01                     & 268.1 ($+7.8\%$)                       & 125.6                    & ---                                     & ---                 & ---                                    & ---                \\
+      \#1    & Jul 22--23 & measured  & $[1.29, 1.68]$                          & 0.38 $\pm$ 0.01     & 126.4 ($+1.7\%$)                       & 59.2                     \\
+             &            & geometric & $[1.34\,(+3.6\%),\ 1.91\,(+13\%)]$      & 0.57 ($+49\%$)      &                                        &                          \\
+             &            & QDHT      & $[1.40\,(+8.2\%),\ 1.77\,(+4.9\%)]$     & 0.37 ($-3\%$)       &                                        &                          \\ \hline
+      \#2\footnotemark[1]
+             & Jul 29--30 & measured  & $[1.18, {>}2.01]$                       & ${>}0.83$           & 118.2 ($-5.0\%$)                       & 55.4                     \\
+             &            & geometric & $[1.23\,(+4.2\%),\ 2.41\,({<}{+}20\%)]$ & 1.18 (${<}{+}42\%$) &                                        &                          \\
+             &            & QDHT      & $[1.29\,(+9.3\%),\ 2.19\,({<}{+}9\%)]$  & 0.90 (${<}{+}8\%$)  &                                        &                          \\ \hline
+      \#3\footnotemark[2]
+             & Aug 5--6   & measured  & $[1.12, 1.42]$                          & 0.30 $\pm$ 0.01     & 125.0 ($+0.5\%$)                       & 58.5                     \\
+             &            & geometric & $[1.18\,(+5.6\%),\ 1.76\,(+24\%)]$      & 0.57 ($+89\%$)      &                                        &                          \\
+             &            & QDHT      & $[1.21\,(+8.3\%),\ 1.62\,(+14\%)]$      & 0.41 ($+36\%$)      &                                        &                          \\ \hline
+      \#4\footnotemark[3]
+             & Aug 6      & measured  & $[0.47, 0.79]$                          & 0.32 $\pm$ 0.01     & 268.1 ($+7.8\%$)                       & 125.6                    \\
     \end{tabular}
   \end{ruledtabular}
   \footnotetext[1]{Experimental setup did not allow for measurement of the
-    Bessel zone beyond \SI{2.0}{\meter}. The measured $Z_R$ and $\Delta Z_R$ are lower bounds.}
+    Bessel zone beyond \SI{2.0}{\meter}. The measured $Z_R$ and $\Delta Z_R$
+    are lower bounds.}
   \footnotetext[2]{Alignment of axicons~2 and 3 was sub-optimal, resulting
     in a reduced $\Delta Z_R$.}
   \footnotetext[3]{A limited dataset was collected for configuration \#4.
-    The $z$ axis measurements are taken after the telescope output lens instead of after axicon~3.}
+    The $z$ axis measurements are taken after the telescope output lens
+    instead of after axicon~3.}
 \end{table*}
 
 \begin{figure*}[bh]
@@ -137,6 +188,12 @@ Candidate \#2 used a $2\times$ magnification telescope before axicon~1 to expand
 \begin{figure}[bh]
   \includegraphics[width=\linewidth]{placement_cmp_report_aug3}
   \caption{\label{fig:placement_cmp_report_aug3} TODO caption.}
+\end{figure}
+
+
+\begin{figure}[bh]
+  \includegraphics[width=\linewidth]{annulus_composites}
+  \caption{\label{fig:annulus_composites} TODO caption.}
 \end{figure}
 
 % annulus after axicon #2 D=9.44 
