@@ -18,7 +18,8 @@
   amsmath,
   amssymb,
   floatfix,
-  longbibliography      % show article titles in the bibliography
+  longbibliography,      % show article titles in the bibliography
+  nofootinbib % do not move footnotes to bibliography
 ]{revtex4-2}
 \usepackage{style} % custom style file for Pi2 final report
 \begin{document}
@@ -205,7 +206,10 @@ any candidate (\autoref{fig:measured_window_envelopes_lobe_diam_colored}).
 The measured ripple ranged from 48\% to 63\% of the mean on-axis intensity
 (\autoref{tab:results_summary}). Uniformity of clock interrogation intensity was stated as a requirement for the Bessel beam design. Although no acceptable threshold has yet been defined for the on-axis intensity uniformity, the measured ripple was significant enough to rule out all candidates.
 
-When I developed a model based on Fourier wave optics was originally developed, it was suggested that the on-axis intensity ripples were a simulation/sampling artifact of Fast-Fourier Transform (FFT) implementation. However, the measured on-axis intensity ripples were consistent with the QDHT modeled on-axis intensity ripples, suggesting that the ripples are the same physical effect described by Rao as on-axis intensity modulations.
+We initially considered whether the on-axis intensity ripples were a numerical artifact of the simulation's discrete Fast-Fourier Transform (FFT). However, the ripples persisted across a wide range of sampling parameters. Initial measurements with a manual translation stage (see figure TODO) were too coarse to resolve them, but finer scans with the motorized gantry revealed on-axis intensity modulations in agreement with those predicted analytically by Rao~\cite{raoOnaxisIntensityModulationfree2018} and reproduced by the QDHT simulations.
+
+% reword this as "we considered X, ruled it out" instead of making this sound personal
+% When I developed a model based on Fourier wave optics was originally developed, it was suggested that the on-axis intensity ripples were a simulation/sampling artifact of Fast-Fourier Transform (FFT) implementation. However, the measured on-axis intensity ripples were consistent with the QDHT modeled on-axis intensity ripples, suggesting that the ripples are the same physical effect described by Rao as on-axis intensity modulations.
 
 
 \begin{figure*}[bh]
@@ -214,6 +218,18 @@ When I developed a model based on Fourier wave optics was originally developed, 
 \end{figure*}
 
 \subsection{Axicon Alignment Drift}
+
+To test repeatability, we re-measured three $z$ positions of candidate
+\#2's Bessel zone five days after the original scan
+(\autoref{fig:placement_cmp_report_aug3}). The intensity dips reproduced
+and the fitted core diameters agreed within a few percent, but the peak
+intensity dropped from 0.48 to 0.33 counts/\si{\micro\second} and a
+$\approx$3 percentage-point difference appeared between the fitted
+$k_x$ and $k_y$, indicating a slight astigmatism introduced by
+re-alignment. Day-to-day alignment, rather than the optics themselves,
+set the repeatability of our measurements. The same sensitivity explains
+candidate \#3's shortened Bessel zone
+(\autoref{fig:annulus_composites}).
 
 % RESULT TABLE V1
 % EACH RESULT IN A SEPARATE COLUMN (COLUMNS OVERFLOW)
@@ -381,6 +397,7 @@ TODO diagram of optics configuration candidates?
 % ============================================================
 %  BIBLIOGRAPHY (entries live in references.bib)
 % ============================================================
+\textbf{References}
 \bibliography{references}
 
 \end{document}
