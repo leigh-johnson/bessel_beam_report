@@ -84,39 +84,40 @@
 % ============================================================
 \section{Results}
 
-A suitable candidate meeting all design requirements was not found using 1 in. diameter axicon lenses with base angles $\alpha_1 = \alpha_2 = \SI{5}{\degree}$ and $\alpha_3=0.\SI{5}{\degree}$. The measured Bessel zone for each configuration is summarized in \autoref{tab:summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges.
-Four candidates were evaluated, with a description of each in \autoref{tab:configs}. The measured Bessel zone was imaged using a monochrome CMOS camera mounted on a motorized 3-axis CNC gantry, which allowed us to sample the beam profile along \SI{2}{\meter} of propagation with repeatable sub-millimeter positioning. See \autoref{sec:experimental_setup} for details on the experimental setup and optics design candidates.
-The core diameter and FWHM were extracted from $J_0^2$ fits within the measured Bessel zone (see \autoref{fig:placement_cmp_report_jul29}).
+A suitable candidate meeting all design requirements was not found using 1 in. diameter axicon lenses with base angles $\alpha_1 = \alpha_2 = \SI{5}{\degree}$ and $\alpha_3=0.\SI{5}{\degree}$. The measured Bessel zone for each configuration is summarized in \autoref{tab:results_summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges. Four candidates were evaluated, with a description of each in \autoref{tab:configs}. In three out of four candidates, the Bessel zone
+
+The measured Bessel zone was imaged using a monochrome CMOS camera mounted on a motorized 3-axis CNC gantry, which allowed us to sample the beam profile along \SI{2}{\meter} of propagation with repeatable sub-millimeter positioning. See \autoref{sec:experimental_setup} for details on the experimental setup and optics design candidates. The core diameter and FWHM were extracted from $J_0^2$ fits within the measured Bessel zone (see \autoref{fig:placement_cmp_report_jul29}).
+
+Candidate \#1 was the baseline configuration, with a measured Bessel zone length of $\Delta Z = 0.38 \pm 0.005$ m, within $\approx$ 1 cm of the length predicted by the QDHT model. The measured Bessel zone range $z_R \in [1.29, 1.68]$ m sits $\approx$ 10 cm from the predicted range. The measured core diameter and FWHM were within 2\% of the ideal $J_0^2$ value, with a mean core diameter of \SI{126.4}{\micro\meter} and FWHM of \SI{59.2}{\micro\meter}.
 
 \begin{figure}[bh]
   \includegraphics[width=\linewidth]{placement_cmp_report_jul29}
   \caption{\label{fig:placement_cmp_report_jul29} TODO caption.}
 \end{figure}
 
-\subsection{Bessel Zone Measurements}
+
 
 
 \begin{table*}[!t]
   \caption{Measured and modeled Bessel zone for the optics configuration
     candidates of \autoref{tab:configs}. All $z$ values are measured along the propagation direction from
-    the face of axicon~3. $z_R$ is the range of the Bessel region and $\Delta Z$ its length. The mean core
+    the face of axicon~3. $z_R$ is the range of the Bessel region and $\Delta Z$ its length ($\pm$ imaging system z-step size in parentheses). The mean core
     diameter and core FWHM are averages of the per-plane
-    $J_0^2$ fits within the measured Bessel zone; parentheses give the deviation
-    from the ideal value. The geometric range is calculated by the method
+    $J_0^2$ fits within the measured Bessel zone (deviation fromideal value in parentheses). The geometric range is calculated by the method
     described in TODO; the QDHT range is the FWHM of the modeled on-axis
     intensity $I(0,z)$ described in TODO. Model columns are omitted for
     \#4, whose in-zone telescope is not modeled.
-    \label{tab:summary}}
+    \label{tab:results_summary}}
   \begin{ruledtabular}
     \begin{tabular}{llcccccccc}
-             &            & \multicolumn{4}{c}{Measured}        & \multicolumn{2}{c}{Geometric Model} & \multicolumn{2}{c}{QDHT Model}                                                                                                        \\
+             &            & \multicolumn{4}{c}{Measured}       & \multicolumn{2}{c}{Geometric Model} & \multicolumn{2}{c}{QDHT Model}                                                                                                        \\
       \cline{3-6} \cline{7-8} \cline{9-10}
-      Config & Dataset    & $z_R$ (m)                           & $\Delta Z$ (m)                      & core $\varnothing$ (\si{\micro\meter}) & FWHM (\si{\micro\meter}) & $z_R$ (m)      & $\Delta Z$ (m) & $z_R$ (m)      & $\Delta Z$ (m) \\
+      Config & Dataset    & $z_R$ (m)                          & $\Delta Z$ (m)                      & core $\varnothing$ (\si{\micro\meter}) & FWHM (\si{\micro\meter}) & $z_R$ (m)      & $\Delta Z$ (m) & $z_R$ (m)      & $\Delta Z$ (m) \\
       \colrule
-      \#1    & Jul 22--23 & $[1.294, 1.687]$                    & 0.383                               & 126.4 ($+1.7\%$)                       & 59.2                     & $[1.34, 1.91]$ & 0.57           & $[1.40, 1.77]$ & 0.37           \\
-      \#2    & Jul 29--30 & $[1.180, {>}2.010]$\footnotemark[1] & ${>}0.830$                          & 118.2 ($-5.0\%$)                       & 55.4                     & $[1.23, 2.41]$ & 1.18           & $[1.29, 2.19]$ & 0.90           \\
-      \#3    & Aug 5--6   & $[1.117, 1.418]$\footnotemark[2]    & 0.301                               & 125.0 ($+0.5\%$)                       & 58.5                     & $[1.18, 1.76]$ & 0.57           & $[1.21, 1.62]$ & 0.41           \\
-      \#4    & Aug 6      & $[0.469, 0.785]$\footnotemark[3]    & 0.316                               & 268.1 ($+7.8\%$)                       & 125.6                    & ---            & ---            & ---            & ---            \\
+      \#1    & Jul 22--23 & $[1.29, 1.68]$                     & 0.38 $\pm$ 0.01                     & 126.4 ($+1.7\%$)                       & 59.2                     & $[1.34, 1.91]$ & 0.57           & $[1.40, 1.77]$ & 0.37           \\
+      \#2    & Jul 29--30 & $[1.18, {>}2.01]$ \footnotemark[1] & ${>}0.83$ $\pm$ 0.005               & 118.2 ($-5.0\%$)                       & 55.4                     & $[1.23, 2.41]$ & 1.18           & $[1.29, 2.19]$ & 0.90           \\
+      \#3    & Aug 5--6   & $[1.12, 1.42]$  \footnotemark[2]   & 0.30 $\pm$ 0.01                     & 125.0 ($+0.5\%$)                       & 58.5                     & $[1.18, 1.76]$ & 0.57           & $[1.21, 1.62]$ & 0.41           \\
+      \#4    & Aug 6      & $[0.32, 0.79]$    \footnotemark[3] & 0.32 $\pm$ 0.01                     & 268.1 ($+7.8\%$)                       & 125.6                    & ---            & ---            & ---            & ---            \\
     \end{tabular}
   \end{ruledtabular}
   \footnotetext[1]{Experimental setup did not allow for measurement of the
