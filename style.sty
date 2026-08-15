@@ -1,12 +1,13 @@
 % --- Packages + Configuration ----------------
 \usepackage{graphicx}   % \includegraphics
 \graphicspath{
-    {figures/}
-        {../bessel_beam_simulator/notebooks/images/final_report_theory_2026_08_12/prl/}
-        {../bessel_beam_simulator/notebooks/images/final_report_calcs_2026_08_10/prl/}
+  {figures/}
+    {../bessel_beam_simulator/notebooks/images/final_report_theory_2026_08_12/prl/}
+    {../bessel_beam_simulator/notebooks/images/final_report_calcs_2026_08_10/prl/}
 }
 \usepackage{dcolumn}    % aligned-decimal table columns
 \usepackage{bm}         % bold math
+\usepackage{amsmath}    % advanced math typesetting
 \usepackage{siunitx}    % \SI{1}{\meter}, \si{\micro\radian}, ...
 \usepackage{array} % \raggedright in table
 \usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
@@ -27,9 +28,9 @@
 % override revtex4-2 margin after \subsection header
 \makeatletter
 \def\subsection{%
-    \@startsection{subsection}{2}{\z@}%
-    {0.8cm \@plus1ex \@minus.2ex}%  % space before (default = 0.8cm)
-    {0.1cm}%                        % space after (default = 0.5cm)
-    {\normalfont\small\bfseries\centering}%
+  \@startsection{subsection}{2}{\z@}%
+  {0.8cm \@plus1ex \@minus.2ex}%  % space before (default = 0.8cm)
+  {0.1cm}%                        % space after (default = 0.5cm)
+  {\normalfont\small\bfseries\centering}%
 }
 \makeatother
