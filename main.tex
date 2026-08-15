@@ -135,8 +135,8 @@ TODO: explain three axicon figs
 %  - New techniques and methods developed
 %  - How the research addresses the posed questions
 % ============================================================
-\section{Results}
 
+\section{Results}
 A suitable candidate meeting all design requirements was not found using 1 in. diameter axicon lenses with base angles $\alpha_1 = \alpha_2 = \SI{5}{\degree}$ and $\alpha_3=0.\SI{5}{\degree}$. The measured Bessel zone for each configuration is summarized in \autoref{tab:results_summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges. Four candidates were evaluated, with a description of each in \autoref{tab:configs}. The QDHT simulation consistently predicted the starting point of the Bessel range for three candidates within $9\%$ agreement. In two out of four candidates, the Bessel zone length was within $8\%$ agreement with the QDHT simulation. Comparatively, the geometric model consistently predicted the start of the Bessel zone within $3.6\%$ to $5.5\%$ agreement but overestimated the Bessel zone length by $+42\%$ to $+89\%$.
 
 \subsection{Measured Bessel Zone}
@@ -231,7 +231,15 @@ TODO: figure + discussion about gantry positioning repeatability.
 \end{figure}
 
 \subsection{Effect of 2x Telescope}
+Candidate \#4 placed a $2\times$ magnification telescope inside the
+Bessel zone, $z = \SI{120}{\milli\meter}$ after axicon~3
+(\autoref{tab:configs}), to understand the effect of magnification on the Bessel beam. The mean core diameter of \SI{268.1}{\micro\meter} is within $7.8\%$ of
+twice the ideal core size, confirming the expected $2\times$ transverse
+magnification in the XY plane. The peak intensity dropped to 0.32 counts/\si{\micro\second},
+compared to 2.00 for the identical optics without the telescope
+(candidate \#3), which is roughly consistent with spreading the same power over a $4\times$ larger area ($2\times$ in X and $2\times$ in Y) with significant ($\approx$ 0.7 counts/us) loss at the telescope lenses.
 
+The measured Bessel zone length was $\Delta Z_R = 0.32 \pm 0.01$ m, only slightly longer than the $\Delta Z_R = 0.30 \pm 0.01$ m measured for candidate \#3 without the telescope. This result was not consistent with the expected $2\times$ longitudinal magnification of the Bessel zone. However, gaps in the dataset at $z \approx 0.2$m could explain this discrepancy if the missing data contains a ripple peak that would extend the measured Bessel zone length.
 
 \begin{figure}[bh]
   \includegraphics[width=\linewidth]{annulus_composites}

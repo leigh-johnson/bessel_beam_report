@@ -23,3 +23,13 @@
 
 % --- Custom Macros ----------------
 % \newcommand{\Sr}{$^{87}$Sr}
+
+% override revtex4-2 margin after \subsection header
+\makeatletter
+\def\subsection{%
+    \@startsection{subsection}{2}{\z@}%
+    {0.8cm \@plus1ex \@minus.2ex}%  % space before (default = 0.8cm)
+    {0.1cm}%                        % space after (default = 0.5cm)
+    {\normalfont\small\bfseries\centering}%
+}
+\makeatother
