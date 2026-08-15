@@ -233,13 +233,9 @@ The measured ripple ranged from 48\% to 63\% of the mean on-axis intensity
 
 We initially considered whether the on-axis intensity ripples were a numerical artifact of the simulation's discrete Fast-Fourier Transform (FFT). However, the ripples persisted across a wide range of sampling parameters. Initial measurements with a manual translation stage (see figure TODO) were too coarse to resolve them, but finer scans with the motorized gantry revealed on-axis intensity modulations in agreement with those predicted analytically by Rao~\cite{raoOnaxisIntensityModulationfree2018} and reproduced by the QDHT simulations.
 
-% reword this as "we considered X, ruled it out" instead of making this sound personal
-% When I developed a model based on Fourier wave optics was originally developed, it was suggested that the on-axis intensity ripples were a simulation/sampling artifact of Fast-Fourier Transform (FFT) implementation. However, the measured on-axis intensity ripples were consistent with the QDHT modeled on-axis intensity ripples, suggesting that the ripples are the same physical effect described by Rao as on-axis intensity modulations.
-
-
 \begin{figure*}[bh]
   \includegraphics[width=\textwidth]{measured_window_envelopes_lobe_diam_colored}
-  \caption{\label{fig:measured_window_envelopes_lobe_diam_colored} TODO label parts abcd and caption}
+  \caption{\label{fig:measured_window_envelopes_lobe_diam_colored} Measured on-axis intensity $I(0,z)$ along the propagation direction for candidates (a)~\#1, (b)~\#2, (c)~\#3, and (d)~\#4 in \autoref{tab:configs}. Each panel normalized to its own peak intensity rate (counts/\si{\micro\second}). $z$ is measured from the last optical element. Points are $J_0^2$ amplitudes fit to cropped cross-section images of the plane transverse to the propagation direction. Points are colored by the deviation of the fitted central/core lobe diameter from the ideal value. The solid black line is the QDHT model, dashed red line indicates 50\% of the measured peak, and the grey shaded region is the measured Bessel zone $Z_R$ between the outermost 50\% crossings. The ripple metric is the peak-to-peak variation of the on-axis intensity within the measured Bessel zone. Candidate \#2's Bessel zone was not fully characterized due to space limitations on the optics table, so the measured $Z_R$ and $\Delta Z_R$ should be interpreted as lower bounds. No QDHT model was developed for candidate \#4, which placed a $2\times$ magnification telescope inside the Bessel zone.}
 \end{figure*}
 
 \subsection{Axicon Alignment Drift}
