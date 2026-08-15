@@ -59,11 +59,13 @@
 %  - Hypothesis in addressing the question
 % ============================================================
 \section{Background and Aims}
-TODO: motivation and design constraints
+TODO: motivation and design constraints (Why a bessel beam? Why 3 axicons?)
 
 TODO: figure of 3-axicon design + constraints
 
-TODO: Background on Gaussian vs. Bessel Beam, Durnin
+TODO: should I reproduce Rao's derivation of an ideal Bessel beam (eq 2.1 -  2.8)? Or just cite it and summarize the key points? \cite{raoConceptualReviewBessel2024}
+
+TODO: Background on Gaussian vs. Bessel Beam, Durnin \cite{durninComparisonBesselGaussian1988}
 
 TODO: Background on Geometric and Wave Optics Models, Rao
 
@@ -76,8 +78,17 @@ TODO: Background on Hollow Gaussian Beam (annulus) quality and influece on on-ax
 %    approaches of the project
 % ============================================================
 \section{Experimental and Theoretical Approaches}
-TODO: Geometric / Wave Optics Models, introduce in background but go into detail here? OR
-Go into detail in the background and briefly restate the parts I used here? Rao
+\subsection{Theoretical Models}
+On the plane transverse to the propagation direction, an ideal Bessel beam (BB) has uniform intensity distribution described by a Bessel function of the first kind, $J_0$. This property led to the description of BBs as non-diffracting beams, since the transverse intensity profile does not change as the beam propagates through space \cite{durninDiffractionfreeBeams1987}. The ideal Bessel beam is non-diffracting over a theoretically infinite range. The transverse intensity distribution of an ideal Bessel beam has the form:
+\begin{equation}
+  I(r) \propto J_0^2(k_r \cdot r),
+  \label{eq:ideal_bessel_beam}
+\end{equation}
+where $k_r$ is the transverse wavevector satisfying $k_r^2 + k_z^2 = k^2 = 2\pi/\lambda$ and $r$ is the radial distance from the propagation axis.
+
+Bessel beams can be realized by passing a Gaussian beam through an axicon lens (another name for a conical prism), which converts the Gaussian input into a conical wavefront that interferes constructively along the propagation axis to form a Bessel-Gauss beam \cite{raoConceptualReviewBessel2024}. A Gaussian beam propagating through an axicon of base angle $\alpha$ and refractive index $n$ is deflected toward the axis by $\beta = \arcsin(n \sin \alpha) - \alpha$, creating a Bessel-Gauss beam of the zeroth order. The Bessel-Gauss beam has a transverse intensity profile described by \autoref{eq:ideal_bessel_beam}, where $k_r = (2\pi/\lambda)\sin\beta$ is governed by the axicon deflection angle $\beta$ and the wavelength $\lambda$ of the input Gaussian beam.
+
+The geometric model of a three-axicon Bessel beam system is shown in \autoref{fig:theory_geometric_model}. Axicon~1 converts the Gaussian input beam into a cone of rays deflected by $\beta_1$. Axicon~2 collimates them into an annulus of inner radius $\rho_{\text{in}}$ and outer radius $\rho_{\text{out}}$. Axicon~3 deflects the annulus rays by $\theta$. The region where the rays overlay on axis (red) is the geometric Bessel range. $L_{12}$ and $L_{23}$ are the axicon separations.
 
 \begin{figure*}[ht]
   \includegraphics[width=\textwidth]{geometric_model}
@@ -128,6 +139,8 @@ TODO: explain three axicon figs
   \includegraphics[width=\linewidth]{theory_three_axicon_L12_annuli.png}
   \caption{\label{fig:theory_three_axicon_L12_annuli.png} TODO caption about collimated annulus / "Hollow Gaussian Beam"before axicon 3}
 \end{figure}
+
+\subsection{Experimental Setup}
 
 % Example numbered equation:
 % \begin{equation}
