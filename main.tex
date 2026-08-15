@@ -59,9 +59,13 @@
 %  - Hypothesis in addressing the question
 % ============================================================
 \section{Background and Aims}
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{gaussian_vs_bessel_intro}
+  \caption{\label{fig:theory_gaussian_vs_bessel_intro} Comparison of an ideal Gaussian beam and zeroth-order Bessel beam. (a)~Transverse intensity profile of a Gaussian beam at its waist. (b)~Transverse intensity profile $I(r) \propto J_0^2(k_r \cdot r)$ of an ideal Bessel beam, showing the central lobe and surrounding concentric rings. (c)~Longitudinal intensity profile of a Gaussian beam, showing how the beam's width grows (diverges) as it propagates. (d)~The Bessel beam's central lobe stays constant/uniform. }
+\end{figure}
 TODO: motivation and design constraints (Why a bessel beam? Why 3 axicons?)
 Oprtical lattice clocks are precise enough to resolve the gravitational redshift at tablestop scale. The first generation Strontium optical lattice clock in our lab resolved gravitational redshift measurements across 5 atom ensembles across a 1 cm vertical path \cite{zhengLabbasedTestGravitational2023}. The second generation clock aims to interrogate 3 atom ensembles across a 1 m vertical path. The strontium atomics are trapped throughout a \SI{1}{\meter} vertical optical lattice and probed by a
-\SI{698}{\nano\meter} clock laser that co-propagaes with the optical lattice beams. Because the measured gravitational frequency shift is proportional to height, variations in the interrogation beam intensity across the 1 m path will lead to systematic errors in the measured gravitational redshift. The clock beam must therefore be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam. A Bessel beam is a promising candidate for the clock interrogation beam because it has a non-diffracting transverse intensity profile that can be maintained over a long propagation distance \cite{durninDiffractionfreeBeams1987, durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
+\SI{698}{\nano\meter} clock laser that co-propagaes with the optical lattice beams. Because the measured gravitational frequency shift is proportional to height, variations in the interrogation beam intensity across the 1 m path will lead to systematic errors in the measured gravitational redshift. The clock beam must therefore be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam (see \autoref{fig:theory_gaussian_vs_bessel_intro}). A Bessel beam is a promising candidate for the clock interrogation beam because it has a non-diffracting transverse intensity profile that can be maintained over a long propagation distance \cite{durninDiffractionfreeBeams1987, durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
 
 TODO: figure of 3-axicon design + constraints
 
@@ -81,6 +85,7 @@ TODO: Background on Hollow Gaussian Beam (annulus) quality and influece on on-ax
 % ============================================================
 \section{Experimental and Theoretical Approaches}
 \subsection{Bessel Beams and Bessel-Gauss Beams}
+
 On the plane transverse to the propagation direction, an ideal Bessel beam (BB) has uniform intensity distribution described by a Bessel function of the first kind, $J_0$. This property led to the description of BBs as non-diffracting beams, since the transverse intensity profile does not change as the beam propagates through space \cite{durninDiffractionfreeBeams1987}. The ideal Bessel beam is non-diffracting over a theoretically infinite range. The transverse intensity distribution of an ideal Bessel beam has the form:
 \begin{equation}
   I(r) \propto J_0^2(k_r \cdot r),
