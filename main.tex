@@ -76,7 +76,11 @@ TODO: Background on Gaussian vs. Bessel Beam, Durnin \cite{durninComparisonBesse
 TODO: Background on Geometric and Wave Optics Models, Rao
 
 TODO: Background on Hollow Gaussian Beam (annulus) quality and influece on on-axis intensity modulations/ripples, Rao
-% Example citation: optical lattice clocks~\cite{example2020}.
+
+\begin{figure*}[ht]
+  \includegraphics[width=\textwidth]{theory_single_axicon_angle_core.png}
+  \caption{\label{fig:theory_single_axicon_angle_core.png} TODO caption about axicon angle + radial core diameter.}
+\end{figure*}
 
 % ============================================================
 %  II. EXPERIMENTAL/THEORETICAL APPROACHES
@@ -84,6 +88,10 @@ TODO: Background on Hollow Gaussian Beam (annulus) quality and influece on on-ax
 %    approaches of the project
 % ============================================================
 \section{Experimental and Theoretical Approaches}
+\begin{figure*}[ht]
+  \includegraphics[width=\textwidth]{geometric_model}
+  \caption{\label{fig:theory_geometric_model} Geometric model of the three-axicon Bessel beam system, shown for candidate \#2 (\autoref{tab:configs}). Axicon~1 ($\alpha_1=5 \SI{5}{\degree}$) converts the Gaussian input beam into a cone of rays deflected by $\beta_1$. Axicon~2 ($\alpha_2=5$ \SI{5}{\degree}) collimates them into an annulus of inner radius $\rho_{\text{in}}$ and outer radius $\rho_{\text{out}}$. Axicon~3 ($\alpha_3=$ \SI{0.5}{\degree}) deflects the annulus rays by $\theta$. The region where the rays overlay on axis (red) is the geometric Bessel range (shown here as \SI{1.18}{\meter}). $L_{12}$ and $L_{23}$ are the axicon separations. The first 1/2~in.\ mirror steers the beam into the science chamber, and the second 1/2~in.\ mirror must be placed in the void zone to minimize stray reflections.}
+\end{figure*}
 \subsection{Bessel Beams and Bessel-Gauss Beams}
 
 On the plane transverse to the propagation direction, an ideal Bessel beam (BB) has uniform intensity distribution described by a Bessel function of the first kind, $J_0$. This property led to the description of BBs as non-diffracting beams, since the transverse intensity profile does not change as the beam propagates through space \cite{durninDiffractionfreeBeams1987}. The ideal Bessel beam is non-diffracting over a theoretically infinite range. The transverse intensity distribution of an ideal Bessel beam has the form:
@@ -98,11 +106,6 @@ Bessel beams can be realized by passing a Gaussian beam through an axicon lens (
 \subsection{Geometric / Ray Model}
 A three-axicon design was inspired by \cite{schniederCollimatingThreeaxiconZoom2024}. The geometric model of a three-axicon Bessel beam system is shown in \autoref{fig:theory_geometric_model}. Axicon~1 converts the Gaussian input beam into a cone of rays deflected by $\beta_1$. Axicon~2 collimates them into an annulus of inner radius $\rho_{\text{in}}$ and outer radius $\rho_{\text{out}}$. Axicon~3 deflects the annulus rays by $\theta$. The region where the rays overlay on axis (red) is the geometric Bessel range. $L_{12}$ and $L_{23}$ are the axicon separations.
 
-\begin{figure*}[ht]
-  \includegraphics[width=\textwidth]{geometric_model}
-  \caption{\label{fig:theory_geometric_model} Geometric model of the three-axicon Bessel beam system, shown for candidate \#2 (\autoref{tab:configs}). Axicon~1 ($\alpha_1=5 \SI{5}{\degree}$) converts the Gaussian input beam into a cone of rays deflected by $\beta_1$. Axicon~2 ($\alpha_2=5$ \SI{5}{\degree}) collimates them into an annulus of inner radius $\rho_{\text{in}}$ and outer radius $\rho_{\text{out}}$. Axicon~3 ($\alpha_3=$ \SI{0.5}{\degree}) deflects the annulus rays by $\theta$. The region where the rays overlay on axis (red) is the geometric Bessel range (shown here as \SI{1.18}{\meter}). $L_{12}$ and $L_{23}$ are the axicon separations. The first 1/2~in.\ mirror steers the beam into the science chamber, and the second 1/2~in.\ mirror must be placed in the void zone to minimize stray reflections.}
-\end{figure*}
-
 \subsection{Wave Optics / QDHT Model}
 
 TODO: QDHT Model, Yu
@@ -111,39 +114,13 @@ Both models are implemented in an open-source Python simulator with an interacti
 
 \footnotetext[1]{\url{https://bessel-beam.streamlit.app/}}
 
-TODO: Pick a few figures that illustrate the effect of each level in the design: axicon angle, separation, input beam diameter.
-
-TODO: explain single axicon sweep figs
-\begin{figure}[h]
-  \includegraphics[width=\linewidth]{axicon_angle_sweep_D=4_59mm}
-  \caption{\label{fig:theory_axicon_angle_sweep_D=4_59mm} TODO caption about axicon angle + bessel zone length.}
-\end{figure}
-
-\begin{figure}[h]
-  \includegraphics[width=\linewidth]{axicon_angle_sweep_gain_D=4_59mm.png}
-  \caption{\label{fig:theory_axicon_angle_sweep_gain_D=4_59mm.png} TODO caption about axicon angle + on-axis intensity gain.}
-\end{figure}
-
-\begin{figure}[h]
-  \includegraphics[width=\linewidth]{theory_single_axicon_diameter.png}
-  \caption{\label{fig:theory_single_axicon_diameter.png} TODO caption about input beam diameter + bessel zone length}
-\end{figure}
-
-\begin{figure*}[ht]
-  \includegraphics[width=\textwidth]{theory_single_axicon_angle_core.png}
-  \caption{\label{fig:theory_single_axicon_angle_core.png} TODO caption about axicon angle + radial core diameter.}
-\end{figure*}
 
 TODO: explain three axicon figs
 \begin{figure*}[ht]
   \includegraphics[width=\textwidth]{theory_three_axicon_L12_between_axicon12.png}
-  \caption{\label{fig:theory_three_axicon_L12_between_axicon12.png} TODO caption about three axicon design and the L12 separation distance influence on on-axis intensity ripples. TODO put legends outside fig.}
-\end{figure*}
-
-\begin{figure}[h]
   \includegraphics[width=\linewidth]{theory_three_axicon_L12.png}
   \caption{\label{fig:theory_three_axicon_L12.png} TODO caption about three axicon design and the L12 separation distance}
-\end{figure}
+\end{figure*}
 
 \begin{figure}[h]
   \includegraphics[width=\linewidth]{theory_three_axicon_L12_annuli.png}
@@ -391,6 +368,24 @@ TODO diagram of optics configuration candidates?
 
 \section{Appendix B: Measurement Procedure}\label{sec:measurement_procedure}
 
+\section{Appendix C: Model Parameter Sweeps}\label{sec:model_parameter_sweeps}
+TODO: Pick a few figures that illustrate the effect of each level in the design: axicon angle, separation, input beam diameter.
+
+TODO: explain single axicon sweep figs
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{axicon_angle_sweep_D=4_59mm}
+  \caption{\label{fig:theory_axicon_angle_sweep_D=4_59mm} TODO caption about axicon angle + bessel zone length.}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{axicon_angle_sweep_gain_D=4_59mm.png}
+  \caption{\label{fig:theory_axicon_angle_sweep_gain_D=4_59mm.png} TODO caption about axicon angle + on-axis intensity gain.}
+\end{figure}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{theory_single_axicon_diameter.png}
+  \caption{\label{fig:theory_single_axicon_diameter.png} TODO caption about input beam diameter + bessel zone length}
+\end{figure}
 % ============================================================
 %  BIBLIOGRAPHY (entries live in references.bib)
 % ============================================================
