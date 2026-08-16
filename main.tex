@@ -63,20 +63,14 @@
   \includegraphics[width=\linewidth]{gaussian_vs_bessel_intro}
   \caption{\label{fig:theory_gaussian_vs_bessel_intro} Comparison of an ideal Gaussian beam and zeroth-order Bessel beam. (a)~Transverse intensity profile of a Gaussian beam at its waist. (b)~Transverse intensity profile $I(r) \propto J_0^2(k_r \cdot r)$ of an ideal Bessel beam, showing the central lobe and surrounding concentric rings. (c)~Longitudinal intensity profile of a Gaussian beam, showing how the beam's width grows (diverges) as it propagates. (d)~The Bessel beam's central lobe stays constant/uniform. }
 \end{figure}
-TODO: motivation and design constraints (Why a bessel beam? Why 3 axicons?)
-Oprtical lattice clocks are precise enough to resolve the gravitational redshift at tablestop scale. The first generation Strontium optical lattice clock in our lab resolved gravitational redshift measurements across 5 atom ensembles across a 1 cm vertical path \cite{zhengLabbasedTestGravitational2023}. The second generation clock aims to interrogate 3 atom ensembles across a 1 m vertical path. The strontium atomics are trapped throughout a \SI{1}{\meter} vertical optical lattice and probed by a
-\SI{698}{\nano\meter} clock laser that co-propagaes with the optical lattice beams. Because the measured gravitational frequency shift is proportional to height, variations in the interrogation beam intensity across the 1 m path will lead to systematic errors in the measured gravitational redshift. The clock beam must therefore be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam (see \autoref{fig:theory_gaussian_vs_bessel_intro}). A Bessel beam is a promising candidate for the clock interrogation beam because it has a non-diffracting transverse intensity profile that can be maintained over a long propagation distance \cite{durninDiffractionfreeBeams1987, durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
+Optical lattice clocks are precise enough to resolve the gravitational redshift at tablestop scale. The first generation Strontium optical lattice clock in our lab resolved gravitational redshift measurements across 5 atom ensembles across a 1 cm vertical path \cite{zhengLabbasedTestGravitational2023}. The second generation clock aims to interrogate 3 atom ensembles across a 1 m vertical path. The strontium atoms are trapped throughout a \SI{1}{\meter} vertical optical lattice and probed by a
+\SI{698}{\nano\meter} clock laser that co-propagates with the optical lattice beams. Because the measured gravitational frequency shift is proportional to height, variations in the interrogation beam intensity across the 1 m path will lead to systematic errors in the measured gravitational redshift. The clock beam must therefore be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam (see \autoref{fig:theory_gaussian_vs_bessel_intro}). A Bessel beam is a promising candidate for the clock interrogation beam because it has a non-diffracting transverse intensity profile that can be maintained over a long propagation distance \cite{durninDiffractionfreeBeams1987, durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
 
-TODO: Background on Gaussian vs. Bessel Beam, Durnin \cite{durninComparisonBesselGaussian1988}
+% TODO: Background on Gaussian vs. Bessel Beam, Durnin \cite{durninComparisonBesselGaussian1988}
 
-TODO: Background on Geometric and Wave Optics Models, Rao
+% TODO: Background on Geometric and Wave Optics Models, Rao
 
-TODO: Background on Hollow Gaussian Beam (annulus) quality and influece on on-axis intensity modulations/ripples, Rao
-
-\begin{figure}[ht]
-  \includegraphics[width=\linewidth]{theory_single_axicon_angle_core.png}
-  \caption{\label{fig:theory_single_axicon_angle_core.png} TODO caption about axicon angle + radial core diameter.}
-\end{figure}
+% TODO: Background on Hollow Gaussian Beam (annulus) quality and influece on on-axis intensity modulations/ripples, Rao
 
 % ============================================================
 %  II. EXPERIMENTAL/THEORETICAL APPROACHES
@@ -95,7 +89,7 @@ On the plane transverse to the propagation direction, an ideal Bessel beam (BB) 
   I(r) \propto J_0^2(k_r \cdot r),
   \label{eq:ideal_bessel_beam}
 \end{equation}
-where $k_r$ is the transverse wavevector satisfying $k_r^2 + k_z^2 = k^2 = 2\pi/\lambda$ and $r$ is the radial distance from the propagation axis.
+where $k_r$ is the transverse wavevector satisfying $k_r^2 + k_z^2 = k^2 = (2\pi/\lambda)^2$ and $r$ is the radial distance from the propagation axis.
 
 Bessel beams can be realized by passing a Gaussian beam through an axicon lens (another name for a conical prism), which converts the Gaussian input into a conical wavefront that interferes constructively along the propagation axis to form a Bessel-Gauss beam \cite{raoConceptualReviewBessel2024}. A Gaussian beam propagating through an axicon of base angle $\alpha$ and refractive index $n$ is deflected toward the axis by $\beta = \arcsin(n \sin \alpha) - \alpha$, creating a Bessel-Gauss beam of the zeroth order. The Bessel-Gauss beam has a transverse intensity profile described by \autoref{eq:ideal_bessel_beam}, where $k_r = (2\pi/\lambda)\sin\beta$ is governed by the axicon deflection angle $\beta$ and the wavelength $\lambda$ of the input Gaussian beam.
 
@@ -113,14 +107,13 @@ Both models are implemented in an open-source Python simulator with an interacti
 \begin{figure*}[ht]
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (a)
-    {\includegraphics[width=\textwidth]{theory_three_axicon_L12_between_axicon12.png}};
+    {\includegraphics[width=0.60\textwidth]{theory_three_axicon_L12_between_axicon12.png}};
     \node[anchor=north west,font=\bfseries,inner sep=2pt]
     at ([xshift=2pt]a.north west) {(a)};
   \end{tikzpicture}
-
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (b)
-    {\includegraphics[width=\textwidth]{theory_three_axicon_L12.png}};
+    {\includegraphics[width=0.39\textwidth]{theory_three_axicon_L12.png}};
     \node[anchor=north west,font=\bfseries,inner sep=2pt]
     at ([xshift=2pt]b.north west) {(b)};
   \end{tikzpicture}
@@ -136,12 +129,18 @@ Both models are implemented in an open-source Python simulator with an interacti
 
 \subsection{Experimental Setup}
 
-% Example numbered equation:
-% \begin{equation}
-%   I(r) \propto J_0^2(k_r r),
-%   \label{eq:bessel}
-% \end{equation}
-% referenced as Eq.~\eqref{eq:bessel}.
+Three axicons ($alpha_1 = \alpha_2 = 5 \SI{5}{\degree}$, $\alpha_3 = 0.5 \SI{5}{\degree}$) were mounted in XY translation mounts. $L_12$ and $L_23$ distances were measured by hand with a stainless steel ruler. Alignment was performed by centering the annulus on each successive optic ("beam walking"), using the beam profiler gantry as the alignment tool.
+
+
+The Bessel zone was characterized by imaging the beam through an OD=4.0 filter onto a monochrome CMOS camera sensor, which the camera mounted on a motorized three-axis CNC gantry build for this project. The gantry has 130mm of travel along the propagation direction and 100mm of travel in the transverse XY plane. At each plane the acquisition software locates the beam and sets the exposure time automatically, so the brightest pixel in the plane falls below a saturation threshold. Dark frames are collected for background subtraction. If the beam diameter is larger than the camera sensor, the profiler software collects a grid of images and rasters them into a single composite image.
+
+From each plane, two quantities are extracted. The on-axis intensity $I(r=0, z)$ is the amplitude $A$ of a $J_0^2$ fit to the central Bessel lobe. This fit returns the transverse wavenumber $k_r$ from which we calculate the central lobe diameter and intensity FWHM. Intensity is measured as pixel counts / exposure time, so planes recorded with different exposures are comparable. The measured Bessel zone $Z_R$ is the interval between the outermost points at which $I(0, z)$ falls to $50\%$ of its maximum, and $Delta Z_R$ is the length of that interval. The ripple metric is the peak-to-peak variation of $I(0, z)$ within the measured Bessel zone, normalized to the mean on-axis intensity. The scan control software, analysis notebooks,
+and mechanical designs are open source\footnotemark[2].
+
+\footnotetext[2]{\url{https://github.com/leigh-johnson/bessel_beam_profiler}}
+
+
+
 
 % ============================================================
 %  III. EXPERIMENTAL/THEORETICAL RESULTS
@@ -210,7 +209,7 @@ Candidate \#1 was the baseline configuration, with a measured Bessel zone length
 
 Candidate \#2 used a $2\times$ magnification telescope before axicon~1 to expand the Gaussian input beam, resulting in a measured Bessel zone length of $\Delta Z_R > 0.83$ m. Due to space limitations on the optics table, the Bessel zone was not fully characterized. The spacing between axicon~1 and axicon~2 ($L_{12} =$ \SI{240}{\milli\meter}) was the maximum allowed by the 1 in. aperature of axicon~2. The measured Bessel zone range $Z_R \in [1.18, >2.01]$ m was $\approx$ 10 cm from the predicted QDHT range. The mean measured core diameter and FWHM were within 5\% of the ideal $J_0^2$ values at all points measured within the Bessel zone, with a mean core diameter of \SI{118.2}{\micro\meter} and FWHM of \SI{55.4}{\micro\meter}.
 
-Candidate \#3 repeated the setup of Candidate \#1, with only the distance between axicon~1 and axicon~2 modified ($L_12 = \SI{175}{\milli\meter}$ vs. $L_12 = \SI{190}{\milli\meter}$), resulting in a measured Bessel zone length of $\Delta Z_R = 0.30 \pm 0.01$ m. The measured Bessel zone range $Z_R \in [1.12, 1.42]$ m was $\approx$ 8 cm from the predicted QDHT range start point. The mean measured core diameter and FWHM were within 1\% of the ideal $J_0^2$ values at all points measured within the Bessel zone, with a mean core diameter of \SI{125.0}{\micro\meter} and FWHM of \SI{58.5}{\micro\meter}. Notably, the alignment of axicon~2 and axicon~3 was sub-optimal, resulting in a reduced $\Delta Z_R$ (see \autoref{fig:annulus_composites} for a comparison of candidate $\#1$ and $\#3$ alignment).
+Candidate \#3 repeated the setup of Candidate \#1, with the distance between axicons modified ($L_12 = \SI{175}{\milli\meter}$ vs. $L_12 = \SI{190}{\milli\meter}$ and $L_23 = \SI{415}{\milli\meter}$ vs. $L_23 = \SI{50}{\milli\meter}$), resulting in a measured Bessel zone length of $\Delta Z_R = 0.30 \pm 0.01$ m. The measured Bessel zone range $Z_R \in [1.12, 1.42]$ m was $\approx$ 8 cm from the predicted QDHT range start point. The mean measured core diameter and FWHM were within 1\% of the ideal $J_0^2$ values at all points measured within the Bessel zone, with a mean core diameter of \SI{125.0}{\micro\meter} and FWHM of \SI{58.5}{\micro\meter}. Notably, the alignment of axicon~2 and axicon~3 was sub-optimal, resulting in a reduced $\Delta Z_R$ (see \autoref{fig:annulus_composites} for a comparison of candidate $\#1$ and $\#3$ alignment).
 
 Candidate \#4 repeated the setup of Candidate \#3, with a $2\times$ magnification telescope placed within the Bessel zone at $z = \SI{120}{\milli\meter}$ after axicon~3. TODO summarize surprising result
 
@@ -383,6 +382,10 @@ TODO diagram of optics configuration candidates?
 TODO: Pick a few figures that illustrate the effect of each level in the design: axicon angle, separation, input beam diameter.
 
 TODO: explain single axicon sweep figs
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{theory_single_axicon_angle_core.png}
+  \caption{\label{fig:theory_single_axicon_angle_core.png} TODO caption about axicon angle + radial core diameter.}
+\end{figure}
 \begin{figure}[h]
   \includegraphics[width=\linewidth]{axicon_angle_sweep_D=4_59mm}
   \caption{\label{fig:theory_axicon_angle_sweep_D=4_59mm} TODO caption about axicon angle + bessel zone length.}
