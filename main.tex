@@ -67,20 +67,16 @@ TODO: motivation and design constraints (Why a bessel beam? Why 3 axicons?)
 Oprtical lattice clocks are precise enough to resolve the gravitational redshift at tablestop scale. The first generation Strontium optical lattice clock in our lab resolved gravitational redshift measurements across 5 atom ensembles across a 1 cm vertical path \cite{zhengLabbasedTestGravitational2023}. The second generation clock aims to interrogate 3 atom ensembles across a 1 m vertical path. The strontium atomics are trapped throughout a \SI{1}{\meter} vertical optical lattice and probed by a
 \SI{698}{\nano\meter} clock laser that co-propagaes with the optical lattice beams. Because the measured gravitational frequency shift is proportional to height, variations in the interrogation beam intensity across the 1 m path will lead to systematic errors in the measured gravitational redshift. The clock beam must therefore be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam (see \autoref{fig:theory_gaussian_vs_bessel_intro}). A Bessel beam is a promising candidate for the clock interrogation beam because it has a non-diffracting transverse intensity profile that can be maintained over a long propagation distance \cite{durninDiffractionfreeBeams1987, durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
 
-TODO: figure of 3-axicon design + constraints
-
-TODO: should I reproduce Rao's derivation of an ideal Bessel beam (eq 2.1 -  2.8)? Or just cite it and summarize the key points? \cite{raoConceptualReviewBessel2024}
-
 TODO: Background on Gaussian vs. Bessel Beam, Durnin \cite{durninComparisonBesselGaussian1988}
 
 TODO: Background on Geometric and Wave Optics Models, Rao
 
 TODO: Background on Hollow Gaussian Beam (annulus) quality and influece on on-axis intensity modulations/ripples, Rao
 
-\begin{figure*}[ht]
-  \includegraphics[width=\textwidth]{theory_single_axicon_angle_core.png}
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{theory_single_axicon_angle_core.png}
   \caption{\label{fig:theory_single_axicon_angle_core.png} TODO caption about axicon angle + radial core diameter.}
-\end{figure*}
+\end{figure}
 
 % ============================================================
 %  II. EXPERIMENTAL/THEORETICAL APPROACHES
@@ -114,18 +110,29 @@ Both models are implemented in an open-source Python simulator with an interacti
 
 \footnotetext[1]{\url{https://bessel-beam.streamlit.app/}}
 
-
-TODO: explain three axicon figs
 \begin{figure*}[ht]
-  \includegraphics[width=\textwidth]{theory_three_axicon_L12_between_axicon12.png}
-  \includegraphics[width=\linewidth]{theory_three_axicon_L12.png}
-  \caption{\label{fig:theory_three_axicon_L12.png} TODO caption about three axicon design and the L12 separation distance}
+  \begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (a)
+    {\includegraphics[width=\textwidth]{theory_three_axicon_L12_between_axicon12.png}};
+    \node[anchor=north west,font=\bfseries,inner sep=2pt]
+    at ([xshift=2pt]a.north west) {(a)};
+  \end{tikzpicture}
+
+  \begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (b)
+    {\includegraphics[width=\textwidth]{theory_three_axicon_L12.png}};
+    \node[anchor=north west,font=\bfseries,inner sep=2pt]
+    at ([xshift=2pt]b.north west) {(b)};
+  \end{tikzpicture}
+  \caption{\label{fig:theory_three_axicon_L12.png} Effect of axicon~1-2 separation $L_{12}$ in optics configuration \#1 (see \autoref{tab:configs}), simulated with QDHT. (a)~Propagation between axicons~1 and~2: after axicon~1 Bessel zone (shaded in grey), the beam becomes an expanding annulus with approximately \SI{2}{\milli\meter} FWWHM thickness (shaded orange region). $L_{12}$ sets the annulus radius arriving at axicon~2 (annulus radius shown on right y-axis) The 85-90\% aperture limit of 1 in. optics (black dotted line) determines the upper limit on $L_{12}$ separation. (b)~Comparison of on-axis intensity after axicon~3 for $L_{12} = 140$, 190, 240, \SI{290}{\milli\meter}. Increasing the $L_{12}$ separation suppresses the on-axis intensity ripples.  }
 \end{figure*}
 
-\begin{figure}[h]
-  \includegraphics[width=\linewidth]{theory_three_axicon_L12_annuli.png}
-  \caption{\label{fig:theory_three_axicon_L12_annuli.png} TODO caption about collimated annulus / "Hollow Gaussian Beam"before axicon 3}
-\end{figure}
+
+
+% \begin{figure}[h]
+%   \includegraphics[width=\linewidth]{theory_three_axicon_L12_annuli.png}
+%   \caption{\label{fig:theory_three_axicon_L12_annuli.png} TODO caption about collimated annulus / "Hollow Gaussian Beam"before axicon 3}
+% \end{figure}
 
 \subsection{Experimental Setup}
 
@@ -302,14 +309,18 @@ The measured Bessel zone length was $\Delta Z_R = 0.32 \pm 0.01$ m, only slightl
 
 \section{Future Work}\label{sec:future_work}
 
-TODO
-* 2 in. axicon lenses
-* impact of telescope on on-axial intensity ripples within the Bessel zone
-* continuous monitoring, understand if motorized XY translation mounts are needed to maintain alignment over time
+Open questions and future work include:
+\begin{enumerate}
+  \item Impact of 1/2 in. mirror (mirror 1 in \autoref{fig:theory_geometric_model}) on the beam profile.
+  \item Designs with 2 in axicon lenses to allow for larger $L_{12}$ and $L_{23}$ separations, which may reduce the on-axis intensity ripples.
+  \item Continuous monitoring of the Bessel beam alignment over time.
+  \item Characterization using the 698 nm clock laser.
+\end{enumerate}
 
 % ============================================================
 %  ACKNOWLEDGMENTS
 % ============================================================
+\section{Acknowledgments}
 \begin{acknowledgments}
   % TODO: mentor, PI, lab members, Pi2 program / funding.
   TODO: Anke Stoeltzel, Shuo Ma, Shimon Kolkowitz and Kolkowitz Group for their support and guidance. This work was supported by the $Pi^2$ program and the UC Berkeley Physics Department.
