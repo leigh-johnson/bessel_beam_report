@@ -63,7 +63,7 @@
   \includegraphics[width=\linewidth]{gaussian_vs_bessel_intro}
   \caption{\label{fig:theory_gaussian_vs_bessel_intro} Comparison of an ideal Gaussian beam and zeroth-order Bessel beam. (a)~Transverse intensity profile of a Gaussian beam at its waist. (b)~Transverse intensity profile $I(r) \propto J_0^2(k_r \cdot r)$ of an ideal Bessel beam, showing the central lobe and surrounding concentric rings. (c)~Longitudinal intensity profile of a Gaussian beam, showing how the beam's width grows (diverges) as it propagates. (d)~The Bessel beam's central lobe stays constant/uniform. }
 \end{figure}
-Optical lattice clocks are precise enough to resolve the gravitational redshift at tablestop scale. The first generation Strontium optical lattice clock in our lab resolved gravitational redshift measurements across 5 atom ensembles across a 1 cm vertical path \cite{zhengLabbasedTestGravitational2023}. The second generation clock aims to interrogate 3 atom ensembles across a 1 m vertical path. A \SI{1}{\meter} vertical optical lattice traps the strontium atoms, while a co-propagating 698 nm clock laser probes ("interrogates") them. Because the measured gravitational frequency shift is proportional to height, variations in the interrogation beam intensity across the 1 m path will lead to systematic errors in the measured gravitational redshift. The clock beam must therefore be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam (see \autoref{fig:theory_gaussian_vs_bessel_intro}). A Bessel beam is a promising candidate for the clock interrogation beam because it has a non-diffracting transverse intensity profile that can be maintained over a long propagation distance \cite{durninDiffractionfreeBeams1987, durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
+Optical lattice clocks are precise enough to resolve the gravitational redshift at tabletop scale. The first generation Strontium optical lattice clock in our lab resolved gravitational redshift measurements across 5 atom ensembles across a 1 cm vertical path \cite{zhengLabbasedTestGravitational2023}. The second generation clock aims to interrogate 3 atom ensembles across a 1 m vertical path. A \SI{1}{\meter} vertical optical lattice traps the strontium atoms, while a co-propagating 698 nm clock laser probes ("interrogates") them. Because the measured gravitational frequency shift is proportional to height, variations in the interrogation beam intensity across the 1 m path will lead to systematic errors in the measured gravitational redshift. The clock beam must therefore be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam (see \autoref{fig:theory_gaussian_vs_bessel_intro}). A Bessel beam is a promising candidate for the clock interrogation beam because it has a non-diffracting transverse intensity profile that can be maintained over a long propagation distance \cite{durninDiffractionfreeBeams1987, durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
 
 % TODO: Background on Gaussian vs. Bessel Beam, Durnin \cite{durninComparisonBesselGaussian1988}
 
@@ -213,7 +213,7 @@ The measured Bessel zone for each configuration is summarized in \autoref{tab:re
     \end{tabular}
   \end{ruledtabular}
   \footnotetext[1]{Experimental setup did not allow for measurement of the
-    Bessel zone beyond \SI{2.0}{\meter}. The measured $Z_R$ and $\Delta Z_R$ should be interpreted as lower bounds. See Future Work for discussion of how to extend the measurement range.}
+    Bessel zone beyond \SI{2.0}{\meter}. The measured $Z_R$ and $\Delta Z_R$ should be interpreted as lower bounds. See \autoref{sec:future_work} for discussion of how to extend the measurement range.}
   \footnotetext[2]{Alignment of axicons~2 and 3 was sub-optimal, resulting
     in a reduced $\Delta Z_R$. See \autoref{fig:annulus_composites} for a comparison of candidate $\#1$ and $\#3$ alignment.}
   \footnotetext[3]{A limited dataset was collected for configuration \#4.
@@ -323,11 +323,22 @@ The measured Bessel zone length was $\Delta Z_R = 0.32 \pm 0.01$ m, only slightl
 %  - Proposed future work, and why
 % ============================================================
 \section{Conclusion and Perspective}
-% TODO
+We designed, built, and characterized a three-axicon Bessel beam
+system and evaluated four candidates for the interrogation beam in a \SI{1}{\meter}
+vertical strontium optical lattice clock. Every configuration we tested
+produced a Bessel region with identifiable core lobe in the cross-section. The measured core lobe diameters tracked
+the ideal $J_0^2$ values to within 8\%. The QDHT wave-optics model predicted the start of the
+Bessel zone within 9\% and, where we could measure it cleanly, the zone
+length within 8\%.
+
+However, none of the four 1~in.\ configurations met the design
+requirements. The longest measured zone (${>}0.83$~m) fell short of the
+\SI{1}{\meter} target, and the 48--63\% on-axis intensity ripple far
+exceeded any acceptable uniformity threshold for clock interrogation.
+Both limits trace back to the same constraint: the 1~in.\ aperture of the axicon lenses sets a hard limit on the separation distance $L_12$ between the lenses, which limits the longer Bessel zone length and ripple suppression that would be provided by larger separation distances. Drifts in day-to-day alignment require additional study and characterization to understand the long-term stability of any final candidate. These results motivate the future work below, as well as the tooling we built to reduce the cost of every iteration that follows (automated beam profiler, QDHT simulator, axicon alignment tooling).
 
 
-
-\section{Future Work}\label{sec:future_work}
+\subsection{Future Work}\label{sec:future_work}
 
 Open questions and future work include:
 \begin{enumerate}
@@ -336,6 +347,10 @@ Open questions and future work include:
   \item Continuous monitoring of the Bessel beam alignment over time.
   \item Characterization using the 698 nm clock laser.
 \end{enumerate}
+
+Several open questions remain. First, we have not measured how the first $1/2$~in. steering mirror (mirror 1 in \autoref{fig:theory_geometric_model}) affects the beam profile. The mirror sits upstream of the Bessel zone, and diffraction from its edges could distort the structure of the beam before it reaches the atoms. Second, axicons with 2~in. diameter have been ordered to address the aperature limitations using 1~in. axicons. Third, day-to-day alignment drift limited the repeatability of our measurements, so the beam alignment should be monitored continuously. The automated alignment tool we built could be run between measurements to detect drift and alert when remediation is required. The alignment tool could also be extended to drive motorized translation mounts, ensuring the axicon lenses are always aligned to a certain tolerance. Ultimately, the final system will interrogate strontium atoms at \SI{698}{\nano\meter} rather than the \SI{650}{\nano\meter} of our test laser diode. The selected configuration will likely need to be re-characterized with the clock laser, since the transverse wavenumber $k_r$ and Bessel zone geometry scales with wavelength.
+
+
 
 % ============================================================
 %  ACKNOWLEDGMENTS
