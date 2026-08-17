@@ -121,14 +121,14 @@ Passing a Gaussian beam through an axicon (another name for a conical prism) pro
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (a)
     {\includegraphics[width=\linewidth]{theory_three_axicon_L12_between_axicon12.png}};
-    \node[anchor=north west,font=\bfseries,inner sep=2pt]
-    at ([xshift=2pt]a.north west) {(a)};
+    \node[anchor=south west,font=\bfseries,inner sep=2pt]
+    at ([yshift=1pt]a.north west) {(a)};
   \end{tikzpicture}
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (b)
     {\includegraphics[width=\linewidth]{theory_three_axicon_L12.png}};
-    \node[anchor=north west,font=\bfseries,inner sep=2pt]
-    at ([xshift=2pt]b.north west) {(b)};
+    \node[anchor=south west,font=\bfseries,inner sep=2pt]
+    at ([yshift=1pt]b.north west) {(b)};
   \end{tikzpicture}
   \caption{\label{fig:theory_three_axicon_L12} Effect of axicon~1-2 separation $L_{12}$ in optics configuration \#1 (see \autoref{tab:configs}), simulated with QDHT. (a)~Propagation between axicons~1 and~2: after axicon~1 Bessel zone (shaded in grey), the beam becomes an expanding annulus with approximately \SI{2}{\milli\meter} FWHM thickness (shaded orange region). $L_{12}$ sets the annulus radius arriving at axicon~2 (annulus radius shown on right y-axis). The 85-90\% aperture limit of 1~in.\ optics (black dotted line) determines the upper limit on $L_{12}$ separation. (b)~Comparison of on-axis intensity after axicon~3 for $L_{12} = 140$, 190, 240, \SI{290}{\milli\meter}. Increasing the $L_{12}$ separation suppresses the on-axis intensity ripples.}
 \end{figure}
@@ -204,14 +204,14 @@ on a motorized three-axis CNC gantry built for this project, which allowed us to
 \begin{figure}[ht]
   \includegraphics[width=\linewidth]{gantry_isometric_photo}
   \caption{\label{fig:gantry_isometric_photo} Isometric view of the
-  motorized three-axis CNC gantry built for this project. The
-  monochrome CMOS sensor (FLIR BFS-PGE-31S4M-C) rides on the moving
-  stage and images the beam directly through an OD${=}4.0$ filter. The
-  gantry provides \SI{130}{\milli\meter} of travel along the
-  propagation direction and \SI{100}{\milli\meter} in the transverse XY
-  plane; to reach the full \SI{2}{\meter} path it is moved by hand along
-  the table and registered against the \SI{1}{\centi\meter} graph paper
-  fixed beneath it.}
+    motorized three-axis CNC gantry built for this project. The
+    monochrome CMOS sensor (FLIR BFS-PGE-31S4M-C) rides on the moving
+    stage and images the beam directly through an OD${=}4.0$ filter. The
+    gantry provides \SI{130}{\milli\meter} of travel along the
+    propagation direction and \SI{100}{\milli\meter} in the transverse XY
+    plane; to reach the full \SI{2}{\meter} path it is moved by hand along
+    the table and registered against the \SI{1}{\centi\meter} graph paper
+    fixed beneath it.}
 \end{figure}
 
 \subsection{Metrics}\label{sec:metrics}
@@ -258,19 +258,19 @@ The measured Bessel zone for each configuration is summarized in \autoref{tab:re
     \begin{tabular}{llcccccc}
       Config & Method    & $Z_R$ (m)                               & $\Delta Z_R$ (m)    & Core $\varnothing$ (\si{\micro\meter}) & $\langle \mathrm{FWHM} \rangle_r$ (\si{\micro\meter}) & Ripple (\%) & Peak (counts/\si{\micro\second}) \\
       \colrule
-      \#1    & measured  & $[1.29, 1.68]$   $\pm$ 0.01             & 0.38 $\pm$ 0.01     & 126.4 ($+1.7\%$)                       & 59.2                                          & 48          & 0.723            \\
-             & geometric & $[1.34\,(+3.6\%),\ 1.91\,(+13\%)]$      & 0.57 ($+49\%$)      &                                        &                                               &             &                  \\
-             & QDHT      & $[1.40\,(+8.2\%),\ 1.77\,(+4.9\%)]$     & 0.37 ($-3\%$)       &                                        &                                               &             &                  \\ \hline
+      \#1    & measured  & $[1.29, 1.68]$   $\pm$ 0.01             & 0.38 $\pm$ 0.01     & 126.4 ($+1.7\%$)                       & 59.2                                                  & 48          & 0.723                            \\
+             & geometric & $[1.34\,(+3.6\%),\ 1.91\,(+13\%)]$      & 0.57 ($+49\%$)      &                                        &                                                       &             &                                  \\
+             & QDHT      & $[1.40\,(+8.2\%),\ 1.77\,(+4.9\%)]$     & 0.37 ($-3\%$)       &                                        &                                                       &             &                                  \\ \hline
       \#2\footnotemark[1]
-             & measured  & $[1.18, {>}2.01]$                       & ${>}0.83$           & 118.2 ($-5.0\%$)                       & 55.4                                          & 63          & 0.590            \\
-             & geometric & $[1.23\,(+4.2\%),\ 2.41\,({<}{+}20\%)]$ & 1.18 (${<}{+}42\%$) &                                        &                                               &             &                  \\
-             & QDHT      & $[1.29\,(+9.3\%),\ 2.19\,({<}{+}9\%)]$  & 0.90 (${<}{+}8\%$)  &                                        &                                               &             &                  \\ \hline
+             & measured  & $[1.18, {>}2.01]$                       & ${>}0.83$           & 118.2 ($-5.0\%$)                       & 55.4                                                  & 63          & 0.590                            \\
+             & geometric & $[1.23\,(+4.2\%),\ 2.41\,({<}{+}20\%)]$ & 1.18 (${<}{+}42\%$) &                                        &                                                       &             &                                  \\
+             & QDHT      & $[1.29\,(+9.3\%),\ 2.19\,({<}{+}9\%)]$  & 0.90 (${<}{+}8\%$)  &                                        &                                                       &             &                                  \\ \hline
       \#3\footnotemark[2]
-             & measured  & $[1.12, 1.42]$   $\pm$ 0.01             & 0.30 $\pm$ 0.01     & 125.0 ($+0.5\%$)                       & 58.5                                          & 63          & 2.003            \\
-             & geometric & $[1.18\,(+5.6\%),\ 1.76\,(+24\%)]$      & 0.57 ($+89\%$)      &                                        &                                               &             &                  \\
-             & QDHT      & $[1.21\,(+8.3\%),\ 1.62\,(+14\%)]$      & 0.41 ($+36\%$)      &                                        &                                               &             &                  \\ \hline
+             & measured  & $[1.12, 1.42]$   $\pm$ 0.01             & 0.30 $\pm$ 0.01     & 125.0 ($+0.5\%$)                       & 58.5                                                  & 63          & 2.003                            \\
+             & geometric & $[1.18\,(+5.6\%),\ 1.76\,(+24\%)]$      & 0.57 ($+89\%$)      &                                        &                                                       &             &                                  \\
+             & QDHT      & $[1.21\,(+8.3\%),\ 1.62\,(+14\%)]$      & 0.41 ($+36\%$)      &                                        &                                                       &             &                                  \\ \hline
       \#4\footnotemark[3]
-             & measured  & $[0.47, 0.79]$ $\pm$ 0.01               & 0.32 $\pm$ 0.01     & 268.1 ($+7.8\%$)                       & 125.6                                         & 50          & 0.323            \\
+             & measured  & $[0.47, 0.79]$ $\pm$ 0.01               & 0.32 $\pm$ 0.01     & 268.1 ($+7.8\%$)                       & 125.6                                                 & 50          & 0.323                            \\
     \end{tabular}
   \end{ruledtabular}
   \footnotetext[1]{Experimental setup did not allow for measurement of the
