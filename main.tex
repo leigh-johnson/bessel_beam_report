@@ -238,8 +238,12 @@ Candidate \#2 used a $2\times$ magnification telescope before axicon~1 to expand
 Space limitations on the optics table prevented full characterization of the Bessel zone, so the measured $Z_R$ and $\Delta Z_R$ should be interpreted as lower bounds. The spacing between axicon~1 and axicon~2 ($L_{12} =$ \SI{240}{\milli\meter}) was the maximum allowed by the 1 in. aperature of axicon~2. The measured Bessel zone range $Z_R \in [1.18, >2.01]$ m was $\approx$ 10 cm from the predicted QDHT range. The mean measured core diameter and FWHM were within 5\% of the ideal $J_0^2$ values at all points measured within the Bessel zone, with a mean core diameter of \SI{118.2}{\micro\meter} and FWHM of \SI{55.4}{\micro\meter}.
 
 Candidate \#3 repeated the setup of Candidate \#1, with the distance between axicons modified ($L_12 = \SI{175}{\milli\meter}$ vs. $L_12 = \SI{190}{\milli\meter}$ and $L_23 = \SI{415}{\milli\meter}$ vs. $L_23 = \SI{50}{\milli\meter}$), resulting in a measured Bessel zone length of $\Delta Z_R = 0.30 \pm 0.01$ m. The measured Bessel zone range $Z_R \in [1.12, 1.42]$ m was $\approx$ 8 cm from the predicted QDHT range start point. The mean measured core diameter and FWHM were within 1\% of the ideal $J_0^2$ values at all points measured within the Bessel zone, with a mean core diameter of \SI{125.0}{\micro\meter} and FWHM of \SI{58.5}{\micro\meter}. Notably, the alignment of axicon~2 and axicon~3 was sub-optimal, resulting in a reduced $\Delta Z_R$ (see \autoref{fig:annulus_composites} for a comparison of candidate $\#1$ and $\#3$ alignment).
-were within
-Candidate \#4 repeated the setup of Candidate \#3, with a $2\times$ magnification telescope placed within the Bessel zone at $z = \SI{120}{\milli\meter}$ after axicon~3. TODO summarize surprising result
+
+Candidate \#4 repeated the setup of Candidate \#3, with a $2\times$ magnification telescope placed within the Bessel zone at $z = \SI{120}{\centi\meter}$ after axicon~3. The telescope doubled the transverse core size as expected, but,
+surprisingly, left the Bessel zone length nearly unchanged
+($\Delta Z_R = 0.32 \pm 0.01$~m vs.\ $0.30 \pm 0.01$~m for \#3) rather
+than stretching it by the expected longitudinal magnification. We
+examine this result in Sec.~\ref{sec:telescope}.
 
 \subsection{Ripples in On-Axis Intensity}
 The ripple \% metric is defined as the ratio of the peak-to-peak variation in the on-axis intensity $I(0,z)$ to the mean on-axis intensity within the measured Bessel zone. The on-axis intensity ripples varied by 48-63\% of the mean within every candidate's Bessel zone (see (\autoref{fig:measured_window_envelopes_lobe_diam_colored})), which ruled out all four under the uniformity requirement.
@@ -256,24 +260,21 @@ To test repeatability, we re-measured three $z$ positions of candidate
 \#2's Bessel zone five days after the original scan
 (\autoref{fig:placement_cmp_report_jul29} vs. \autoref{fig:placement_cmp_report_aug3}). The intensity ripples were reproduced. The fitted core diameters agreed within a few percent, but the peak intensity dropped from 0.48 to 0.33 counts/\si{\micro\second}, suggesting the drift did not occur uniformly. In \autoref{fig:placement_cmp_report_aug3}, the X-chord (blue dots) shifted more than the Y-chord (orange dots), resulting in a slight astigmatism. Fixing the astigmatism required systematically adjusting the horizontal axes of all XY translation mounts to locate the source of the astigmatism.
 
-\subsection{Gantry Positioning Repeatability}
-TODO: figure + discussion about gantry positioning repeatability.
-
 \begin{figure}[bh]
   \includegraphics[width=\linewidth]{placement_cmp_report_aug3}
   \caption{\label{fig:placement_cmp_report_aug3} TODO caption about alignment drift.}
 \end{figure}
 
-\subsection{Effect of 2x Telescope}
+\subsection{Effect of M=2x Telescope}\label{sec:telescope}
 Candidate \#4 placed a $2\times$ magnification telescope inside the
 Bessel zone, $z = \SI{120}{\milli\meter}$ after axicon~3
 (\autoref{tab:configs}), to understand the effect of magnification on the Bessel beam. The mean core diameter of \SI{268.1}{\micro\meter} is within $7.8\%$ of
 twice the ideal core size, confirming the expected $2\times$ transverse
-magnification in the XY plane. The peak intensity dropped to 0.32 counts/\si{\micro\second},
-compared to 2.00 for the identical optics without the telescope
-(candidate \#3), which is roughly consistent with spreading the same power over a $4\times$ larger area ($2\times$ in X and $2\times$ in Y) with significant ($\approx$ 0.7 counts/us) loss at the telescope lenses.
+magnification in the XY plane. This behavior was similar to the effect on a Gaussian beam, where an $M=2 \times$ telescope doubles the waist of the Gaussian beam.
 
-The measured Bessel zone length was $\Delta Z_R = 0.32 \pm 0.01$ m, only slightly longer than the $\Delta Z_R = 0.30 \pm 0.01$ m measured for candidate \#3 without the telescope. The measured length contracts the expected $2\times$ longitudinal magnification of the Bessel zone. However, gaps in the dataset at $z \approx 0.2$m could explain this discrepancy if the missing data contains a ripple peak that would extend the measured Bessel zone length.
+The peak intensity dropped to 0.32 counts/\si{\micro\second},
+compared to 2.00 for the identical optics without the telescope
+(candidate \#3), which is roughly consistent with spreading the same power over a $4\times$ larger area ($M^2 = 4 \times$) if significant losses occurred at the telescope lenses ($\approx$ 0.7 counts/us loss). However, the measured Bessel zone length was $\Delta Z_R = 0.32 \pm 0.01$ m, only slightly longer than the $\Delta Z_R = 0.30 \pm 0.01$ m measured for candidate \#3 without the telescope. The measured length contradicts the expected $2\times$ longitudinal magnification of the Bessel zone. However, gaps in the dataset at $z \approx 0.2$m could explain this discrepancy if the missing data contains a ripple peak that would extend the measured Bessel zone length.
 
 \begin{figure}[bh]
   \includegraphics[width=\linewidth]{annulus_composites}
@@ -412,7 +413,7 @@ TODO diagram of optics configuration candidates?
   \footnotetext[1]{$2\times$ magnification telescope before axicon~1,
     expanding the Gaussian input beam. Telescope constructed with 1 in. lenses: $f_1 = \SI{-50}{\milli\meter}$ (plano-concave), $f_2 = \SI{+100}{\milli\meter}$ (plano-convex) mounted in a 1 in. optical cage.}
   \footnotetext[2]{$2\times$ magnification telescope placed within the
-    Bessel zone at $z = 120$ mm after axicon~3. Telescope constructed with 2 in. lenses: $f_1 = \SI{+100}{\milli\meter}$, $f_2 = \SI{+200}{\milli\meter}$, mounted directly to the optics breadboard table.}
+    Bessel zone at $z = 120$ cm after axicon~3. Telescope constructed with 2 in. lenses: $f_1 = \SI{+100}{\milli\meter}$, $f_2 = \SI{+200}{\milli\meter}$, mounted directly to the optics breadboard table.}
 \end{table*}
 
 \section{Appendix B: Measurement Procedure}\label{sec:measurement_procedure}
