@@ -82,6 +82,18 @@ Optical lattice clocks are precise enough to resolve the gravitational redshift 
   \caption{\label{fig:theory_geometric_model} Geometric model of the three-axicon Bessel beam system, shown for candidate \#2 (\autoref{tab:configs}). Axicon~1 ($\alpha_1=5 \SI{5}{\degree}$) converts the Gaussian input beam into a cone of rays deflected by $\beta_1$. Axicon~2 ($\alpha_2=5$ \SI{5}{\degree}) collimates them into an annulus of inner radius $\rho_{\text{in}}$ and outer radius $\rho_{\text{out}}$. Axicon~3 ($\alpha_3=$ \SI{0.5}{\degree}) deflects the annulus rays by $\theta$. The region where the rays overlay on axis (red) is the geometric Bessel range (shown here as \SI{1.18}{\meter}). $L_{12}$ and $L_{23}$ are the axicon separations. The first 1/2~in.\ mirror steers the beam into the science chamber, and the second 1/2~in.\ mirror must be placed in the void zone to minimize stray reflections.}
 \end{figure*}
 
+\subsection{Bessel Beams and Bessel-Gauss Beams}
+
+On the plane transverse to the propagation direction, an ideal Bessel beam (BB) has uniform intensity distribution described by a Bessel function of the first kind, $J_0$. This property led to the description of BBs as non-diffracting beams, since the transverse intensity profile does not change as the beam propagates through space \cite{durninDiffractionfreeBeams1987}. The ideal Bessel beam is non-diffracting over a theoretically infinite range. The transverse intensity distribution of an ideal Bessel beam has the form:
+\begin{equation}
+  I(r) \propto J_0^2(k_r \cdot r),
+  \label{eq:ideal_bessel_beam}
+\end{equation}
+where $k_r$ is the transverse wavevector satisfying $k_r^2 + k_z^2 = k^2 = (2\pi/\lambda)^2$ and $r$ is the radial distance from the propagation axis.
+
+Passing a Gaussian beam through an axicon (another name for a conical prism) produces a Bessel-Gauss beam by converting the Gaussian input into a conical wavefront that interferes constructively along the propagation axis \cite{raoConceptualReviewBessel2024}. An axicon of base angle $\alpha$ and refractive index $n$ deflects the Gaussian beam toward the axis by $\beta = \arcsin(n \sin \alpha) - \alpha$, creating a Bessel-Gauss beam of the zeroth order. The Bessel-Gauss beam has a transverse intensity profile described by \autoref{eq:ideal_bessel_beam}, where $k_r = (2\pi/\lambda)\sin\beta$ is governed by the axicon deflection angle $\beta$ and the wavelength $\lambda$ of the input Gaussian beam.
+
+\subsection{Geometric / Ray Model}
 \begin{figure}[ht]
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (a)
@@ -98,25 +110,17 @@ Optical lattice clocks are precise enough to resolve the gravitational redshift 
   \caption{\label{fig:theory_three_axicon_L12.png} Effect of axicon~1-2 separation $L_{12}$ in optics configuration \#1 (see \autoref{tab:configs}), simulated with QDHT. (a)~Propagation between axicons~1 and~2: after axicon~1 Bessel zone (shaded in grey), the beam becomes an expanding annulus with approximately \SI{2}{\milli\meter} FWWHM thickness (shaded orange region). $L_{12}$ sets the annulus radius arriving at axicon~2 (annulus radius shown on right y-axis) The 85-90\% aperture limit of 1 in. optics (black dotted line) determines the upper limit on $L_{12}$ separation. (b)~Comparison of on-axis intensity after axicon~3 for $L_{12} = 140$, 190, 240, \SI{290}{\milli\meter}. Increasing the $L_{12}$ separation suppresses the on-axis intensity ripples.  }
 \end{figure}
 
-\subsection{Bessel Beams and Bessel-Gauss Beams}
-
-On the plane transverse to the propagation direction, an ideal Bessel beam (BB) has uniform intensity distribution described by a Bessel function of the first kind, $J_0$. This property led to the description of BBs as non-diffracting beams, since the transverse intensity profile does not change as the beam propagates through space \cite{durninDiffractionfreeBeams1987}. The ideal Bessel beam is non-diffracting over a theoretically infinite range. The transverse intensity distribution of an ideal Bessel beam has the form:
-\begin{equation}
-  I(r) \propto J_0^2(k_r \cdot r),
-  \label{eq:ideal_bessel_beam}
-\end{equation}
-where $k_r$ is the transverse wavevector satisfying $k_r^2 + k_z^2 = k^2 = (2\pi/\lambda)^2$ and $r$ is the radial distance from the propagation axis.
-
-Passing a Gaussian beam through an axicon (another name for a conical prism) produces a Bessel-Gauss beam by converting the Gaussian input into a conical wavefront that interferes constructively along the propagation axis \cite{raoConceptualReviewBessel2024}. An axicon of base angle $\alpha$ and refractive index $n$ deflects the Gaussian beam toward the axis by $\beta = \arcsin(n \sin \alpha) - \alpha$, creating a Bessel-Gauss beam of the zeroth order. The Bessel-Gauss beam has a transverse intensity profile described by \autoref{eq:ideal_bessel_beam}, where $k_r = (2\pi/\lambda)\sin\beta$ is governed by the axicon deflection angle $\beta$ and the wavelength $\lambda$ of the input Gaussian beam.
-
-\subsection{Geometric / Ray Model}
 We based the design on the collimating three-axicon zoom system described in \citet{schniederCollimatingThreeaxiconZoom2024}. A geometric model of our three-axicon system is shown in \autoref{fig:theory_geometric_model}. Axicon~1 converts the Gaussian input beam into a cone of rays deflected by $\beta_1$. Axicon~2 collimates them into an annulus of inner radius $\rho_{\text{in}}$ and outer radius $\rho_{\text{out}}$. Axicon~3 deflects the annulus rays by $\theta$. The region where the rays overlay on axis (red) is the geometric Bessel range. $L_{12}$ and $L_{23}$ are the axicon separations.
 
 \subsection{Wave Optics / QDHT Model}
 
-TODO: QDHT Model, Yu
+The geometric model predicts where rays overlap, but not the intensity within the Bessel zone. To get a sense of the idealized intensity distribution, we constructed a wave-optics simulation. We first attempted the wave-optics analysis in Zemax software, whose physical optics propagation uses a Fast-Fourier Transform (FFT) on a square Cartesian grid \cite{ZemaxOpticStudio}. This approach was quickly discarded due to our concerns about design decisions being governed by non-physical artifacts of the square sampling grid.
 
-We implemented both models in an open-source Python simulator with an interactive web interface\footnotemark[1].
+Since the idealized optical system is rotationally symmetric about the propagation axis, we were able to model the field propagation with a quasi-discrete Hankel transform (also known as a Fourier-Bessel transform) described by \citet{yuQuasidiscreteHankelTransform1998a}.
+
+Our QDHT model implementation accepts only measured quantities as inputs: the Gaussian input beam waist $w_0$, the axicon base angles $\alpha_1$, $\alpha_2$, and $\alpha_3$, and the axicon separations $L_{12}$ and $L_{23}$, and wavelength $\lambda$. The model has no free parameters fit to our data. The QDHT models in \autoref{fig:measured_window_envelopes_lobe_diam_colored} are sampled at $N=4096$ points in the radial direction at a domain padded to $2.5\times$ the Gaussian input beam radius.
+
+We implemented both geometric and QDHT models in an open-source Python simulator with an interactive web interface\footnotemark[1].
 
 \footnotetext[1]{\url{https://bessel-beam.streamlit.app/}}
 
