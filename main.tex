@@ -59,7 +59,20 @@
 %  - Hypothesis in addressing the question
 % ============================================================
 \section{Background and Aims}
-Optical lattice clocks are precise enough to resolve the gravitational redshift at tabletop scale. The first generation Strontium optical lattice clock in our lab resolved gravitational redshift measurements across 5 atom ensembles across a 1 cm vertical path \cite{zhengLabbasedTestGravitational2023}. The second generation clock aims to interrogate 3 atom ensembles across a 1 m vertical path. A \SI{1}{\meter} vertical optical lattice traps the strontium atoms, while a co-propagating 698 nm clock laser probes ("interrogates") them. Because the measured gravitational frequency shift is proportional to height, variations in the interrogation beam intensity across the 1 m path will lead to systematic errors in the measured gravitational redshift. The clock beam must therefore be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam (see \autoref{fig:theory_gaussian_vs_bessel_intro}). A Bessel beam is a promising candidate for the clock interrogation beam because it has a non-diffracting transverse intensity profile that can be maintained over a long propagation distance \cite{durninDiffractionfreeBeams1987, durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
+Optical lattice clocks are precise enough to resolve the gravitational
+redshift at tabletop scale. The first-generation strontium clock in our
+lab resolved the redshift across five atom ensembles spanning a
+\SI{1}{\centi\meter} vertical path
+\cite{zhengLabbasedTestGravitational2023}. The second-generation clock
+extends this to three ensembles across \SI{1}{\meter}. A vertical
+optical lattice traps the strontium atoms, and a co-propagating
+\SI{698}{\nano\meter} clock laser interrogates (probes) them. Since the
+redshift is proportional to height, intensity variations along the
+interrogation path introduce a systematic error that must be
+characterized. The clock beam would ideally be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam (see \autoref{fig:theory_gaussian_vs_bessel_intro}). A Bessel
+beam is a promising candidate because it has a non-diffracting profile over long propagation distances.
+\cite{durninDiffractionfreeBeams1987,
+  durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
 This study addresses one primary question: can a three-axicon system built from 1~in. optics produce a Bessel zone that meets the following requirements for clock interrogation:
 \begin{enumerate}
   \item Bessel zone length of at least \SI{1}{\meter}.
@@ -379,6 +392,13 @@ Several open questions remain. First, we have not measured how the first $1/2$~i
   Editorial: Publishing Physical Sciences in the Era of AI
 \end{acknowledgments}
 
+
+% ============================================================
+%  BIBLIOGRAPHY (entries live in references.bib)
+% ============================================================
+\bibliography{references}
+
+\clearpage
 % ============================================================
 %  APPENDIX
 % ============================================================
@@ -390,9 +410,6 @@ Axicon lenses in \autoref{tab:configs} were sourced from Thorlabs (AX255-A, AX25
 An adjustable focus laser diode (Thorlabs CPS650F) was coupled to a single-mode fiber using a fiber optic coupler (Schafter+Kirchhoff 60FC-L-4-M25-24) to produce a Gaussian input beam with $1/e^2$ diameter of $D_{\text{in}} = \SI{4.59}{\milli\meter}$ at axicon~1. The laser diode wavelength was nominally given as $\lambda = \SI{650}{\nano\meter}$, with a measured $\SI{1.2}{\milli\watt}$ power output after the fiber coupling.
 
 Axicon lenses were mounted in XY translation mounts for alignment, and the axicon separations $L_{12}$ and $L_{23}$ were measured using a stainless steel ruler. The Bessel zone was imaged using a monochrome CMOS camera (FLIR BFS-PGE-31S4M-C) with 2048x1536 resolution with a \SI{3.45}{\micro\meter} pixel size. The camera was mounted on a translation stage to image the Bessel zone at different $z$ positions.
-
-TODO picture of experimental setup
-TODO diagram of optics configuration candidates?
 
 \begin{table*}[tb]
   \caption{Optics configuration candidates. All configurations use
@@ -466,10 +483,5 @@ TODO: explain single axicon sweep figs
 \end{figure}
 
 
-% ============================================================
-%  BIBLIOGRAPHY (entries live in references.bib)
-% ============================================================
-\textbf{References}
-\bibliography{references}
 
 \end{document}
