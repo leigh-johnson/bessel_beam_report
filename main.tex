@@ -51,7 +51,7 @@
 
 \maketitle
 
-\tableofcontents
+% \tableofcontents
 % ============================================================
 %  I. BACKGROUND AND AIMS
 %  - Background and motivation of the project
@@ -59,11 +59,21 @@
 %  - Hypothesis in addressing the question
 % ============================================================
 \section{Background and Aims}
+Optical lattice clocks are precise enough to resolve the gravitational redshift at tabletop scale. The first generation Strontium optical lattice clock in our lab resolved gravitational redshift measurements across 5 atom ensembles across a 1 cm vertical path \cite{zhengLabbasedTestGravitational2023}. The second generation clock aims to interrogate 3 atom ensembles across a 1 m vertical path. A \SI{1}{\meter} vertical optical lattice traps the strontium atoms, while a co-propagating 698 nm clock laser probes ("interrogates") them. Because the measured gravitational frequency shift is proportional to height, variations in the interrogation beam intensity across the 1 m path will lead to systematic errors in the measured gravitational redshift. The clock beam must therefore be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam (see \autoref{fig:theory_gaussian_vs_bessel_intro}). A Bessel beam is a promising candidate for the clock interrogation beam because it has a non-diffracting transverse intensity profile that can be maintained over a long propagation distance \cite{durninDiffractionfreeBeams1987, durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
+This study addresses one primary question: can a three-axicon system built from 1~in. optics produce a Bessel zone that meets the following requirements for clock interrogation:
+\begin{enumerate}
+  \item Bessel zone length of at least \SI{1}{\meter}.
+  \item Central lobe of the Bessel region is large enough to contain cloud of strontium atoms (cross-sectional FWHM at least \SI{300}{\micro\meter} in diameter).
+  \item Uniform on-axis intensity profile.
+  \item Bessel region fits within 1/2~in. mirror (mirror 1, entrance to science chamber)
+  \item Annulus after Bessel region is larger than 1/2~in (minimize reflections off mirror 2 in the science chamber).
+\end{enumerate}
+We tested this by building four candidate configurations and comparing the measured Bessel zone of each against models described in \autoref{sec:geometric_model} and \autoref{sec:qdht_model}.
+
 \begin{figure}[h]
   \includegraphics[width=\linewidth]{gaussian_vs_bessel_intro}
   \caption{\label{fig:theory_gaussian_vs_bessel_intro} Comparison of an ideal Gaussian beam and zeroth-order Bessel beam. (a)~Transverse intensity profile of a Gaussian beam at its waist. (b)~Transverse intensity profile $I(r) \propto J_0^2(k_r \cdot r)$ of an ideal Bessel beam, showing the central lobe and surrounding concentric rings. (c)~Longitudinal intensity profile of a Gaussian beam, showing how the beam's width grows (diverges) as it propagates. (d)~The Bessel beam's central lobe stays constant/uniform. }
 \end{figure}
-Optical lattice clocks are precise enough to resolve the gravitational redshift at tabletop scale. The first generation Strontium optical lattice clock in our lab resolved gravitational redshift measurements across 5 atom ensembles across a 1 cm vertical path \cite{zhengLabbasedTestGravitational2023}. The second generation clock aims to interrogate 3 atom ensembles across a 1 m vertical path. A \SI{1}{\meter} vertical optical lattice traps the strontium atoms, while a co-propagating 698 nm clock laser probes ("interrogates") them. Because the measured gravitational frequency shift is proportional to height, variations in the interrogation beam intensity across the 1 m path will lead to systematic errors in the measured gravitational redshift. The clock beam must therefore be as uniform as possible across over a meter of propagation, which is not possible with a conventional focused Gaussian beam (see \autoref{fig:theory_gaussian_vs_bessel_intro}). A Bessel beam is a promising candidate for the clock interrogation beam because it has a non-diffracting transverse intensity profile that can be maintained over a long propagation distance \cite{durninDiffractionfreeBeams1987, durninComparisonBesselGaussian1988, raoConceptualReviewBessel2024}.
 
 % TODO: Background on Gaussian vs. Bessel Beam, Durnin \cite{durninComparisonBesselGaussian1988}
 
@@ -93,7 +103,7 @@ where $k_r$ is the transverse wavevector satisfying $k_r^2 + k_z^2 = k^2 = (2\pi
 
 Passing a Gaussian beam through an axicon (another name for a conical prism) produces a Bessel-Gauss beam by converting the Gaussian input into a conical wavefront that interferes constructively along the propagation axis \cite{raoConceptualReviewBessel2024}. An axicon of base angle $\alpha$ and refractive index $n$ deflects the Gaussian beam toward the axis by $\beta = \arcsin(n \sin \alpha) - \alpha$, creating a Bessel-Gauss beam of the zeroth order. The Bessel-Gauss beam has a transverse intensity profile described by \autoref{eq:ideal_bessel_beam}, where $k_r = (2\pi/\lambda)\sin\beta$ is governed by the axicon deflection angle $\beta$ and the wavelength $\lambda$ of the input Gaussian beam.
 
-\subsection{Geometric / Ray Model}
+\subsection{Geometric / Ray Model}\label{sec:geometric_model}
 \begin{figure}[ht]
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (a)
@@ -112,7 +122,7 @@ Passing a Gaussian beam through an axicon (another name for a conical prism) pro
 
 We based the design on the collimating three-axicon zoom system described in \citet{schniederCollimatingThreeaxiconZoom2024}. A geometric model of our three-axicon system is shown in \autoref{fig:theory_geometric_model}. Axicon~1 converts the Gaussian input beam into a cone of rays deflected by $\beta_1$. Axicon~2 collimates them into an annulus of inner radius $\rho_{\text{in}}$ and outer radius $\rho_{\text{out}}$. Axicon~3 deflects the annulus rays by $\theta$. The region where the rays overlay on axis (red) is the geometric Bessel range. $L_{12}$ and $L_{23}$ are the axicon separations.
 
-\subsection{Wave Optics / QDHT Model}
+\subsection{Wave Optics / QDHT Model}\label{sec:qdht_model}
 
 The geometric model predicts where rays overlap, but not the intensity within the Bessel zone. To get a sense of the idealized intensity distribution, we constructed a wave-optics simulation. We first attempted the wave-optics analysis in Zemax software, whose physical optics propagation uses a Fast-Fourier Transform (FFT) on a square Cartesian grid \cite{ZemaxOpticStudio}. This approach was quickly discarded due to our concerns about design decisions being governed by non-physical artifacts of the square sampling grid.
 
