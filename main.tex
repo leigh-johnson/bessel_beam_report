@@ -100,23 +100,17 @@ This study addresses one primary question: can a three-axicon system built from 
 \end{enumerate}
 We tested this by building four candidate configurations and comparing the measured Bessel zone of each against models described in \autoref{sec:geometric_model} and \autoref{sec:qdht_model}.
 
-
-% TODO: Background on Gaussian vs. Bessel Beam, Durnin \cite{durninComparisonBesselGaussian1988}
-
-% TODO: Background on Geometric and Wave Optics Models, Rao
-
-% TODO: Background on Hollow Gaussian Beam (annulus) quality and influece on on-axis intensity modulations/ripples, Rao
-
+\begin{figure*}[!t]
+  \includegraphics[width=\textwidth]{geometric_model}
+  \caption{\label{fig:theory_geometric_model} Geometric model of the three-axicon Bessel beam system, shown for candidate \#2 (\autoref{tab:configs}). Axicon~1 ($\alpha_1=\SI{5}{\degree}$) converts the Gaussian input beam into a cone of rays deflected by $\beta_1$. Axicon~2 ($\alpha_2=\SI{5}{\degree}$) collimates them into an annulus of inner radius $\rho_{\text{in}}$ and outer radius $\rho_{\text{out}}$. Axicon~3 ($\alpha_3=\SI{0.5}{\degree}$) deflects the annulus rays by $\theta$. The region where the rays overlay on axis (red) is the geometric Bessel range (shown here as \SI{1.18}{\meter}). $L_{12}$ and $L_{23}$ are the axicon separations. The first 1/2~in.\ mirror steers the beam into the science chamber, and the second 1/2~in.\ mirror must be placed in the void zone to minimize stray reflections.}
+\end{figure*}
 % ============================================================
 %  II. EXPERIMENTAL/THEORETICAL APPROACHES
 %  - Describe in detail the experimental and/or theoretical
 %    approaches of the project
 % ============================================================
 \section{Experimental and Theoretical Approaches}
-\begin{figure*}[!t]
-  \includegraphics[width=\textwidth]{geometric_model}
-  \caption{\label{fig:theory_geometric_model} Geometric model of the three-axicon Bessel beam system, shown for candidate \#2 (\autoref{tab:configs}). Axicon~1 ($\alpha_1=\SI{5}{\degree}$) converts the Gaussian input beam into a cone of rays deflected by $\beta_1$. Axicon~2 ($\alpha_2=\SI{5}{\degree}$) collimates them into an annulus of inner radius $\rho_{\text{in}}$ and outer radius $\rho_{\text{out}}$. Axicon~3 ($\alpha_3=\SI{0.5}{\degree}$) deflects the annulus rays by $\theta$. The region where the rays overlay on axis (red) is the geometric Bessel range (shown here as \SI{1.18}{\meter}). $L_{12}$ and $L_{23}$ are the axicon separations. The first 1/2~in.\ mirror steers the beam into the science chamber, and the second 1/2~in.\ mirror must be placed in the void zone to minimize stray reflections.}
-\end{figure*}
+
 \subsection{Bessel Beams and Bessel-Gauss Beams}
 
 On the plane transverse to the propagation direction, an ideal Bessel beam (BB) has an invariant intensity distribution described by a Bessel function of the first kind, $J_0$. This property led to the description of BBs as non-diffracting beams, since the transverse intensity profile does not change as the beam propagates through space~\cite{durninDiffractionfreeBeams1987}. The ideal Bessel beam is non-diffracting over a theoretically infinite range. The transverse intensity distribution of an ideal Bessel beam has the form:
@@ -129,10 +123,16 @@ where $k_r$ is the transverse wavevector satisfying $k_r^2 + k_z^2 = k^2 = (2\pi
 Passing a Gaussian beam through an axicon (another name for a conical prism) produces a Bessel-Gauss beam by converting the Gaussian input into a conical wavefront that interferes constructively along the propagation axis \cite{raoConceptualReviewBessel2024}. An axicon of base angle $\alpha$ and refractive index $n$ deflects the Gaussian beam toward the axis by $\beta = \arcsin(n \sin \alpha) - \alpha$, creating a Bessel-Gauss beam of the zeroth order. The Bessel-Gauss beam has a transverse intensity profile described by \autoref{eq:ideal_bessel_beam}, where $k_r = (2\pi/\lambda)\sin\beta$ is governed by the axicon deflection angle $\beta$ and the wavelength $\lambda$ of the input Gaussian beam.
 
 \subsection{Geometric / Ray Model}\label{sec:geometric_model}
-We based the design on the collimating three-axicon zoom system described in \citet{schniederCollimatingThreeaxiconZoom2024}. A geometric model of our three-axicon system is shown in \autoref{fig:theory_geometric_model}. Axicon~1 converts the Gaussian input beam into a cone of rays deflected by $\beta_1$. Axicon~2 collimates them into an annulus of inner radius $\rho_{\text{in}}$ and outer radius $\rho_{\text{out}}$. Axicon~3 deflects the annulus rays by $\theta$. The region where the rays overlay on axis (red) is the geometric Bessel range. $L_{12}$ and $L_{23}$ are the axicon separations. Because the annulus leaving axicon~1 keeps expanding as it propagates, the 1~in.\ aperture of axicon~2 sets an upper limit on $L_{12}$; within that limit, increasing $L_{12}$ suppresses the on-axis intensity ripple (\autoref{fig:theory_three_axicon_L12}).
+We based the design on the collimating three-axicon zoom system described in \citet{schniederCollimatingThreeaxiconZoom2024}. \autoref{fig:theory_geometric_model} shows the geometric model of our system and defines the ray angles and axicon separations. Because the annulus leaving axicon~1 keeps expanding as it propagates, the 1~in.\ aperture of axicon~2 sets an upper limit on $L_{12}$. Within that limit, increasing $L_{12}$ suppresses the on-axis intensity ripple (\autoref{fig:theory_three_axicon_L12}).
 
 \subsection{Wave Optics / QDHT Model}\label{sec:qdht_model}
-\begin{figure}[!h]
+The geometric model predicts where rays overlap, but not the intensity within the Bessel zone. To get a sense of the idealized intensity distribution, we constructed a wave-optics simulation. We first attempted the analysis in Zemax software, whose physical optics propagation uses a fast Fourier transform (FFT) on a square Cartesian grid~\cite{ZemaxOpticStudio}. We discarded this approach out of concern that design decisions would be governed by non-physical artifacts of the square sampling grid.
+
+Since the idealized optical system is rotationally symmetric about the propagation axis, we were able to model the field propagation with a quasi-discrete Hankel transform (also known as a Fourier-Bessel transform) described by \citet{yuQuasidiscreteHankelTransform1998a}.
+
+Our QDHT model implementation accepts only measured quantities as inputs: the Gaussian input beam waist $w_0$, the axicon base angles $\alpha_1$, $\alpha_2$, and $\alpha_3$, the axicon separations $L_{12}$ and $L_{23}$, and the wavelength $\lambda$. The model has no free parameters fit to our data. The QDHT models in \autoref{fig:measured_window_envelopes_lobe_diam_colored} are sampled at $N=4096$ points in the radial direction over a domain padded to $2.5\times$ the Gaussian input beam radius.
+
+\begin{figure}[h]
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (a)
     {\includegraphics[width=\linewidth]{theory_three_axicon_L12_between_axicon12.png}};
@@ -148,17 +148,12 @@ We based the design on the collimating three-axicon zoom system described in \ci
   \caption{\label{fig:theory_three_axicon_L12} Effect of axicon~1-2 separation $L_{12}$ in optics configuration \#1 (see \autoref{tab:configs}), simulated with QDHT. (a)~Propagation between axicons~1 and~2: after axicon~1 Bessel zone (shaded in grey), the beam becomes an expanding annulus with approximately \SI{2}{\milli\meter} FWHM thickness (shaded orange region). $L_{12}$ sets the annulus radius arriving at axicon~2 (annulus radius shown on right y-axis). The 85-90\% aperture limit of 1~in.\ optics (black dotted line) determines the upper limit on $L_{12}$ separation. (b)~Comparison of on-axis intensity after axicon~3 for $L_{12} = 140$, 190, 240, \SI{290}{\milli\meter}. Increasing the $L_{12}$ separation suppresses the on-axis intensity ripples.}
 \end{figure}
 
-The geometric model predicts where rays overlap, but not the intensity within the Bessel zone. To get a sense of the idealized intensity distribution, we constructed a wave-optics simulation. We first attempted the analysis in Zemax software, whose physical optics propagation uses a fast Fourier transform (FFT) on a square Cartesian grid~\cite{ZemaxOpticStudio}. We discarded this approach out of concern that design decisions would be governed by non-physical artifacts of the square sampling grid.
-
-Since the idealized optical system is rotationally symmetric about the propagation axis, we were able to model the field propagation with a quasi-discrete Hankel transform (also known as a Fourier-Bessel transform) described by \citet{yuQuasidiscreteHankelTransform1998a}.
-
-Our QDHT model implementation accepts only measured quantities as inputs: the Gaussian input beam waist $w_0$, the axicon base angles $\alpha_1$, $\alpha_2$, and $\alpha_3$, the axicon separations $L_{12}$ and $L_{23}$, and the wavelength $\lambda$. The model has no free parameters fit to our data. The QDHT models in \autoref{fig:measured_window_envelopes_lobe_diam_colored} are sampled at $N=4096$ points in the radial direction over a domain padded to $2.5\times$ the Gaussian input beam radius.
-
 We implemented both geometric and QDHT models in an open-source Python simulator with an interactive web interface\footnotemark[1]. Parameter sweeps over the axicon angles, separations, and input beam diameter are collected in \autoref{sec:model_parameter_sweeps}.
 \footnotetext[1]{\url{https://bessel-beam.streamlit.app/}}
 
 \subsection{Experimental Setup}\label{sec:experimental_setup}
-\begin{table*}[!t]
+
+\begin{table*}[h]
   \caption{Optics configuration candidates. All configurations use
   1~in.\ (\SI{25.4}{\milli\meter}) axicons with base angles
   $\alpha_{1}=\alpha_{2}=\SI{5}{\degree}$ and
@@ -214,14 +209,9 @@ on a motorized three-axis CNC gantry built for this project, which allowed us to
 \begin{figure}[ht]
   \includegraphics[width=.75\linewidth]{gantry_isometric_photo}
   \caption{\label{fig:gantry_isometric_photo} We built a
-    motorized three-axis CNC gantry built for this project. The
-    monochrome CMOS sensor (FLIR BFS-PGE-31S4M-C) rides on the moving
-    stage and images the beam directly through an OD${=}4.0$ filter. The
-    gantry provides \SI{130}{\milli\meter} of travel along the
-    propagation direction and \SI{100}{\milli\meter} in the transverse XY
-    plane; to reach the full \SI{2}{\meter} path it is moved by hand along
-    the table and registered against the \SI{1}{\centi\meter} graph paper
-    fixed beneath it.}
+    motorized three-axis CNC gantry for this project. The
+    CMOS camera rides on the moving
+    stage and images the beam through an OD${=}4.0$ filter. The \SI{1}{\centi\meter} graph paper beneath the gantry frame registers each hand-placement of the gantry along the optical table.}
 \end{figure}
 
 \subsection{Metrics}\label{sec:metrics}
@@ -323,7 +313,7 @@ In early design/modeling stages, we were unsure if the on-axis intensity ripples
 \subsection{Axicon Alignment Drift}
 To test repeatability, we re-measured three $z$ positions of candidate
 \#2's Bessel zone five days after the original scan
-(\autoref{fig:placement_cmp_report_jul29} vs. \autoref{fig:placement_cmp_report_aug3}). The intensity ripples were reproduced. The fitted core diameters agreed within a few percent, but the peak intensity dropped from 0.48 to 0.33 counts/\si{\micro\second}, suggesting the drift did not occur uniformly. In \autoref{fig:placement_cmp_report_aug3}, the X-chord (blue dots) shifted more than the Y-chord (orange dots), resulting in a slight astigmatism. Fixing it required systematically adjusting the horizontal axes of all XY translation mounts to locate the source.
+(\autoref{fig:placement_cmp_report_jul29} vs. \autoref{fig:placement_cmp_report_aug3}). We reproduced the intensity ripples. The fitted core diameters agreed within a few percent, but the peak intensity dropped from 0.48 to 0.33 counts/\si{\micro\second}, suggesting the drift did not occur uniformly. In \autoref{fig:placement_cmp_report_aug3}, the X-chord (blue dots) shifted more than the Y-chord (orange dots), resulting in a slight astigmatism. Fixing it required systematically adjusting the horizontal axes of all XY translation mounts to locate the source.
 
 \begin{figure}[bh]
   \includegraphics[width=\linewidth]{placement_cmp_report_aug3}
@@ -357,9 +347,7 @@ We designed, built, and characterized a three-axicon Bessel beam
 system and evaluated four candidates for the interrogation beam in a \SI{1}{\meter}
 vertical strontium optical lattice clock. Every configuration we tested
 produced a Bessel region with an identifiable core lobe in the cross-section. The measured core lobe diameters tracked
-the ideal $J_0^2$ values to within 8\%. The QDHT wave-optics model predicted the start of the
-Bessel zone within 10\% and, where we could measure it cleanly, the zone
-length within 8\%.
+the ideal $J_0^2$ values to within 8\%. The QDHT wave-optics model predicted the start of the Bessel zone within 10\% and, where we could measure it cleanly, the zone length within 8\%.
 
 The tested three-axicon system, built from the present 1~in.\ optics,
 did not meet the clock-interrogation requirements. The longest measured
@@ -376,15 +364,6 @@ configuration is adopted. These results motivate the future work below,
 as well as the tooling we built to reduce the cost of every iteration
 that follows (automated beam profiler, QDHT simulator, axicon alignment
 tooling).
-
-Day-to-day alignment drift is another open issue. It limited the
-repeatability of our measurements and is not explained by either
-constraint above, so it needs its own characterization before any
-configuration is adopted. These results motivate the future work below,
-as well as the tooling we built to reduce the cost of every iteration
-that follows (automated beam profiler, QDHT simulator, axicon alignment
-tooling).
-
 
 \subsection{Future Work}\label{sec:future_work}
 Several open questions remain. First, we have not measured how the first $1/2$~in. steering mirror (mirror 1 in \autoref{fig:theory_geometric_model}) affects the beam profile. The mirror sits upstream of the Bessel zone, and diffraction from its edges could distort the structure of the beam before it reaches the atoms. Second, axicons with 2~in. diameter have been ordered to raise the cap on $L_{12}$ that the 1~in. aperture imposes. Third, day-to-day alignment drift limited the repeatability of our measurements, so the beam alignment should be monitored continuously. The automated alignment tool we built\footnotemark[3] could be run between measurements to detect drift and alert when remediation is required. The alignment tool could also be extended to drive motorized translation mounts, ensuring the axicon lenses are always aligned to a certain tolerance. Ultimately, the final system will interrogate strontium atoms at \SI{698}{\nano\meter} rather than the \SI{650}{\nano\meter} of our test laser diode. The selected configuration will likely need to be re-characterized with the clock laser, since the transverse wavenumber $k_r$ and Bessel zone geometry scale with wavelength.
