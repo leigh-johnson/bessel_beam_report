@@ -360,15 +360,33 @@ the ideal $J_0^2$ values to within 8\%. The QDHT wave-optics model predicted the
 Bessel zone within 10\% and, where we could measure it cleanly, the zone
 length within 8\%.
 
-However, none of the four 1~in.\ configurations met the design
-requirements. The longest measured zone (${>}0.83$~m) fell short of the
-\SI{1}{\meter} target, and the 48--63\% on-axis intensity ripple far
-exceeded any acceptable uniformity threshold for clock interrogation.
-Both limits trace back to the same constraint: the 1~in.\ aperture of the axicons caps the separation $L_{12}$. Larger separations would have delivered both a longer Bessel zone and better ripple suppression. Drifts in day-to-day alignment require additional study and characterization to understand the long-term stability of any final candidate. These results motivate the future work below, as well as the tooling we built to reduce the cost of every iteration that follows (automated beam profiler, QDHT simulator, axicon alignment tooling).
+The tested three-axicon system, built from the present 1~in.\ optics,
+did not meet the clock-interrogation requirements. The longest measured
+zone (${>}0.83$~m) fell short of the \SI{1}{\meter} target. The central
+lobe reached at most \SI{125.6}{\micro\meter} FWHM, well under the
+\SI{300}{\micro\meter} specified atom cloud diameter. The on-axis
+intensity ripple of 48-63\% far exceeded any acceptable uniformity
+threshold for clock interrogation.
+
+Another open issue is day-to-day alignment drift. It limited the
+repeatability of our measurements and is not explained by either
+constraint above, so it needs its own characterization before any
+configuration is adopted. These results motivate the future work below,
+as well as the tooling we built to reduce the cost of every iteration
+that follows (automated beam profiler, QDHT simulator, axicon alignment
+tooling).
+
+Day-to-day alignment drift is another open issue. It limited the
+repeatability of our measurements and is not explained by either
+constraint above, so it needs its own characterization before any
+configuration is adopted. These results motivate the future work below,
+as well as the tooling we built to reduce the cost of every iteration
+that follows (automated beam profiler, QDHT simulator, axicon alignment
+tooling).
 
 
 \subsection{Future Work}\label{sec:future_work}
-Several open questions remain. First, we have not measured how the first $1/2$~in. steering mirror (mirror 1 in \autoref{fig:theory_geometric_model}) affects the beam profile. The mirror sits upstream of the Bessel zone, and diffraction from its edges could distort the structure of the beam before it reaches the atoms. Second, axicons with 2~in. diameter have been ordered to address the aperture limitations of 1~in. axicons. Third, day-to-day alignment drift limited the repeatability of our measurements, so the beam alignment should be monitored continuously. The automated alignment tool we built\footnotemark[3] could be run between measurements to detect drift and alert when remediation is required. The alignment tool could also be extended to drive motorized translation mounts, ensuring the axicon lenses are always aligned to a certain tolerance. Ultimately, the final system will interrogate strontium atoms at \SI{698}{\nano\meter} rather than the \SI{650}{\nano\meter} of our test laser diode. The selected configuration will likely need to be re-characterized with the clock laser, since the transverse wavenumber $k_r$ and Bessel zone geometry scale with wavelength.
+Several open questions remain. First, we have not measured how the first $1/2$~in. steering mirror (mirror 1 in \autoref{fig:theory_geometric_model}) affects the beam profile. The mirror sits upstream of the Bessel zone, and diffraction from its edges could distort the structure of the beam before it reaches the atoms. Second, axicons with 2~in. diameter have been ordered to raise the cap on $L_{12}$ that the 1~in. aperture imposes. Third, day-to-day alignment drift limited the repeatability of our measurements, so the beam alignment should be monitored continuously. The automated alignment tool we built\footnotemark[3] could be run between measurements to detect drift and alert when remediation is required. The alignment tool could also be extended to drive motorized translation mounts, ensuring the axicon lenses are always aligned to a certain tolerance. Ultimately, the final system will interrogate strontium atoms at \SI{698}{\nano\meter} rather than the \SI{650}{\nano\meter} of our test laser diode. The selected configuration will likely need to be re-characterized with the clock laser, since the transverse wavenumber $k_r$ and Bessel zone geometry scale with wavelength.
 
 \footnotetext[3]{\url{https://github.com/leigh-johnson/bessel_beam_profiler/blob/main/docs/axicon_alignment.md}}
 
