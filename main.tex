@@ -45,23 +45,8 @@
 %  ABSTRACT (comes BEFORE \maketitle in REVTeX)
 % ============================================================
 \begin{abstract}
-  Optical lattice clocks are precise enough to resolve the gravitational
-  redshift at tabletop scale, and extending that measurement across a
-  \SI{1}{\meter} vertical baseline requires a clock-interrogation beam
-  that stays uniform over the full interrogation path, which is not possible with a Gaussian beam. We designed, built, and characterized a three-axicon system that forms a zeroth-order Bessel beam from 1~in.\ optics, and evaluated four candidates for strontium clock interrogation beams. Using a motorized three-axis gantry purpose-built for this study, we sampled
-  the beam profile over \SI{2}{\meter} of propagation. Every configuration produced a Bessel core with
-  mean diameter within 8\% of the ideal $J_0^2$ value. None produced a core large enough
-  for the clock. The widest central lobe measured
-  \SI{125.6}{\micro\meter} FWHM against a required \SI{300}{\micro\meter}.
-  A quasi-discrete
-  Hankel transform model with no free parameters predicted the start of
-  the Bessel zone within 10\% and its length within 8\% for two out of three modeled configurations. A geometric ray model located the zone
-  start comparably well but overestimated its length by 42-89\%. None
-  of the four configurations met all tested design requirements. The longest
-  zone we measured was ${>}\SI{0.83}{\meter}$ against a \SI{1}{\meter}
-  target, and the on-axis intensity varied by 48-63\% peak-to-peak
-  within all measured Bessel zones. The 1~in.\ aperture caps the axicon 1-2 separation
-  $L_{12}$, which limits the zone length and influences the on-axis intensity ripple.
+
+  Optical lattice clocks can resolve gravitational redshift at tabletop scale, but extending measurements across a \SI{1}{\meter} vertical baseline requires a clock-interrogation beam with uniform intensity over the full path. We designed, built, and characterized a three-axicon system that forms a zeroth-order Bessel beam from 1~in.\ optics and evaluated four configurations for strontium clock interrogation. Using a purpose-built motorized three-axis imaging system, we profiled the beam over \SI{2}{\meter} of propagation. All four produced Bessel cores with mean diameter within 8\% of the ideal $J_0^2$ value, but none met the required \SI{300}{\micro\meter} FWHM. The widest measured central lobe was \SI{125.6}{\micro\meter}. A quasi-discrete Hankel transform (QDHT) model with no free parameters predicted Bessel-zone start within 10\% and length within 8\% for two of three modeled configurations. A geometric ray model predicted the start comparably well but overestimated zone length by 42--89\%. The longest measured zone was ${>}\SI{0.83}{\meter}$ against a \SI{1}{\meter} target, while on-axis intensity varied by 48--63\% peak-to-peak in all measured zones. The 1~in.\ aperture limits axicon separation $L_{12}$, constraining zone length and influencing intensity ripple. None of the four configurations met all design requirements.
 \end{abstract}
 \maketitle
 
@@ -98,7 +83,7 @@ This study addresses one primary question: can a three-axicon system built from 
   \item Bessel region fits within 1/2~in.\ mirror (mirror 1, entrance to science chamber).
   \item Annulus after Bessel region is larger than 1/2~in.\ (minimize reflections off mirror 2 in the science chamber).
 \end{enumerate}
-We tested this by building four candidate configurations and comparing the measured Bessel zone of each against models described in \autoref{sec:geometric_model} and \autoref{sec:qdht_model}.
+We tested this by building four candidate configurations (\autoref{tab:configs}) and comparing the measured Bessel zone of each against models described in \autoref{sec:geometric_model} and \autoref{sec:qdht_model}.
 
 \begin{figure*}[!t]
   \includegraphics[width=\textwidth]{geometric_model}
