@@ -14,5 +14,5 @@ Note: some notebooks in `notebooks/` directory depend on simulator code, see bel
 ## Simulator + Streamlit Webapp
 Repo: https://github.com/leigh-johnson/bessel_beam_simulator_webapp
 
-Contains the geometric/QDHT simulator code (used in notebook analysis), plus a Streamlit wrapper to interact with models in a web application. Deployed to: https://bessel-beam.streamlit.app/
+Contains the geometric/QDHT simulator code (used in notebook analysis), plus a Streamlit wrapper to interact with models in a web application. Deployed to: https://besselbeam.streamlit.app/
 
