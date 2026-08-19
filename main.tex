@@ -53,7 +53,7 @@
 % ============================================================
 \begin{abstract}
 
-  We designed, built, and characterized a three-axicon system that forms a zeroth-order Bessel beam from 1~in.\ optics and evaluated four configurations for the interrogation beam in a strontium optical lattice clock. Using a purpose-built motorized three-axis imaging system, we profiled the beam over \SI{2}{\meter} of propagation. All four produced Bessel cores with mean diameter within 8\% of the ideal $J_0^2$ value, but none met the required \SI{300}{\micro\meter} FWHM. The widest measured central lobe was \SI{125.6}{\micro\meter}. A quasi-discrete Hankel transform (QDHT) model with no free parameters predicted Bessel-zone start within 10\% and length within 8\% for two of three modeled configurations. A geometric ray model predicted the start comparably well but overestimated zone length by 42--89\%. The longest measured zone was ${>}\SI{0.83}{\meter}$ against a \SI{1}{\meter} target, while on-axis intensity varied by 48--63\% peak-to-peak in all measured zones. The 1~in.\ aperture limits axicon separation distance, which limits zone length and creates periodic ripples in intensity along the propagation axis. None of the four configurations met all design requirements.
+  We designed, built, and characterized a three-axicon system that forms a zeroth-order Bessel beam from 1~in.\ optics and evaluated four configurations for the interrogation beam in a strontium optical lattice clock. Using a purpose-built motorized three-axis imaging system, we profiled the beam over \SI{2}{\meter} of propagation. All four produced Bessel cores with mean diameter within 8\% of the ideal $J_0^2$ value, but none met the required \SI{300}{\micro\meter} FWHM. The widest measured central lobe was \SI{125.6}{\micro\meter}. A quasi-discrete Hankel transform (QDHT) model with no free parameters predicted Bessel-zone start within 10\% and length within 8\% for two of three modeled configurations. A geometric ray model predicted the start comparably well but overestimated zone length by 42--89\%. The longest measured zone was ${>}\SI{0.83}{\meter}$ against a \SI{1}{\meter} target, while on-axis intensity varied by 48--63\% peak-to-peak in all measured zones. The 1~in.\ aperture sets a constraint on the axicon separation distance $L_{12}$, which in turn limits zone length and creates periodic ripples in intensity along the propagation axis. None of the four configurations met all design requirements.
 \end{abstract}
 \maketitle
 
@@ -198,14 +198,6 @@ filter directly onto a monochrome CMOS sensor (FLIR BFS-PGE-31S4M-C,
 $2048 \times 1536$ pixels, \SI{3.45}{\micro\meter} pixel size) mounted
 on a motorized three-axis CNC gantry built for this project, which allowed us to sample the beam profile along \SI{2}{\meter} of propagation with repeatable sub-millimeter positioning. The gantry has \SI{130}{\milli\meter} of travel along the propagation direction and \SI{100}{\milli\meter} of travel in the transverse XY plane. Because the $z$ travel is shorter than the region of interest, we repositioned the gantry by hand along the optical table to cover the full \SI{2}{\meter} propagation path. Each placement is registered against a sheet of \SI{1}{\centi\meter} graph paper fixed to the table (\autoref{fig:gantry_isometric_photo}), so the measurement position is repeatable between runs. At each plane the acquisition software locates the beam and sets the exposure time automatically, so that the brightest pixel in the plane falls below a saturation threshold. It also collects dark frames for background subtraction. If the beam diameter is larger than the camera sensor, the profiler software collects a grid of images and stitches them into a single composite image.
 
-\begin{figure}[htbp]
-  \includegraphics[width=.75\linewidth]{gantry_isometric_photo}
-  \caption{\label{fig:gantry_isometric_photo} We built a
-    motorized three-axis CNC gantry for this project. The
-    CMOS camera rides on the moving
-    stage and images the beam through an OD${=}4.0$ filter. The \SI{1}{\centi\meter} graph paper beneath the gantry frame registers each hand-placement of the gantry along the optical table.}
-\end{figure}
-
 \subsection{Metrics}\label{sec:metrics}
 From each plane, we crop the image to the central Bessel lobe. We report intensity as pixel counts / exposure time, so planes recorded with different exposures are comparable. We extract the on-axis intensity $I(r=0, z)$ by fitting a $J_0^2$ function to the data (see \autoref{fig:placement_cmp_report_jul29}), where the amplitude $A$ represents the peak intensity of the plane. From the fitted $k_r$ wavenumber, we calculate the central lobe diameter $\varnothing$ and mean radial FWHM $\langle \mathrm{FWHM} \rangle_r$. The measured Bessel zone $Z_R$ is the interval between the outermost points at which $I(r=0, z)$ falls to $50\%$ of its maximum, and $\Delta Z_R$ is the length of that interval. The ripple metric is the peak-to-peak variation of $I(r=0, z)$ within the measured Bessel zone, normalized to the mean on-axis intensity.
 The beam profiling software, analysis notebooks, and mechanical designs are open source\footnotemark[2].
@@ -269,7 +261,7 @@ The longest Bessel zone was ${>}\SI{0.83}{\meter}$ against a
 \SI{1}{\meter} target. The largest central lobe was
 \SI{125.6}{\micro\meter} FWHM against the \SI{300}{\micro\meter}
 needed to contain the atom cloud. The on-axis intensity varied by
-48-63\% of the mean, so it was not uniform. Requirements~4
+48-63\% of the peak value, so it was not uniform. Requirements~4
 and~5 (tests concerned with the two science-chamber mirrors) are deferred to future work (\autoref{sec:future_work}).
 
 The measured Bessel zone for each configuration is summarized in \autoref{tab:results_summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges. We evaluated four candidates, described in \autoref{tab:configs}. The QDHT simulation consistently predicted the starting point of the Bessel range for three candidates within $10\%$ agreement. In two of the three modeled candidates, the Bessel zone length was within $8\%$ agreement with the QDHT simulation. The geometric model consistently predicted the start of the Bessel zone within $3.6\%$ to $5.6\%$ agreement but overestimated the Bessel zone length by $+42\%$ to $+89\%$.
@@ -404,6 +396,24 @@ All plots are shown for a fixed input beam diameter $D = \SI{4.59}{\milli\meter}
 \end{figure}
 
 \clearpage
+\section{Beam Imaging and Profiling System}\label{sec:beam_imaging_profiling_system}
+\begin{figure}[h]
+  \includegraphics[width=0.75\linewidth]{manual_translation_stage}
+  \caption{\label{fig:manual_translation_stage.png} Manual translation stage used for initial beam profiling. The stage has \SI{250}{\milli\meter} travel in the transverse xy plane, and has to be manually repositioned at every sampling point along the $z$-axis (propagation direction).}
+\end{figure}
+\begin{figure}[h]
+  \includegraphics[width=0.9\linewidth]{gantry_isometric_photo}
+  \caption{\label{fig:gantry_isometric_photo} We built a
+    motorized three-axis CNC gantry for this project. The
+    CMOS camera rides on the moving
+    stage and images the beam through an OD${=}4.0$ filter. The \SI{1}{\centi\meter} graph paper beneath the gantry frame registers each hand-placement of the gantry along the optical table with a unique identifier (e.g. Jul23\_001). The gantry has \SI{130}{\milli\meter} of travel along the propagation direction and \SI{100}{\milli\meter} of travel in the transverse XY plane.}
+\end{figure}
+\begin{figure}[h]
+  \includegraphics[width=0.9\linewidth]{gantry_2m_rails}
+  \caption{\label{fig:2m_linear_rails} In the final week of the project, we installed a pair of \SI{2}{\meter} linear rails to extend the travel of the gantry along the propagation direction. Instead of repositioning the gantry by hand and aligning all axes to graph paper placements, we can now slide it along the rails.}
+\end{figure}
+
+\clearpage
 \section{Axicon Alignment Tool}\label{sec:axicon_alignment_cli}
 A command-line interface (CLI) tool was developed to assist with alignment of three-axicon system. The tool uses the CMOS camera on the gantry to continuously capture images of the beam at two planes along the axis of propagation. In most cases, the beam diameter exceeds the dimensions of the camera sensor so the tool collects a grid of images and stitches them into a single composite image.
 
@@ -422,4 +432,6 @@ After repeated visits to the same plane, the tool reports $dX$ and $dY$ offsets 
   \includegraphics[width=\linewidth]{annulus_composites}
   \caption{\label{fig:annulus_composites} (a)(b) Composite images of the annulus for candidate \#2 before (a) and after (b) alignment. (c)(d) Composite images of the annulus for candidate \#3 before (c) and after (d) alignment.}
 \end{figure}
+
+\clearpage
 \end{document}
