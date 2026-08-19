@@ -29,7 +29,7 @@
 %  Guide asks for: Project Title / Scholar name / Mentor name /
 %  Professor lab
 % ============================================================
-\title{Bessel Beam Optics for Interrogation of \\ 1-Meter Vertical Strontium Optical Lattice Clock \\[0.4em] \normalsize\normalfont Physics Innovators Initiative (Pi$^2$) Summer 2026 Cohort}
+\title{Bessel Beam Optics for Interrogation of a \\ 1-Meter Vertical Strontium Optical Lattice Clock \\[0.4em] \normalsize\normalfont Physics Innovators Initiative (Pi$^2$) Summer 2026 Cohort}
 \author{Leigh Zaman}
 \email{leighzaman@berkeley.edu}
 \affiliation{Kolkowitz Group, Department of Physics, University of California, Berkeley, CA}
@@ -53,7 +53,7 @@
 % ============================================================
 \begin{abstract}
 
-  We designed, built, and characterized a three-axicon system that forms a zeroth-order Bessel beam from 1~in.\ optics and evaluated four configurations for the interrogation beam in a strontium optical lattice clock. Using a purpose-built motorized three-axis imaging system, we profiled the beam over \SI{2}{\meter} of propagation. All four produced Bessel cores with mean diameter within 8\% of the ideal $J_0^2$ value, but none met the required \SI{300}{\micro\meter} FWHM. The widest measured central lobe was \SI{125.6}{\micro\meter}. A quasi-discrete Hankel transform (QDHT) model with no free parameters predicted Bessel-zone start within 10\% and length within 8\% for two of three modeled configurations. A geometric ray model predicted the start comparably well but overestimated zone length by 42--89\%. The longest measured zone was ${>}\SI{0.83}{\meter}$ against a \SI{1}{\meter} target, while on-axis intensity varied by 48--63\% peak-to-peak in all measured zones. The 1~in.\ aperture limits axicon separation distance, which limits zone length and creates periodic ripples in intensity along the propagation axis. None of the four configurations met all design requirements.
+  We designed, built, and characterized a three-axicon system that forms a zeroth-order Bessel beam from 1~in.\ optics and evaluated four configurations for the interrogation beam in a strontium optical lattice clock. Using a purpose-built motorized three-axis imaging system, we profiled the beam over \SI{2}{\meter} of propagation. All four produced Bessel cores with mean diameter within 8\% of the ideal $J_0^2$ value, but none met the required \SI{300}{\micro\meter} FWHM. The widest measured central lobe was \SI{125.6}{\micro\meter}. A quasi-discrete Hankel transform (QDHT) model with no free parameters predicted Bessel-zone start within 10\% and length within 8\% for two of three modeled configurations. A geometric ray model predicted the start comparably well but overestimated zone length by 42--89\%. The longest measured zone was ${>}\SI{0.83}{\meter}$ against a \SI{1}{\meter} target, while on-axis intensity varied by 48--63\% peak-to-peak in all measured zones. The 1~in.\ aperture sets a constraint on the axicon separation distance $L_{12}$, which in turn limits zone length and limits the suppression of periodic ripples in intensity along the propagation axis. None of the four configurations met all design requirements.
 \end{abstract}
 \maketitle
 
@@ -91,7 +91,7 @@ This study addresses one primary question: can a three-axicon system built from 
   \item Beam within the Bessel region fits within 1/2~in.\ mirror aperture (mirror 1 in \autoref{fig:theory_geometric_model}, entrance to science chamber).
   \item Annulus after Bessel region is larger than 1/2~in.\, to minimize reflections off mirror 2 in \autoref{fig:theory_geometric_model}.
 \end{enumerate}
-We tested this by building four candidate configurations (\autoref{tab:configs}) and comparing the measured Bessel zone of each against models described in \autoref{sec:geometric_model} and \autoref{sec:qdht_model}.
+We tested this by building four candidate configurations (\autoref{tab:configs}) and comparing the measured Bessel zone of each against models described in \nameref{sec:geometric_model} and \nameref{sec:qdht_model}.
 
 \begin{figure*}[!t]
   \includegraphics[width=\textwidth]{geometric_model}
@@ -126,7 +126,7 @@ Since the idealized optical system is rotationally symmetric about the propagati
 Our QDHT model implementation accepts only measured quantities as inputs: the Gaussian input beam waist $w_0$, the axicon base angles $\alpha_1$, $\alpha_2$, and $\alpha_3$, the axicon separations $L_{12}$ and $L_{23}$, and the wavelength $\lambda$. The model has no free parameters fit to our data. The QDHT models in \autoref{fig:measured_window_envelopes_lobe_diam_colored} are sampled at $N=4096$ points in the radial direction over a domain padded to $2.5\times$ the Gaussian input beam radius.
 
 
-We implemented both geometric and QDHT models in an open-source Python simulator with an interactive web interface\footnotemark[1]. Parameter sweeps over the axicon angles, separations, and input beam diameter are collected in \autoref{sec:model_parameter_sweeps}.
+We implemented both geometric and QDHT models in an open-source Python simulator with an interactive web interface\footnotemark[1]. Parameter sweeps over the axicon angles, separations, and input beam diameter are collected in \nameref{sec:model_parameter_sweeps}.
 \footnotetext[1]{\url{https://bessel-beam.streamlit.app/}}
 
 \begin{figure}[htbp]
@@ -138,7 +138,7 @@ We implemented both geometric and QDHT models in an open-source Python simulator
   \end{tikzpicture}
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (b)
-    {\includegraphics[width=0.9\linewidth]{theory_three_axicon_L12.png}};
+    {\includegraphics[width=\linewidth]{theory_three_axicon_L12.png}};
     \node[anchor=south west,font=\bfseries,inner sep=2pt]
     at ([yshift=1pt]b.north west) {(b)};
   \end{tikzpicture}
@@ -198,16 +198,8 @@ filter directly onto a monochrome CMOS sensor (FLIR BFS-PGE-31S4M-C,
 $2048 \times 1536$ pixels, \SI{3.45}{\micro\meter} pixel size) mounted
 on a motorized three-axis CNC gantry built for this project, which allowed us to sample the beam profile along \SI{2}{\meter} of propagation with repeatable sub-millimeter positioning. The gantry has \SI{130}{\milli\meter} of travel along the propagation direction and \SI{100}{\milli\meter} of travel in the transverse XY plane. Because the $z$ travel is shorter than the region of interest, we repositioned the gantry by hand along the optical table to cover the full \SI{2}{\meter} propagation path. Each placement is registered against a sheet of \SI{1}{\centi\meter} graph paper fixed to the table (\autoref{fig:gantry_isometric_photo}), so the measurement position is repeatable between runs. At each plane the acquisition software locates the beam and sets the exposure time automatically, so that the brightest pixel in the plane falls below a saturation threshold. It also collects dark frames for background subtraction. If the beam diameter is larger than the camera sensor, the profiler software collects a grid of images and stitches them into a single composite image.
 
-\begin{figure}[htbp]
-  \includegraphics[width=.75\linewidth]{gantry_isometric_photo}
-  \caption{\label{fig:gantry_isometric_photo} We built a
-    motorized three-axis CNC gantry for this project. The
-    CMOS camera rides on the moving
-    stage and images the beam through an OD${=}4.0$ filter. The \SI{1}{\centi\meter} graph paper beneath the gantry frame registers each hand-placement of the gantry along the optical table.}
-\end{figure}
-
 \subsection{Metrics}\label{sec:metrics}
-From each plane, we crop the image to the central Bessel lobe. We report intensity as pixel counts / exposure time, so planes recorded with different exposures are comparable. We extract the on-axis intensity $I(r=0, z)$ by fitting a $J_0^2$ function to the data (see \autoref{fig:placement_cmp_report_jul29}), where the amplitude $A$ represents the peak intensity of the plane. From the fitted $k_r$ wavenumber, we calculate the central lobe diameter $\varnothing$ and mean radial FWHM $\langle \mathrm{FWHM} \rangle_r$. The measured Bessel zone $Z_R$ is the interval between the outermost points at which $I(r=0, z)$ falls to $50\%$ of its maximum, and $\Delta Z_R$ is the length of that interval. The ripple metric is the peak-to-peak variation of $I(r=0, z)$ within the measured Bessel zone, normalized to the mean on-axis intensity.
+From each plane, we crop the image to the central Bessel lobe. We report intensity as pixel counts / exposure time, so planes recorded with different exposures are comparable. We extract the on-axis intensity $I(r=0, z)$ by fitting a $J_0^2$ function to the data (see \autoref{fig:placement_cmp}), where the amplitude $A$ represents the peak intensity of the plane. From the fitted $k_r$ wavenumber, we calculate the central lobe diameter $\varnothing$ and mean radial FWHM $\langle \mathrm{FWHM} \rangle_r$. The measured Bessel zone $Z_R$ is the interval between the outermost points at which $I(r=0, z)$ falls to $50\%$ of its maximum, and $\Delta Z_R$ is the length of that interval. The ripple metric is the peak-to-peak variation of $I(r=0, z)$ within the measured Bessel zone.
 The beam profiling software, analysis notebooks, and mechanical designs are open source\footnotemark[2].
 
 \footnotetext[2]{\url{https://github.com/leigh-johnson/bessel_beam_profiler}}
@@ -228,11 +220,11 @@ The beam profiling software, analysis notebooks, and mechanical designs are open
     ($\pm$ imaging system $z$-step size). The mean core diameter $\varnothing$ and core
     FWHM are averages of the per-plane $J_0^2$ fits within the measured
     Bessel zone (deviation from ideal value in parentheses). The geometric
-    range is calculated by the method described in \autoref{sec:geometric_model}; the QDHT range is
-    the FWHM of the modeled on-axis intensity $I(0,z)$ described in \autoref{sec:qdht_model}.
+    range is calculated by the method described in \nameref{sec:geometric_model}; the QDHT range is
+    the FWHM of the modeled on-axis intensity $I(0,z)$ described in \nameref{sec:qdht_model}.
     Parenthetical percentages on model rows give the deviation from the
     measured value, and are upper limits where the measurement is a lower
-    bound. No simulation/model was developed for configuration \#4. Ripple (\%) is the ratio of the peak-to-peak variation in the on-axis intensity $I(0,z)$ to the mean on-axis intensity within the measured Bessel zone. Peak intensity (counts/\si{\micro\second}) is the maximum measured on-axis intensity within the measured Bessel zone, used to normalize the measured on-axis intensity in \autoref{fig:measured_window_envelopes_lobe_diam_colored}.
+    bound. No simulation/model was developed for configuration \#4. Ripple (\%) is the ratio of the peak-to-peak variation in the on-axis intensity $I(0,z)$ within the measured Bessel zone. Peak intensity (counts/\si{\micro\second}) is the maximum measured on-axis intensity within the measured Bessel zone, used to normalize the measured on-axis intensity in \autoref{fig:measured_window_envelopes_lobe_diam_colored}.
     \label{tab:results_summary}}
   \begin{ruledtabular}
     \begin{tabular}{llcccccc}
@@ -254,7 +246,7 @@ The beam profiling software, analysis notebooks, and mechanical designs are open
     \end{tabular}
   \end{ruledtabular}
   \footnotetext[1]{Experimental setup did not allow for measurement of the
-    Bessel zone beyond \SI{2.0}{\meter}. The measured $Z_R$ and $\Delta Z_R$ should be interpreted as lower bounds. See \autoref{sec:future_work} for discussion of how to extend the measurement range.}
+    Bessel zone beyond \SI{2.0}{\meter}. The measured $Z_R$ and $\Delta Z_R$ should be interpreted as lower bounds. See \nameref{sec:future_work} for discussion of how to extend the measurement range.}
   \footnotetext[2]{Alignment of axicons~2 and 3 was sub-optimal, resulting
     in a reduced $\Delta Z_R$. See \autoref{fig:annulus_composites} for a comparison of candidate $\#1$ and $\#3$ alignment.}
   \footnotetext[3]{A limited dataset was collected for configuration \#4.
@@ -264,27 +256,42 @@ The beam profiling software, analysis notebooks, and mechanical designs are open
 
 None of the four configurations using 1~in.\ axicons described in
 \autoref{tab:configs} met the design requirements described in
-\autoref{sec:background}. Three of the five failed on measured data.
+\nameref{sec:background}. Three of the five failed on measured data.
 The longest Bessel zone was ${>}\SI{0.83}{\meter}$ against a
 \SI{1}{\meter} target. The largest central lobe was
 \SI{125.6}{\micro\meter} FWHM against the \SI{300}{\micro\meter}
 needed to contain the atom cloud. The on-axis intensity varied by
-48-63\% of the mean, so it was not uniform. Requirements~4
-and~5 (tests concerned with the two science-chamber mirrors) are deferred to future work (\autoref{sec:future_work}).
+48-63\% of the peak value, so it was not uniform. Requirements~4
+and~5 (tests concerned with the two science-chamber mirrors) are deferred to future work (\nameref{sec:future_work}).
 
 The measured Bessel zone for each configuration is summarized in \autoref{tab:results_summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges. We evaluated four candidates, described in \autoref{tab:configs}. The QDHT simulation consistently predicted the starting point of the Bessel range for three candidates within $10\%$ agreement. In two of the three modeled candidates, the Bessel zone length was within $8\%$ agreement with the QDHT simulation. The geometric model consistently predicted the start of the Bessel zone within $3.6\%$ to $5.6\%$ agreement but overestimated the Bessel zone length by $+42\%$ to $+89\%$.
 
-\begin{figure}[htbp]
-  \includegraphics[width=\linewidth]{placement_cmp_report_jul29}
-  \caption{\label{fig:placement_cmp_report_jul29} Data from the Bessel zone of optics configuration \#2 in \autoref{tab:configs}. (a) Cross-section image of beam profile at $z=$ \SI{175}{\centi\meter}. Image data is cropped to $\pm$ \SI{200}{\micro\meter} of the central Bessel lobe, colored by intensity (pixel counts / exposure time) and normalized.  (b) Measured intensity sampled on a 2x2 pixel grid (6.9 x 6.9 \si{\micro\meter}) and fit to a $J_0^2$ function (black line) to extract the core diameter and FWHM. (c) $z =$ \SI{180}{\centi\meter} cross-section, intensity normalized against the peak intensity measurement at $z=$ \SI{175}{\centi\meter} shown in (a). (d) $J_0^2$ fit to the $z =$ \SI{180}{\centi\meter} cross-section.}
-\end{figure}
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=0.48\textwidth]{placement_cmp_report_jul29}\hfill
+  \includegraphics[width=0.48\textwidth]{placement_cmp_report_aug3}
+  \caption{\label{fig:placement_cmp} Repeatability of the candidate \#2
+    Bessel zone over five days. Left: initial alignment (July 29).
+    Right: the same $z$ positions re-measured on Aug 3. Each half
+    shows $z = \SI{175}{\centi\meter}$ (top) and
+    $z = \SI{180}{\centi\meter}$ (bottom). Within each row, the left
+    panel is the cross-section image of the beam profile cropped to
+    $\pm\SI{200}{\micro\meter}$ of the central Bessel lobe, and the right
+    panel is the intensity along the X and Y chords sampled on a
+    $2\times2$ pixel grid ($6.9\times6.9$~\si{\micro\meter}) with a
+    $J_0^2$ fit to the radial mean. All four rows are normalized to the
+    July 29 peak at $z = \SI{175}{\centi\meter}$, so the lower Aug 3 peak shows the reduction in intensity. The ripple structure
+    and the fitted core diameters are reproduced to within a few percent,
+    but the X chord (blue) deviates more than it
+    did five days earlier. The slight astigmatism in Aug3 was likely caused by a slight horizontal shift compared to the original alignment.}
+\end{figure*}
 
 Candidate \#1 was the baseline configuration, and it established how closely the models describe a well-aligned system. The measured zone length fell within \SI{1}{\centi\meter} of the QDHT prediction, the closest agreement of any candidate, and the core diameter and FWHM tracked the ideal $J_0^2$ values to within 2\% at every plane inside the Bessel zone.
 
 Candidate \#2 used a $2\times$ magnification telescope before axicon~1 to expand the Gaussian input beam. Expanding the input beam substantially increased the Bessel zone length ($\Delta Z_R > 0.83$ m), but at the cost of worse on-axis intensity ripples.
-The spacing $L_{12} = \SI{240}{\milli\meter}$ was the maximum allowed by the 1~in.\ aperture of axicon~2, so this configuration represents the longest Bessel zone reachable with 1~in.\ optics. Space limitations on the optics table prevented full characterization, so $Z_R$ and $\Delta Z_R$ are lower bounds. Core diameter and FWHM tracked the ideal values to within 5\%.
+The spacing $L_{12} = \SI{240}{\milli\meter}$ was the maximum allowed by the 1~in.\ aperture of axicon~2, so this configuration represents the longest Bessel zone measured among our 1~in.\ optics candidates. Space limitations on the optics table prevented full characterization, so $Z_R$ and $\Delta Z_R$ are lower bounds. Core diameter and FWHM tracked the ideal values to within 5\%.
 
-Candidate \#3 repeated candidate \#1 with the axicon spacings changed (\autoref{tab:configs}) to shrink the hollow Gaussian beam reaching axicon~3. It produced the shortest zone among the candidates. The core diameter and FWHM tracked the ideal values to within 1\%. Unfortunately, this comparison is confounded by sub-optimal alignment of axicons~2 and~3, which would contribute to a reduced $\Delta Z_R$ (\autoref{fig:annulus_composites}). We cannot separate the effect of the spacing change from the effect of the misalignment, and this candidate also showed the largest QDHT disagreement in zone length.
+Candidate \#3 repeated candidate \#1 with the axicon spacings changed (\autoref{tab:configs}) to shrink the hollow Gaussian beam reaching axicon~3. It produced the shortest zone among the candidates. The core diameter and FWHM tracked the ideal values to within 1\%. Unfortunately, this comparison is confounded by suboptimal alignment of axicons~2 and~3, which would contribute to a reduced $\Delta Z_R$ (\autoref{fig:annulus_composites}). We cannot separate the effect of the spacing change from the effect of the misalignment, and this candidate also showed the largest QDHT disagreement in zone length.
 
 Candidate \#4 repeated the setup of Candidate \#3, with a $2\times$ magnification telescope placed within the Bessel zone at $z = \SI{120}{\centi\meter}$ after axicon~3. The telescope doubled the transverse core size as expected, but,
 surprisingly, left the Bessel zone length nearly unchanged
@@ -298,19 +305,15 @@ examine this result in Sec.~\ref{sec:telescope}.
 \end{figure*}
 
 \subsection{Ripples in On-Axis Intensity}
-The ripple \% metric is defined in \autoref{sec:metrics}. The on-axis intensity ripples varied by 48-63\% of the mean within every candidate's Bessel zone (see \autoref{fig:measured_window_envelopes_lobe_diam_colored}), which ruled out all four under the uniformity requirement.
+The ripple \% metric is defined in \nameref{sec:metrics}. The on-axis intensity ripples varied by 48-63\% of the peak within every candidate's Bessel zone (see \autoref{fig:measured_window_envelopes_lobe_diam_colored}), which ruled out all four under the uniformity requirement.
 
-In early design/modeling stages, we were unsure if the on-axis intensity ripples were a numerical artifact of the simulation sampling/aliasing. However, the ripples persisted across a wide range of sampling parameters. Initial measurements with a manual translation stage (see figure TODO) were too coarse to resolve them, but finer scans with the motorized gantry revealed on-axis intensity modulations in agreement with those predicted analytically by Rao~\cite{raoOnaxisIntensityModulationfree2018} and reproduced by the QDHT simulations.
+In early design/modeling stages, we were unsure if the on-axis intensity ripples were a numerical artifact of the simulation sampling/aliasing. However, the ripples persisted across a wide range of sampling parameters. Initial measurements with a manual translation stage (\autoref{fig:manual_translation_stage}) were too coarse to resolve them, but finer scans with the motorized gantry revealed on-axis intensity modulations in agreement with those predicted analytically by Rao~\cite{raoOnaxisIntensityModulationfree2018} and reproduced by the QDHT simulations.
 
 \subsection{Axicon Alignment Drift}
 To test repeatability, we re-measured three $z$ positions of candidate
 \#2's Bessel zone five days after the original scan
-(\autoref{fig:placement_cmp_report_jul29} vs. \autoref{fig:placement_cmp_report_aug3}). We reproduced the intensity ripples. The fitted core diameters agreed within a few percent, but the peak intensity dropped from 0.48 to 0.33 counts/\si{\micro\second}, suggesting the drift did not occur uniformly. In \autoref{fig:placement_cmp_report_aug3}, the X-chord (blue dots) shifted more than the Y-chord (orange dots), resulting in a slight astigmatism. Fixing it required systematically adjusting the horizontal axes of all XY translation mounts to locate the source.
+(\autoref{fig:placement_cmp}). We reproduced the intensity ripples. The fitted core diameters agreed within a few percent, but the peak intensity dropped from 0.48 to 0.33 counts/\si{\micro\second}, suggesting the drift did not occur uniformly. In the August 3 scan (\autoref{fig:placement_cmp}, right), the X-chord (blue dots) shifted more than the Y-chord (orange dots), resulting in a slight astigmatism. Fixing it required systematically adjusting the horizontal axes of all XY translation mounts to locate the source.
 
-\begin{figure}[htbp]
-  \includegraphics[width=\linewidth]{placement_cmp_report_aug3}
-  \caption{\label{fig:placement_cmp_report_aug3} TODO caption about alignment drift.}
-\end{figure}
 
 \subsection{Effect of M=2x Telescope}\label{sec:telescope}
 Candidate \#4 placed a $2\times$ magnification telescope inside the
@@ -346,8 +349,7 @@ did not meet the clock-interrogation requirements. The longest measured
 zone (${>}0.83$~m) fell short of the \SI{1}{\meter} target. The central
 lobe reached at most \SI{125.6}{\micro\meter} FWHM, well under the
 \SI{300}{\micro\meter} specified atom cloud diameter. The on-axis
-intensity ripple of 48-63\% far exceeded any acceptable uniformity
-threshold for clock interrogation.
+intensity ripple of 48-63\% failed the uniformity requirement.
 
 Another open issue is day-to-day alignment drift, which needs characterization before any configuration is adopted. These results motivate the future work below,
 as well as the tooling we built to reduce the cost of every iteration
@@ -358,18 +360,22 @@ tooling).
 Several open questions remain. First, we have not measured how the first $1/2$~in. steering mirror (mirror 1 in \autoref{fig:theory_geometric_model}) affects the beam profile. The mirror sits upstream of the Bessel zone, and diffraction from its edges could distort the structure of the beam before it reaches the atoms. Second, axicons with 2~in. diameter have been ordered to raise the cap on $L_{12}$ that the 1~in. aperture imposes. Third, day-to-day alignment drift limited the repeatability of our measurements, so the beam alignment should be monitored continuously. The automated alignment tool we built\footnotemark[3] could be run between measurements to detect drift and alert when remediation is required. The alignment tool could also be extended to drive motorized translation mounts, ensuring the axicon lenses are always aligned to a certain tolerance. Ultimately, the final system will interrogate strontium atoms at \SI{698}{\nano\meter} rather than the \SI{650}{\nano\meter} of our test laser diode. The selected configuration will likely need to be re-characterized with the clock laser, since the transverse wavenumber $k_r$ and Bessel zone geometry scale with wavelength.
 
 \footnotetext[3]{\url{https://github.com/leigh-johnson/bessel_beam_profiler/blob/main/docs/axicon_alignment.md}}
-
-
-
 % ============================================================
 %  ACKNOWLEDGMENTS
 % ============================================================
+\newpage
 \begin{acknowledgments}
   Thank you to Anke Stoeltzel, Shuo Ma, Shimon Kolkowitz and the Kolkowitz Group for their support and guidance. This work was supported by the Pi$^2$ program and the UC Berkeley Physics Department.
 
-  We acknowledge the use of Claude (Anthropic) for assistance with editing, literature review, Python code development, and LaTeX formatting. We take full responsibility for all scientific arguments, results, and conclusions presented in this report. This acknowledgment was inspired by Ref.~\cite{ceriottiEditorialPublishingPhysical2026}.
+  L.Z. used Claude Fable/Opus 5 (Anthropic) for assistance with CAD step file generation (used for 3D-printed components), literature review, Python code development, and LaTeX formatting. L.Z. takes full responsibility for all scientific arguments, results, and conclusions presented in this report. This acknowledgment was inspired by \citet{ceriottiEditorialPublishingPhysical2026}.
 \end{acknowledgments}
 
+\section{Data \& Software Availability}
+The beam imaging code and all data referenced in this study are available at the following GitHub repository: \url{https://github.com/leigh-johnson/bessel_beam_profiler}.
+
+The geometric model, QDHT model, and interactive simulation deployed as a web application are available at: \url{https://github.com/leigh-johnson/bessel_beam_simulator_webapp}
+
+This report is available at: \url{https://github.com/leigh-johnson/bessel_beam_report}
 
 % ============================================================
 %  BIBLIOGRAPHY (entries live in references.bib)
@@ -383,7 +389,7 @@ Several open questions remain. First, we have not measured how the first $1/2$~i
 \appendix
 
 \section{QDHT Model Parameter Sweeps}\label{sec:model_parameter_sweeps}
-The QDHT model described in \autoref{sec:qdht_model} was used to sweep the axicon angles, separations, and Gaussian input beam diameter. The results are shown in \autoref{fig:theory_single_axicon_angle_core}, \autoref{fig:theory_axicon_angle_sweep_D=4_59mm}, \autoref{fig:theory_axicon_angle_sweep_gain_D=4_59mm}, and \autoref{fig:theory_single_axicon_diameter}. The model predicts that the Bessel zone length is most sensitive to axicon~3 angle $\alpha_3$ and the Gaussian input beam diameter $D$. The Bessel core diameter is set by axicon~3 angle $\alpha_3$ (and if applicable, any telescope placed in the Bessel region). The on-axis uniformity is governed by the quality of the Hollow Gaussian beam, which is set by the axicon~1-2 separation $L_{12}$.
+The QDHT model described in \nameref{sec:qdht_model} was used to sweep the axicon angles, separations, and Gaussian input beam diameter. The results are shown in \autoref{fig:theory_single_axicon_angle_core}, \autoref{fig:theory_axicon_angle_sweep_D=4_59mm}, \autoref{fig:theory_axicon_angle_sweep_gain_D=4_59mm}, and \autoref{fig:theory_single_axicon_diameter}. The model predicts that the Bessel zone length is most sensitive to axicon~3 angle $\alpha_3$ and the Gaussian input beam diameter $D$. The Bessel core diameter is set by axicon~3 angle $\alpha_3$ (and if applicable, any telescope placed in the Bessel region). The on-axis uniformity is governed by the quality of the Hollow Gaussian beam, which is set by the axicon~1-2 separation $L_{12}$.
 
 All plots are shown for a fixed input beam diameter $D = \SI{4.59}{\milli\meter}$ at wavelength $\lambda = \SI{650}{\nano\meter}$, unless otherwise noted.
 \begin{figure}[htbp]
@@ -401,6 +407,24 @@ All plots are shown for a fixed input beam diameter $D = \SI{4.59}{\milli\meter}
 \begin{figure}[ht]
   \includegraphics[width=\linewidth]{theory_single_axicon_diameter.png}
   \caption{\label{fig:theory_single_axicon_diameter}QDHT model simulation of Gaussian input beam diameter $D$ on Bessel zone length for fixed axicon angle $\alpha = \SI{1.0}{\degree}$. The Bessel zone length is calculated from the 50\% crossings of the on-axis intensity $I(0,z)$. All curves are normalized with respect to its own peak intensity. Fixed  wavelength $\lambda = \SI{650}{\nano\meter}$. }
+\end{figure}
+
+\clearpage
+\section{Beam Imaging and Profiling System}\label{sec:beam_imaging_profiling_system}
+\begin{figure}[h]
+  \includegraphics[width=0.75\linewidth]{manual_translation_stage}
+  \caption{\label{fig:manual_translation_stage} Manual translation stage used for initial beam profiling. The stage has \SI{250}{\milli\meter} travel in the transverse xy plane, and has to be manually repositioned at every sampling point along the $z$-axis (propagation direction).}
+\end{figure}
+\begin{figure}[h]
+  \includegraphics[width=0.9\linewidth]{gantry_isometric_photo}
+  \caption{\label{fig:gantry_isometric_photo} We built a
+    motorized three-axis CNC gantry for this project. The
+    CMOS camera rides on the moving
+    stage and images the beam through an OD${=}4.0$ filter. The \SI{1}{\centi\meter} graph paper beneath the gantry frame registers each hand-placement of the gantry along the optical table with a unique identifier (e.g. Jul23\_001). The gantry has \SI{130}{\milli\meter} of travel along the propagation direction and \SI{100}{\milli\meter} of travel in the transverse XY plane.}
+\end{figure}
+\begin{figure}[h]
+  \includegraphics[width=0.9\linewidth]{gantry_2m_rails}
+  \caption{\label{fig:2m_linear_rails} In the final week of the project, we installed a pair of \SI{2}{\meter} linear rails to extend the travel of the gantry along the propagation direction. Instead of repositioning the gantry by hand and aligning all axes to graph paper placements, we can now slide it along the rails.}
 \end{figure}
 
 \clearpage
@@ -422,4 +446,6 @@ After repeated visits to the same plane, the tool reports $dX$ and $dY$ offsets 
   \includegraphics[width=\linewidth]{annulus_composites}
   \caption{\label{fig:annulus_composites} (a)(b) Composite images of the annulus for candidate \#2 before (a) and after (b) alignment. (c)(d) Composite images of the annulus for candidate \#3 before (c) and after (d) alignment.}
 \end{figure}
+
+\clearpage
 \end{document}

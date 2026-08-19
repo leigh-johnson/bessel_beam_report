@@ -11,7 +11,27 @@
 \usepackage{siunitx}    % \SI{1}{\meter}, \si{\micro\radian}, ...
 \usepackage{array} % \raggedright in table
 \usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
-
+% revtex4-2 overrides the `\label' command in LaTex kernel (ffs WHY!?)
+% which breaks hyperref (in particular nameref renders as an empty string)
+% since this isn't an actual journal submission, I'm applying a patch to restore the original behavior
+% --- make nameref work with revtex4-2 -------------------------------
+% revtex defines \@sect@ltx/\@ssect@ltx instead of the kernel's
+% \@sect/\@ssect, so nameref's title capture never fires for sections
+% and \nameref returns empty. Patch revtex's versions the same way.
+\makeatletter
+\@ifundefined{@sect@ltx}{}{%
+    \let\NRrevtex@sect@ltx\@sect@ltx
+    \def\@sect@ltx#1#2#3#4#5#6[#7]#8{%
+        \NR@gettitle{#7}%
+        \NRrevtex@sect@ltx{#1}{#2}{#3}{#4}{#5}{#6}[{#7}]{#8}}%
+}
+\@ifundefined{@ssect@ltx}{}{%
+    \let\NRrevtex@ssect@ltx\@ssect@ltx
+    \def\@ssect@ltx#1#2#3#4#5#6[#7]#8{%
+        \NR@gettitle{#7}%
+        \NRrevtex@ssect@ltx{#1}{#2}{#3}{#4}{#5}{#6}[{#7}]{#8}}%
+}
+\makeatother
 % Bibliography
 % \bibliography{references} % points to references.bib
 % table row colors
