@@ -138,7 +138,7 @@ We implemented both geometric and QDHT models in an open-source Python simulator
   \end{tikzpicture}
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (b)
-    {\includegraphics[width=0.9\linewidth]{theory_three_axicon_L12.png}};
+    {\includegraphics[width=\linewidth]{theory_three_axicon_L12.png}};
     \node[anchor=south west,font=\bfseries,inner sep=2pt]
     at ([yshift=1pt]b.north west) {(b)};
   \end{tikzpicture}
@@ -292,7 +292,7 @@ examine this result in Sec.~\ref{sec:telescope}.
 \subsection{Ripples in On-Axis Intensity}
 The ripple \% metric is defined in \autoref{sec:metrics}. The on-axis intensity ripples varied by 48-63\% of the mean within every candidate's Bessel zone (see \autoref{fig:measured_window_envelopes_lobe_diam_colored}), which ruled out all four under the uniformity requirement.
 
-In early design/modeling stages, we were unsure if the on-axis intensity ripples were a numerical artifact of the simulation sampling/aliasing. However, the ripples persisted across a wide range of sampling parameters. Initial measurements with a manual translation stage (see figure TODO) were too coarse to resolve them, but finer scans with the motorized gantry revealed on-axis intensity modulations in agreement with those predicted analytically by Rao~\cite{raoOnaxisIntensityModulationfree2018} and reproduced by the QDHT simulations.
+In early design/modeling stages, we were unsure if the on-axis intensity ripples were a numerical artifact of the simulation sampling/aliasing. However, the ripples persisted across a wide range of sampling parameters. Initial measurements with a manual translation stage (\autoref{fig:manual_translation_stage}) were too coarse to resolve them, but finer scans with the motorized gantry revealed on-axis intensity modulations in agreement with those predicted analytically by Rao~\cite{raoOnaxisIntensityModulationfree2018} and reproduced by the QDHT simulations.
 
 \subsection{Axicon Alignment Drift}
 To test repeatability, we re-measured three $z$ positions of candidate
@@ -350,18 +350,22 @@ tooling).
 Several open questions remain. First, we have not measured how the first $1/2$~in. steering mirror (mirror 1 in \autoref{fig:theory_geometric_model}) affects the beam profile. The mirror sits upstream of the Bessel zone, and diffraction from its edges could distort the structure of the beam before it reaches the atoms. Second, axicons with 2~in. diameter have been ordered to raise the cap on $L_{12}$ that the 1~in. aperture imposes. Third, day-to-day alignment drift limited the repeatability of our measurements, so the beam alignment should be monitored continuously. The automated alignment tool we built\footnotemark[3] could be run between measurements to detect drift and alert when remediation is required. The alignment tool could also be extended to drive motorized translation mounts, ensuring the axicon lenses are always aligned to a certain tolerance. Ultimately, the final system will interrogate strontium atoms at \SI{698}{\nano\meter} rather than the \SI{650}{\nano\meter} of our test laser diode. The selected configuration will likely need to be re-characterized with the clock laser, since the transverse wavenumber $k_r$ and Bessel zone geometry scale with wavelength.
 
 \footnotetext[3]{\url{https://github.com/leigh-johnson/bessel_beam_profiler/blob/main/docs/axicon_alignment.md}}
-
-
-
 % ============================================================
 %  ACKNOWLEDGMENTS
 % ============================================================
+\newpage
 \begin{acknowledgments}
   Thank you to Anke Stoeltzel, Shuo Ma, Shimon Kolkowitz and the Kolkowitz Group for their support and guidance. This work was supported by the Pi$^2$ program and the UC Berkeley Physics Department.
 
-  We acknowledge the use of Claude (Anthropic) for assistance with editing, literature review, Python code development, and LaTeX formatting. We take full responsibility for all scientific arguments, results, and conclusions presented in this report. This acknowledgment was inspired by Ref.~\cite{ceriottiEditorialPublishingPhysical2026}.
+  We acknowledge the use of Claude (Anthropic) for assistance with editing, literature review, Python code development, and LaTeX formatting. We take full responsibility for all scientific arguments, results, and conclusions presented in this report. This acknowledgment was inspired by \citet{ceriottiEditorialPublishingPhysical2026}.
 \end{acknowledgments}
 
+\section{Data \& Software Availability}
+The beam imaging code and all data referenced in this study are available at the following GitHub repository: \url{https://github.com/leigh-johnson/bessel_beam_profiler}.
+
+The geometric model, QDHT model, and interactive simulation deployed as a web application are available at: \url{https://github.com/leigh-johnson/bessel_beam_simulator_webapp}
+
+This report is available at: \url{https://github.com/leigh-johnson/bessel_beam_report}
 
 % ============================================================
 %  BIBLIOGRAPHY (entries live in references.bib)
@@ -399,7 +403,7 @@ All plots are shown for a fixed input beam diameter $D = \SI{4.59}{\milli\meter}
 \section{Beam Imaging and Profiling System}\label{sec:beam_imaging_profiling_system}
 \begin{figure}[h]
   \includegraphics[width=0.75\linewidth]{manual_translation_stage}
-  \caption{\label{fig:manual_translation_stage.png} Manual translation stage used for initial beam profiling. The stage has \SI{250}{\milli\meter} travel in the transverse xy plane, and has to be manually repositioned at every sampling point along the $z$-axis (propagation direction).}
+  \caption{\label{fig:manual_translation_stage} Manual translation stage used for initial beam profiling. The stage has \SI{250}{\milli\meter} travel in the transverse xy plane, and has to be manually repositioned at every sampling point along the $z$-axis (propagation direction).}
 \end{figure}
 \begin{figure}[h]
   \includegraphics[width=0.9\linewidth]{gantry_isometric_photo}
