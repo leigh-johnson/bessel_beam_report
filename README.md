@@ -1,34 +1,18 @@
-# Pi2 Final Report
+# Bessel Beam Optics for Interrogation of 1-Meter Vertical Strontium Optical Lattice Clock
 
-PRL-style report (REVTeX 4.2), per the Pi2 Report Guide. Target length: ~5 pages in PRL format.
+Research supported by Berkeley Physics Innovators Initiative (Pi^2) program, Summer 2026 cohort.
 
-## Layout
+Final report will be available in `review_drafts/`
 
-- `main.tex` — the report (title block, abstract, sections I–IV per the guide, with commented examples for figures, tables, equations, and citations)
-- `references.bib` — BibTeX database (contains one placeholder entry to replace)
-- `figures/` — put figure files here (`\graphicspath` already points at it)
-- `build.sh` — local build helper
+## Profiling software
+Repo: https://github.com/leigh-johnson/bessel_beam_profiler
 
-## Building
+Contains all data, imaging code, CNC gantry design and 3D-printed components, and notebook analysis used to write this report.
 
-**Overleaf (recommended by the guide):** create a new project and upload this folder's contents; it compiles as-is with the default pdfLaTeX compiler.
+Note: some notebooks in `notebooks/` directory depend on simulator code, see below.
 
-**Locally:** requires a TeX distribution with REVTeX 4.2 (TeX Live: `texlive-publishers`; MacTeX full install includes it).
+## Simulator + Streamlit Webapp
+Repo: https://github.com/leigh-johnson/bessel_beam_simulator_webapp
 
-```sh
-./build.sh              # builds main.pdf
-./build.sh submission   # copies main.pdf to Zaman_Leigh_Pi2_Report.pdf
-./build.sh clean        # removes build artifacts
-```
+Contains the geometric/QDHT simulator code (used in notebook analysis), plus a Streamlit wrapper to interact with models in a web application. Deployed to: https://bessel-beam.streamlit.app/
 
-(First time: `chmod +x build.sh`.)
-
-Or directly: `latexmk -pdf main.tex`
-
-## Drafting tip
-
-While writing, swap the `reprint` option in `main.tex` for `preprint` to get a roomier single-column layout, then switch back to `reprint` to check the real PRL length.
-
-## Submission
-
-Per the guide: export the PDF named `Zaman_Leigh_Pi2_Report.pdf` and upload it to the Pi2 Drive folder by the due date. The Drive folder becomes **publicly available** — check with PI/mentor about any material that shouldn't be public.
