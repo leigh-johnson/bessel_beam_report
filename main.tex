@@ -91,7 +91,7 @@ This study addresses one primary question: can a three-axicon system built from 
   \item Beam within the Bessel region fits within 1/2~in.\ mirror aperture (mirror 1 in \autoref{fig:theory_geometric_model}, entrance to science chamber).
   \item Annulus after Bessel region is larger than 1/2~in.\, to minimize reflections off mirror 2 in \autoref{fig:theory_geometric_model}.
 \end{enumerate}
-We tested this by building four candidate configurations (\autoref{tab:configs}) and comparing the measured Bessel zone of each against models described in \autoref{sec:geometric_model} and \autoref{sec:qdht_model}.
+We tested this by building four candidate configurations (\autoref{tab:configs}) and comparing the measured Bessel zone of each against models described in \nameref{sec:geometric_model} and \nameref{sec:qdht_model}.
 
 \begin{figure*}[!t]
   \includegraphics[width=\textwidth]{geometric_model}
@@ -126,7 +126,7 @@ Since the idealized optical system is rotationally symmetric about the propagati
 Our QDHT model implementation accepts only measured quantities as inputs: the Gaussian input beam waist $w_0$, the axicon base angles $\alpha_1$, $\alpha_2$, and $\alpha_3$, the axicon separations $L_{12}$ and $L_{23}$, and the wavelength $\lambda$. The model has no free parameters fit to our data. The QDHT models in \autoref{fig:measured_window_envelopes_lobe_diam_colored} are sampled at $N=4096$ points in the radial direction over a domain padded to $2.5\times$ the Gaussian input beam radius.
 
 
-We implemented both geometric and QDHT models in an open-source Python simulator with an interactive web interface\footnotemark[1]. Parameter sweeps over the axicon angles, separations, and input beam diameter are collected in \autoref{sec:model_parameter_sweeps}.
+We implemented both geometric and QDHT models in an open-source Python simulator with an interactive web interface\footnotemark[1]. Parameter sweeps over the axicon angles, separations, and input beam diameter are collected in \nameref{sec:model_parameter_sweeps}.
 \footnotetext[1]{\url{https://bessel-beam.streamlit.app/}}
 
 \begin{figure}[htbp]
@@ -220,8 +220,8 @@ The beam profiling software, analysis notebooks, and mechanical designs are open
     ($\pm$ imaging system $z$-step size). The mean core diameter $\varnothing$ and core
     FWHM are averages of the per-plane $J_0^2$ fits within the measured
     Bessel zone (deviation from ideal value in parentheses). The geometric
-    range is calculated by the method described in \autoref{sec:geometric_model}; the QDHT range is
-    the FWHM of the modeled on-axis intensity $I(0,z)$ described in \autoref{sec:qdht_model}.
+    range is calculated by the method described in \nameref{sec:geometric_model}; the QDHT range is
+    the FWHM of the modeled on-axis intensity $I(0,z)$ described in \nameref{sec:qdht_model}.
     Parenthetical percentages on model rows give the deviation from the
     measured value, and are upper limits where the measurement is a lower
     bound. No simulation/model was developed for configuration \#4. Ripple (\%) is the ratio of the peak-to-peak variation in the on-axis intensity $I(0,z)$ to the mean on-axis intensity within the measured Bessel zone. Peak intensity (counts/\si{\micro\second}) is the maximum measured on-axis intensity within the measured Bessel zone, used to normalize the measured on-axis intensity in \autoref{fig:measured_window_envelopes_lobe_diam_colored}.
@@ -246,7 +246,7 @@ The beam profiling software, analysis notebooks, and mechanical designs are open
     \end{tabular}
   \end{ruledtabular}
   \footnotetext[1]{Experimental setup did not allow for measurement of the
-    Bessel zone beyond \SI{2.0}{\meter}. The measured $Z_R$ and $\Delta Z_R$ should be interpreted as lower bounds. See \autoref{sec:future_work} for discussion of how to extend the measurement range.}
+    Bessel zone beyond \SI{2.0}{\meter}. The measured $Z_R$ and $\Delta Z_R$ should be interpreted as lower bounds. See \nameref{sec:future_work} for discussion of how to extend the measurement range.}
   \footnotetext[2]{Alignment of axicons~2 and 3 was sub-optimal, resulting
     in a reduced $\Delta Z_R$. See \autoref{fig:annulus_composites} for a comparison of candidate $\#1$ and $\#3$ alignment.}
   \footnotetext[3]{A limited dataset was collected for configuration \#4.
@@ -256,13 +256,13 @@ The beam profiling software, analysis notebooks, and mechanical designs are open
 
 None of the four configurations using 1~in.\ axicons described in
 \autoref{tab:configs} met the design requirements described in
-\autoref{sec:background}. Three of the five failed on measured data.
+\nameref{sec:background}. Three of the five failed on measured data.
 The longest Bessel zone was ${>}\SI{0.83}{\meter}$ against a
 \SI{1}{\meter} target. The largest central lobe was
 \SI{125.6}{\micro\meter} FWHM against the \SI{300}{\micro\meter}
 needed to contain the atom cloud. The on-axis intensity varied by
 48-63\% of the peak value, so it was not uniform. Requirements~4
-and~5 (tests concerned with the two science-chamber mirrors) are deferred to future work (\autoref{sec:future_work}).
+and~5 (tests concerned with the two science-chamber mirrors) are deferred to future work (\nameref{sec:future_work}).
 
 The measured Bessel zone for each configuration is summarized in \autoref{tab:results_summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges. We evaluated four candidates, described in \autoref{tab:configs}. The QDHT simulation consistently predicted the starting point of the Bessel range for three candidates within $10\%$ agreement. In two of the three modeled candidates, the Bessel zone length was within $8\%$ agreement with the QDHT simulation. The geometric model consistently predicted the start of the Bessel zone within $3.6\%$ to $5.6\%$ agreement but overestimated the Bessel zone length by $+42\%$ to $+89\%$.
 
@@ -305,7 +305,7 @@ examine this result in Sec.~\ref{sec:telescope}.
 \end{figure*}
 
 \subsection{Ripples in On-Axis Intensity}
-The ripple \% metric is defined in \autoref{sec:metrics}. The on-axis intensity ripples varied by 48-63\% of the mean within every candidate's Bessel zone (see \autoref{fig:measured_window_envelopes_lobe_diam_colored}), which ruled out all four under the uniformity requirement.
+The ripple \% metric is defined in \nameref{sec:metrics}. The on-axis intensity ripples varied by 48-63\% of the mean within every candidate's Bessel zone (see \autoref{fig:measured_window_envelopes_lobe_diam_colored}), which ruled out all four under the uniformity requirement.
 
 In early design/modeling stages, we were unsure if the on-axis intensity ripples were a numerical artifact of the simulation sampling/aliasing. However, the ripples persisted across a wide range of sampling parameters. Initial measurements with a manual translation stage (\autoref{fig:manual_translation_stage}) were too coarse to resolve them, but finer scans with the motorized gantry revealed on-axis intensity modulations in agreement with those predicted analytically by Rao~\cite{raoOnaxisIntensityModulationfree2018} and reproduced by the QDHT simulations.
 
@@ -390,7 +390,7 @@ This report is available at: \url{https://github.com/leigh-johnson/bessel_beam_r
 \appendix
 
 \section{QDHT Model Parameter Sweeps}\label{sec:model_parameter_sweeps}
-The QDHT model described in \autoref{sec:qdht_model} was used to sweep the axicon angles, separations, and Gaussian input beam diameter. The results are shown in \autoref{fig:theory_single_axicon_angle_core}, \autoref{fig:theory_axicon_angle_sweep_D=4_59mm}, \autoref{fig:theory_axicon_angle_sweep_gain_D=4_59mm}, and \autoref{fig:theory_single_axicon_diameter}. The model predicts that the Bessel zone length is most sensitive to axicon~3 angle $\alpha_3$ and the Gaussian input beam diameter $D$. The Bessel core diameter is set by axicon~3 angle $\alpha_3$ (and if applicable, any telescope placed in the Bessel region). The on-axis uniformity is governed by the quality of the Hollow Gaussian beam, which is set by the axicon~1-2 separation $L_{12}$.
+The QDHT model described in \nameref{sec:qdht_model} was used to sweep the axicon angles, separations, and Gaussian input beam diameter. The results are shown in \autoref{fig:theory_single_axicon_angle_core}, \autoref{fig:theory_axicon_angle_sweep_D=4_59mm}, \autoref{fig:theory_axicon_angle_sweep_gain_D=4_59mm}, and \autoref{fig:theory_single_axicon_diameter}. The model predicts that the Bessel zone length is most sensitive to axicon~3 angle $\alpha_3$ and the Gaussian input beam diameter $D$. The Bessel core diameter is set by axicon~3 angle $\alpha_3$ (and if applicable, any telescope placed in the Bessel region). The on-axis uniformity is governed by the quality of the Hollow Gaussian beam, which is set by the axicon~1-2 separation $L_{12}$.
 
 All plots are shown for a fixed input beam diameter $D = \SI{4.59}{\milli\meter}$ at wavelength $\lambda = \SI{650}{\nano\meter}$, unless otherwise noted.
 \begin{figure}[htbp]
