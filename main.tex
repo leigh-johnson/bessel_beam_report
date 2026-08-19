@@ -199,7 +199,7 @@ $2048 \times 1536$ pixels, \SI{3.45}{\micro\meter} pixel size) mounted
 on a motorized three-axis CNC gantry built for this project, which allowed us to sample the beam profile along \SI{2}{\meter} of propagation with repeatable sub-millimeter positioning. The gantry has \SI{130}{\milli\meter} of travel along the propagation direction and \SI{100}{\milli\meter} of travel in the transverse XY plane. Because the $z$ travel is shorter than the region of interest, we repositioned the gantry by hand along the optical table to cover the full \SI{2}{\meter} propagation path. Each placement is registered against a sheet of \SI{1}{\centi\meter} graph paper fixed to the table (\autoref{fig:gantry_isometric_photo}), so the measurement position is repeatable between runs. At each plane the acquisition software locates the beam and sets the exposure time automatically, so that the brightest pixel in the plane falls below a saturation threshold. It also collects dark frames for background subtraction. If the beam diameter is larger than the camera sensor, the profiler software collects a grid of images and stitches them into a single composite image.
 
 \subsection{Metrics}\label{sec:metrics}
-From each plane, we crop the image to the central Bessel lobe. We report intensity as pixel counts / exposure time, so planes recorded with different exposures are comparable. We extract the on-axis intensity $I(r=0, z)$ by fitting a $J_0^2$ function to the data (see \autoref{fig:placement_cmp_report_jul29}), where the amplitude $A$ represents the peak intensity of the plane. From the fitted $k_r$ wavenumber, we calculate the central lobe diameter $\varnothing$ and mean radial FWHM $\langle \mathrm{FWHM} \rangle_r$. The measured Bessel zone $Z_R$ is the interval between the outermost points at which $I(r=0, z)$ falls to $50\%$ of its maximum, and $\Delta Z_R$ is the length of that interval. The ripple metric is the peak-to-peak variation of $I(r=0, z)$ within the measured Bessel zone, normalized to the mean on-axis intensity.
+From each plane, we crop the image to the central Bessel lobe. We report intensity as pixel counts / exposure time, so planes recorded with different exposures are comparable. We extract the on-axis intensity $I(r=0, z)$ by fitting a $J_0^2$ function to the data (see \autoref{fig:placement_cmp}), where the amplitude $A$ represents the peak intensity of the plane. From the fitted $k_r$ wavenumber, we calculate the central lobe diameter $\varnothing$ and mean radial FWHM $\langle \mathrm{FWHM} \rangle_r$. The measured Bessel zone $Z_R$ is the interval between the outermost points at which $I(r=0, z)$ falls to $50\%$ of its maximum, and $\Delta Z_R$ is the length of that interval. The ripple metric is the peak-to-peak variation of $I(r=0, z)$ within the measured Bessel zone, normalized to the mean on-axis intensity.
 The beam profiling software, analysis notebooks, and mechanical designs are open source\footnotemark[2].
 
 \footnotetext[2]{\url{https://github.com/leigh-johnson/bessel_beam_profiler}}
@@ -266,10 +266,25 @@ and~5 (tests concerned with the two science-chamber mirrors) are deferred to fut
 
 The measured Bessel zone for each configuration is summarized in \autoref{tab:results_summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges. We evaluated four candidates, described in \autoref{tab:configs}. The QDHT simulation consistently predicted the starting point of the Bessel range for three candidates within $10\%$ agreement. In two of the three modeled candidates, the Bessel zone length was within $8\%$ agreement with the QDHT simulation. The geometric model consistently predicted the start of the Bessel zone within $3.6\%$ to $5.6\%$ agreement but overestimated the Bessel zone length by $+42\%$ to $+89\%$.
 
-\begin{figure}[htbp]
-  \includegraphics[width=\linewidth]{placement_cmp_report_jul29}
-  \caption{\label{fig:placement_cmp_report_jul29} Data from the Bessel zone of optics configuration \#2 in \autoref{tab:configs}. (a) Cross-section image of beam profile at $z=$ \SI{175}{\centi\meter}. Image data is cropped to $\pm$ \SI{200}{\micro\meter} of the central Bessel lobe, colored by intensity (pixel counts / exposure time) and normalized.  (b) Measured intensity sampled on a 2x2 pixel grid (6.9 x 6.9 \si{\micro\meter}) and fit to a $J_0^2$ function (black line) to extract the core diameter and FWHM. (c) $z =$ \SI{180}{\centi\meter} cross-section, intensity normalized against the peak intensity measurement at $z=$ \SI{175}{\centi\meter} shown in (a). (d) $J_0^2$ fit to the $z =$ \SI{180}{\centi\meter} cross-section.}
-\end{figure}
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=0.48\textwidth]{placement_cmp_report_jul29}\hfill
+  \includegraphics[width=0.48\textwidth]{placement_cmp_report_aug3}
+  \caption{\label{fig:placement_cmp} Repeatability of the candidate \#2
+    Bessel zone over five days. Left: initial alignment (July 29).
+    Right: the same $z$ positions re-measured on Aug 3. Each half
+    shows $z = \SI{175}{\centi\meter}$ (top) and
+    $z = \SI{180}{\centi\meter}$ (bottom). Within each row, the left
+    panel is the cross-section image of the beam profile cropped to
+    $\pm\SI{200}{\micro\meter}$ of the central Bessel lobe, and the right
+    panel is the intensity along the X and Y chords sampled on a
+    $2\times2$ pixel grid ($6.9\times6.9$~\si{\micro\meter}) with a
+    $J_0^2$ fit to the radial mean. All four rows are normalized to the
+    July 29 peak at $z = \SI{175}{\centi\meter}$, so the lower Aug 3 peak shows the reduction in intensity. The ripple structure
+    and the fitted core diameters are reproduced to within a few percent,
+    but the X chord (blue) deviates more than it
+    did five days earlier. The slight astigmatism in Aug3 was likely caused by a slight horizontal shift compared to the original alignment.}
+\end{figure*}
 
 Candidate \#1 was the baseline configuration, and it established how closely the models describe a well-aligned system. The measured zone length fell within \SI{1}{\centi\meter} of the QDHT prediction, the closest agreement of any candidate, and the core diameter and FWHM tracked the ideal $J_0^2$ values to within 2\% at every plane inside the Bessel zone.
 
@@ -297,12 +312,8 @@ In early design/modeling stages, we were unsure if the on-axis intensity ripples
 \subsection{Axicon Alignment Drift}
 To test repeatability, we re-measured three $z$ positions of candidate
 \#2's Bessel zone five days after the original scan
-(\autoref{fig:placement_cmp_report_jul29} vs. \autoref{fig:placement_cmp_report_aug3}). We reproduced the intensity ripples. The fitted core diameters agreed within a few percent, but the peak intensity dropped from 0.48 to 0.33 counts/\si{\micro\second}, suggesting the drift did not occur uniformly. In \autoref{fig:placement_cmp_report_aug3}, the X-chord (blue dots) shifted more than the Y-chord (orange dots), resulting in a slight astigmatism. Fixing it required systematically adjusting the horizontal axes of all XY translation mounts to locate the source.
+(\autoref{fig:placement_cmp}). We reproduced the intensity ripples. The fitted core diameters agreed within a few percent, but the peak intensity dropped from 0.48 to 0.33 counts/\si{\micro\second}, suggesting the drift did not occur uniformly. In the August 3 scan (\autoref{fig:placement_cmp}, right), the X-chord (blue dots) shifted more than the Y-chord (orange dots), resulting in a slight astigmatism. Fixing it required systematically adjusting the horizontal axes of all XY translation mounts to locate the source.
 
-\begin{figure}[htbp]
-  \includegraphics[width=\linewidth]{placement_cmp_report_aug3}
-  \caption{\label{fig:placement_cmp_report_aug3} TODO caption about alignment drift.}
-\end{figure}
 
 \subsection{Effect of M=2x Telescope}\label{sec:telescope}
 Candidate \#4 placed a $2\times$ magnification telescope inside the
