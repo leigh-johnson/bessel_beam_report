@@ -441,23 +441,31 @@ All plots are shown for a fixed input beam diameter $D = \SI{4.59}{\milli\meter}
 
 \clearpage
 
+\onecolumngrid
+\begin{center}
+  \includegraphics[width=\textwidth]{alignment_composite_labeled}
+  \captionof{figure}{\label{fig:annulus_composites} (a)(b) Composite images of the annulus for candidate \#2 showing various misalignment symptoms. (c)(d) Composite images of the annulus for candidate \#3 showing  misalignment in (d) and better alignment in (c). }
+\end{center}
+\twocolumngrid
+
 \section{Axicon Alignment Tool}\label{sec:axicon_alignment_cli}
-\begin{figure*}[hb]
-  \includegraphics[width=\linewidth]{alignment_composite_labeled}
-  \caption{\label{fig:annulus_composites} (a)(b) Composite images of the annulus for candidate \#2 showing various misalignment symptoms. (c)(d) Composite images of the annulus for candidate \#3 showing  misalignment in (d) and better alignment in (c). }
-\end{figure*}
-\begin{figure}[htbp]
-  \includegraphics[width=\linewidth]{alignment_axicon2_before}
-  \caption{\label{fig:alignment_axicon2_before} Axicon 2 alignment before adjustment. The beam is not centered on the axicon, and the annulus is not circular. The inner and outer radius are drawn with dotted gray lines, with the peak intensity radial line drawn in cyan. The asymmetry of the annulus is evident in the brightness in the upper-right quadrant, compared to the lower-left quadrant.}
-\end{figure}
 A command-line interface (CLI) tool was developed to assist with alignment of the three-axicon system (various misalignment shown in \autoref{fig:annulus_composites}). The tool uses the CMOS camera on the gantry to continuously capture images of the beam at two planes along the axis of propagation. In most cases, the beam diameter exceeds the dimensions of the camera sensor so the tool collects a grid of images and stitches them into a single composite image.
 
 For each composite image, the software fits a function to the beam (depending on the optic being aligned) and reports the center, radius, and eccentricity of the fitted function. Metrics from multiple planes are compared to determine the azimuthal alignment, tilt, and cone divergence/focusing of the beam (\autoref{fig:alignment_axicon2_before}).
 
-After repeated visits to the same plane, the tool reports $dX$ and $dY$ offsets (\autoref{fig:alignment_axicon2_after}) of the beam center from previous visits. W used these offsets to determine the direction and magnitude of adjustments needed to align the axicons (manually). A potential future direction would be to drive a motorized translation mount to automatically align the axicons.
-\begin{figure}[htbp]
+\noindent\begin{minipage}{\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{alignment_axicon2_before}
+  \captionof{figure}{\label{fig:alignment_axicon2_before} Axicon 2 alignment before adjustment. The beam is not centered on the axicon, and the annulus is not circular. The inner and outer radius are drawn with dotted gray lines, with the peak intensity radial line drawn in cyan. The asymmetry of the annulus is evident in the brightness in the upper-right quadrant, compared to the lower-left quadrant.}
+\end{minipage}
+\vspace{0.5\baselineskip}
+
+After repeated visits to the same plane, the tool reports $dX$ and $dY$ offsets (\autoref{fig:alignment_axicon2_after}) of the beam center from previous visits. We used these offsets to determine the direction and magnitude of adjustments needed to align the axicons (manually). A potential future direction would be to drive a motorized translation mount to automatically align the axicons.
+
+\noindent\begin{minipage}{\linewidth}
+  \centering
   \includegraphics[width=\linewidth]{alignment_axicon2_after}
-  \caption{\label{fig:alignment_axicon2_after} Axicon 2 alignment after adjustment. The beam is centered on the axicon, and the annulus is circular. The final $dX$ and $dY$ offsets show alignment required \SI{+158}{\micro\meter} and \SI{-12}{\micro\meter} adjustments in the horizontal and vertical directions respectively.}
-\end{figure}
+  \captionof{figure}{\label{fig:alignment_axicon2_after} Axicon 2 alignment after adjustment. The beam is centered on the axicon, and the annulus is circular. The final $dX$ and $dY$ offsets show alignment required \SI{+158}{\micro\meter} and \SI{-12}{\micro\meter} adjustments in the horizontal and vertical directions respectively.}
+\end{minipage}
 
 \end{document}
