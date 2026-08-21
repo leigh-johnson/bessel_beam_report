@@ -372,11 +372,11 @@ tooling).
 \subsection{Future Work}\label{sec:future_work}
 Several open questions remain. First, we have not measured how the first $1/2$~in. steering mirror (mirror 1 in \autoref{fig:theory_geometric_model}) affects the beam profile. The mirror sits upstream of the Bessel zone, and diffraction from its edges could distort the structure of the beam before it reaches the atoms. Second, axicons with 2~in. diameter have been ordered to raise the cap on $L_{12}$ that the 1~in. aperture imposes. Third, day-to-day alignment drift limited the repeatability of our measurements, so the beam alignment should be monitored continuously. The automated alignment tool we built\footnotemark[3] could be run between measurements to detect drift and alert when remediation is required. The alignment tool could also be extended to drive motorized translation mounts, ensuring the axicon lenses are always aligned to a certain tolerance. Ultimately, the final system will interrogate strontium atoms at \SI{698}{\nano\meter} rather than the \SI{650}{\nano\meter} of our test laser diode. The selected configuration will likely need to be re-characterized with the \SI{698}{\nano\meter} clock laser.
 
-\footnotetext[3]{\url{https://github.com/leigh-johnson/bessel_beam_profiler/blob/main/docs/alignment.md}}
 % ============================================================
 %  ACKNOWLEDGMENTS
 % ============================================================
 \newpage
+\footnotetext[3]{\url{https://github.com/leigh-johnson/bessel_beam_profiler/blob/main/docs/alignment.md}}
 \section*{Acknowledgments}
 Thank you to Anke Stoeltzel, Shuo Ma, Shimon Kolkowitz and the Kolkowitz Group for their support and guidance. This work was supported by the Pi$^2$ program and the UC Berkeley Physics Department.
 
@@ -440,24 +440,24 @@ All plots are shown for a fixed input beam diameter $D = \SI{4.59}{\milli\meter}
 \end{figure}
 
 \clearpage
-\section{Axicon Alignment Tool}\label{sec:axicon_alignment_cli}
-A command-line interface (CLI) tool was developed to assist with alignment of the three-axicon system. The tool uses the CMOS camera on the gantry to continuously capture images of the beam at two planes along the axis of propagation. In most cases, the beam diameter exceeds the dimensions of the camera sensor so the tool collects a grid of images and stitches them into a single composite image.
 
-For each composite image, the software fits a function to the beam (depending on the optic being aligned) and reports the center, radius, and eccentricity of the fitted function. Metrics from multiple planes are compared to determine the azimuthal alignment, tilt, and cone divergence/focusing of the beam (\autoref{fig:alignment_axicon2_before}).
+\section{Axicon Alignment Tool}\label{sec:axicon_alignment_cli}
+\begin{figure*}[hb]
+  \includegraphics[width=\linewidth]{alignment_composite_labeled}
+  \caption{\label{fig:annulus_composites} (a)(b) Composite images of the annulus for candidate \#2 showing various misalignment symptoms. (c)(d) Composite images of the annulus for candidate \#3 showing  misalignment in (d) and better alignment in (c). }
+\end{figure*}
 \begin{figure}[htbp]
   \includegraphics[width=\linewidth]{alignment_axicon2_before}
   \caption{\label{fig:alignment_axicon2_before} Axicon 2 alignment before adjustment. The beam is not centered on the axicon, and the annulus is not circular. The inner and outer radius are drawn with dotted gray lines, with the peak intensity radial line drawn in cyan. The asymmetry of the annulus is evident in the brightness in the upper-right quadrant, compared to the lower-left quadrant.}
 \end{figure}
+A command-line interface (CLI) tool was developed to assist with alignment of the three-axicon system (various misalignment shown in \autoref{fig:annulus_composites}). The tool uses the CMOS camera on the gantry to continuously capture images of the beam at two planes along the axis of propagation. In most cases, the beam diameter exceeds the dimensions of the camera sensor so the tool collects a grid of images and stitches them into a single composite image.
+
+For each composite image, the software fits a function to the beam (depending on the optic being aligned) and reports the center, radius, and eccentricity of the fitted function. Metrics from multiple planes are compared to determine the azimuthal alignment, tilt, and cone divergence/focusing of the beam (\autoref{fig:alignment_axicon2_before}).
 
 After repeated visits to the same plane, the tool reports $dX$ and $dY$ offsets (\autoref{fig:alignment_axicon2_after}) of the beam center from previous visits. W used these offsets to determine the direction and magnitude of adjustments needed to align the axicons (manually). A potential future direction would be to drive a motorized translation mount to automatically align the axicons.
 \begin{figure}[htbp]
   \includegraphics[width=\linewidth]{alignment_axicon2_after}
   \caption{\label{fig:alignment_axicon2_after} Axicon 2 alignment after adjustment. The beam is centered on the axicon, and the annulus is circular. The final $dX$ and $dY$ offsets show alignment required \SI{+158}{\micro\meter} and \SI{-12}{\micro\meter} adjustments in the horizontal and vertical directions respectively.}
 \end{figure}
-\begin{figure}[htbp]
-  \includegraphics[width=\linewidth]{alignment_composite_labeled}
-  \caption{\label{fig:annulus_composites} (a)(b) Composite images of the annulus for candidate \#2 before (a) and after (b) alignment. (c)(d) Composite images of the annulus for candidate \#3 before (c) and after (d) alignment.}
-\end{figure}
 
-\clearpage
 \end{document}
