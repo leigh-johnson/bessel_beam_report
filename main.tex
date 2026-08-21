@@ -53,7 +53,7 @@
 % ============================================================
 \begin{abstract}
 
-  We designed, built, and characterized a three-axicon system that forms a zeroth-order Bessel beam from 1~in.\ optics and evaluated four configurations for the interrogation beam in a strontium optical lattice clock. Using a purpose-built motorized three-axis imaging system, we profiled the beam over \SI{2}{\meter} of propagation. All four produced Bessel cores with mean diameter within 8\% of the ideal $J_0^2$ value, but none met the required \SI{300}{\micro\meter} FWHM. The widest measured central lobe was \SI{125.6}{\micro\meter}. A quasi-discrete Hankel transform (QDHT) model with no free parameters predicted Bessel-zone start within 10\% and length within 8\% for two of three modeled configurations. A geometric ray model predicted the start comparably well but overestimated zone length by 42--89\%. The longest measured zone was ${>}\SI{0.83}{\meter}$ against a \SI{1}{\meter} target, while on-axis intensity varied by 48--63\% peak-to-peak in all measured zones. The 1~in.\ aperture sets a constraint on the axicon separation distance $L_{12}$, which in turn limits zone length and limits the suppression of periodic ripples in intensity along the propagation axis. None of the four configurations met all design requirements.
+  We designed, built, and characterized a three-axicon system that forms a zeroth-order Bessel beam from 1~in.\ optics and evaluated four configurations for the interrogation beam in a strontium optical lattice clock. Using a purpose-built motorized three-axis imaging system, we profiled the beam over \SI{2}{\meter} of propagation.  None of the four configurations met all design requirements. All four produced Bessel cores with mean diameter within 8\% of the ideal $J_0^2$ value, but none met the required \SI{300}{\micro\meter} FWHM. The widest measured central lobe was \SI{125.6}{\micro\meter}. A quasi-discrete Hankel transform (QDHT) model with no free parameters predicted Bessel-zone start within 10\% and length within 8\% for two of three modeled configurations. A geometric ray model predicted the start comparably well but overestimated zone length by 42--89\%. The longest measured zone was ${>}\SI{0.83}{\meter}$ against a \SI{1}{\meter} target, while on-axis intensity varied by 48--63\% peak-to-peak in all measured zones. The aperture of 1~in.\ lenses set a constraint on the axicon separation distance $L_{12}$, which in turn limits zone length and limits the suppression of periodic ripples in intensity along the propagation axis. In a followup study, we will explore designs with 2~in. diameter axicons to address this limitation.
 \end{abstract}
 \maketitle
 
@@ -65,20 +65,20 @@
 %  - Hypothesis in addressing the question
 % ============================================================
 \section{Background and Aims}\label{sec:background}
-\begin{figure}[hb]
-  \includegraphics[width=\linewidth]{gaussian_vs_bessel_intro}
-  \caption{\label{fig:theory_gaussian_vs_bessel_intro} Comparison of an ideal Gaussian beam and zeroth-order Bessel beam. (a)~Transverse intensity profile of a Gaussian beam at its waist. (b)~Transverse intensity profile $I(r) \propto J_0^2(k_r \cdot r)$ of an ideal Bessel beam, showing the central lobe and surrounding concentric rings. (c)~Longitudinal intensity profile of a Gaussian beam, showing how the beam's width grows (diverges) as it propagates. (d)~The Bessel beam's central lobe stays constant/uniform. }
-\end{figure}
-Optical lattice clocks are precise enough to resolve the gravitational
-redshift at tabletop scale. The first-generation strontium clock in our
-lab resolved the redshift across five atom ensembles spanning a
-\SI{1}{\centi\meter} vertical path
-\cite{zhengLabbasedTestGravitational2023}. The second-generation clock
-extends this to three ensembles across \SI{1}{\meter}. A vertical
+Einstein's theory of general relativity \citet{einstein1915grundgedanken} predicts that clocks at different gravitational potentials will tick at different rates. This effect, known as the gravitational time dilation, was famously measured in the Hafele-Keating experiment \cite{hafele1972around} by transporting two atomic clocks around the world on a commercial airliner and comparing them to stationary clocks on the ground. More recently, optical lattice clocks \cite{takamoto2020test, bothwell2022resolving, zhengLabbasedTestGravitational2023} have been used to measure the difference in frequency between clock atom ensembles at different gravitational potentials, also known as the gravitational redshift. For a 1-meter height difference $(\Delta h =$\SI{1}{\meter}), the predicted gravitational redshift is: $\frac{\Delta \lambda}{\lambda}$ is:
+\begin{equation}
+  \dfrac{\Delta \lambda}{\lambda} \approx \dfrac{g \Delta h}{c^2} \approx 1.1\times10^{-16} \quad \text{per meter}
+\end{equation}
+where g is gravitational acceleration constant and $c$ is the speed of light. The first-generation Sr-87 optical lattice clock in our lab was
+able to resolve the gravitational
+redshift across five atom ensembles spanning a
+\SI{1}{\centi\meter} vertical path \cite{zhengLabbasedTestGravitational2023}. The second-generation clock extends this to three ensembles across \SI{1}{\meter}, representing a $100 \times$ increase signal path length.
+
+In the second-generation clock, a vertical 1-meter
 optical lattice traps the strontium atoms, and a co-propagating
 \SI{698}{\nano\meter} clock laser interrogates (probes) them. Since the
-redshift is proportional to height, intensity variations along the
-interrogation path introduce a systematic error that must be
+redshift is proportional to height, any intensity variation along the
+interrogation path introduces a systematic error that must be
 characterized. The clock beam would ideally be as uniform as possible across over a meter of propagation, which is not achievable with a Gaussian beam and 1-2 in.\ lens elements (see \autoref{fig:theory_gaussian_vs_bessel_intro}).
 
 A Bessel beam is a promising candidate because it has a non-diffracting profile over long propagation distances~\cite{durninDiffractionfreeBeams1987,
@@ -91,7 +91,13 @@ This study addresses one primary question: can a three-axicon system built from 
   \item Beam within the Bessel region fits within 1/2~in.\ mirror aperture (mirror 1 in \autoref{fig:theory_geometric_model}, entrance to science chamber).
   \item Annulus after Bessel region is larger than 1/2~in.\, to minimize reflections off mirror 2 in \autoref{fig:theory_geometric_model}.
 \end{enumerate}
+\begin{figure}[hbtp]
+  \includegraphics[width=\linewidth]{gaussian_vs_bessel_intro}
+  \caption{\label{fig:theory_gaussian_vs_bessel_intro} Comparison of an ideal Gaussian beam and zeroth-order Bessel beam. (a)~Transverse intensity profile of a Gaussian beam at its waist. (b)~Longitudinal intensity profile of a Gaussian beam, showing how the beam's width grows (diverges) as it propagates. (c)~Transverse intensity profile $I(r) \propto J_0^2(k_r \cdot r)$ of an ideal Bessel beam, showing the central lobe and surrounding concentric rings. (d)~An ideal Bessel beam's central lobe stays constant/uniform over a long propagation distance. }
+\end{figure}
+
 We tested this by building four candidate configurations (\autoref{tab:configs}) and comparing the measured Bessel zone of each against models described in \nameref{sec:geometric_model} and \nameref{sec:qdht_model}.
+
 
 \begin{figure*}[!t]
   \includegraphics[width=\textwidth]{geometric_model}
@@ -115,20 +121,6 @@ where $k_r$ is the transverse wavevector satisfying $k_r^2 + k_z^2 = k^2 = (2\pi
 
 Passing a Gaussian beam through an axicon (another name for a conical prism) produces a Bessel-Gauss beam by converting the Gaussian input into a conical wavefront that interferes constructively along the propagation axis \cite{raoConceptualReviewBessel2024}. An axicon of base angle $\alpha$ and refractive index $n$ deflects the Gaussian beam toward the axis by $\beta = \arcsin(n \sin \alpha) - \alpha$, creating a Bessel-Gauss beam of the zeroth order. The Bessel-Gauss beam has a transverse intensity profile described by \autoref{eq:ideal_bessel_beam}, where $k_r = (2\pi/\lambda)\sin\beta$ is governed by the axicon deflection angle $\beta$ and the wavelength $\lambda$ of the input Gaussian beam.
 
-\subsection{Geometric / Ray Model}\label{sec:geometric_model}
-We based the design on the collimating three-axicon zoom system described in \citet{schniederCollimatingThreeaxiconZoom2024}. \autoref{fig:theory_geometric_model} shows the geometric model of our system and defines the ray angles and axicon separations. Because the annulus leaving axicon~1 keeps expanding as it propagates, the 1~in.\ aperture of axicon~2 sets an upper limit on $L_{12}$. Within that limit, increasing $L_{12}$ suppresses the on-axis intensity ripple (\autoref{fig:theory_three_axicon_L12}).
-
-\subsection{Wave Optics / QDHT Model}\label{sec:qdht_model}
-The geometric model predicts where rays overlap, but not the intensity within the Bessel zone. To get a sense of the idealized intensity distribution, we constructed a wave-optics simulation. We first attempted the analysis in Zemax software, whose physical optics propagation uses a fast Fourier transform (FFT) on a square Cartesian grid~\cite{ZemaxOpticStudio}. We discarded this approach out of concern that design decisions would be governed by non-physical artifacts of the square sampling grid.
-
-Since the idealized optical system is rotationally symmetric about the propagation axis, we were able to model the field propagation with a quasi-discrete Hankel transform (also known as a Fourier-Bessel transform) described by \citet{yuQuasidiscreteHankelTransform1998a}.
-
-Our QDHT model implementation accepts only measured quantities as inputs: the Gaussian input beam waist $w_0$, the axicon base angles $\alpha_1$, $\alpha_2$, and $\alpha_3$, the axicon separations $L_{12}$ and $L_{23}$, and the wavelength $\lambda$. The model has no free parameters fit to our data. The QDHT models in \autoref{fig:measured_window_envelopes_lobe_diam_colored} are sampled at $N=4096$ points in the radial direction over a domain padded to $2.5\times$ the Gaussian input beam radius.
-
-
-We implemented both geometric and QDHT models in an open-source Python simulator with an interactive web interface\footnotemark[1]. Parameter sweeps over the axicon angles, separations, and input beam diameter are collected in \nameref{sec:model_parameter_sweeps}.
-\footnotetext[1]{\url{https://besselbeam.streamlit.app/}}
-
 \begin{figure}[htbp]
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (a)
@@ -144,6 +136,35 @@ We implemented both geometric and QDHT models in an open-source Python simulator
   \end{tikzpicture}
   \caption{\label{fig:theory_three_axicon_L12} Effect of axicon~1-2 separation $L_{12}$ in optics configuration \#1 (see \autoref{tab:configs}), simulated with QDHT. (a)~Propagation between axicons~1 and~2: after axicon~1 Bessel zone (shaded in grey), the beam becomes an expanding annulus with approximately \SI{2}{\milli\meter} FWHM thickness (shaded orange region). $L_{12}$ sets the annulus radius arriving at axicon~2 (annulus radius shown on right y-axis). The 85-90\% aperture limit of 1~in.\ optics (black dotted line) determines the upper limit on $L_{12}$ separation. (b)~Comparison of on-axis intensity after axicon~3 for $L_{12} = 140$, 190, 240, \SI{290}{\milli\meter}. Increasing the $L_{12}$ separation suppresses the on-axis intensity ripples.}
 \end{figure}
+\subsection{Geometric / Ray Model}\label{sec:geometric_model}
+We based the design on the collimating three-axicon zoom system described in \citet{schniederCollimatingThreeaxiconZoom2024}. \autoref{fig:theory_geometric_model} shows the geometric model of our system and defines the ray angles and axicon separations. Because the annulus leaving axicon~1 keeps expanding as it propagates, the 1~in.\ aperture of axicon~2 sets an upper limit on $L_{12}$. Within that limit, increasing $L_{12}$ suppresses the on-axis intensity ripple (\autoref{fig:theory_three_axicon_L12}).
+
+\subsection{Wave Optics / QDHT Model}\label{sec:qdht_model}
+The geometric model predicts where rays overlap, but not the intensity within the Bessel zone. To get a sense of the idealized intensity distribution, we constructed a wave-optics simulation. We first attempted the analysis in Zemax software, whose physical optics propagation uses a fast Fourier transform (FFT) on a square Cartesian grid~\cite{ZemaxOpticStudio}. We discarded this approach out of concern that design decisions would be governed by non-physical artifacts of the square sampling grid.
+
+Since the idealized optical system is rotationally symmetric about the propagation axis, we were able to model the field propagation with a quasi-discrete Hankel transform (also known as a Fourier-Bessel transform) described by \citet{yuQuasidiscreteHankelTransform1998a}.
+
+Our QDHT model implementation accepts only measured quantities as inputs: the Gaussian input beam waist $w_0$, the axicon base angles $\alpha_1$, $\alpha_2$, and $\alpha_3$, the axicon separations $L_{12}$ and $L_{23}$, and the wavelength $\lambda$. The model has no free parameters fit to our data. The QDHT models in \autoref{fig:measured_window_envelopes_lobe_diam_colored} are sampled at $N=4096$ points in the radial direction over a domain padded to $2.5\times$ the Gaussian input beam radius.
+
+
+We implemented both geometric and QDHT models in an open-source Python simulator with an interactive web interface\footnotemark[1]. Parameter sweeps over the axicon angles, separations, and input beam diameter are collected in \nameref{sec:model_parameter_sweeps}.
+\footnotetext[1]{\url{https://besselbeam.streamlit.app/}}
+
+% \begin{figure}[htbp]
+%   \begin{tikzpicture}
+%     \node[anchor=south west,inner sep=0] (a)
+%     {\includegraphics[width=\linewidth]{theory_three_axicon_L12_between_axicon12.png}};
+%     \node[anchor=south west,font=\bfseries,inner sep=2pt]
+%     at ([yshift=1pt]a.north west) {(a)};
+%   \end{tikzpicture}
+%   \begin{tikzpicture}
+%     \node[anchor=south west,inner sep=0] (b)
+%     {\includegraphics[width=\linewidth]{theory_three_axicon_L12.png}};
+%     \node[anchor=south west,font=\bfseries,inner sep=2pt]
+%     at ([yshift=1pt]b.north west) {(b)};
+%   \end{tikzpicture}
+%   \caption{\label{fig:theory_three_axicon_L12} Effect of axicon~1-2 separation $L_{12}$ in optics configuration \#1 (see \autoref{tab:configs}), simulated with QDHT. (a)~Propagation between axicons~1 and~2: after axicon~1 Bessel zone (shaded in grey), the beam becomes an expanding annulus with approximately \SI{2}{\milli\meter} FWHM thickness (shaded orange region). $L_{12}$ sets the annulus radius arriving at axicon~2 (annulus radius shown on right y-axis). The 85-90\% aperture limit of 1~in.\ optics (black dotted line) determines the upper limit on $L_{12}$ separation. (b)~Comparison of on-axis intensity after axicon~3 for $L_{12} = 140$, 190, 240, \SI{290}{\milli\meter}. Increasing the $L_{12}$ separation suppresses the on-axis intensity ripples.}
+% \end{figure}
 
 \subsection{Experimental Setup}\label{sec:experimental_setup}
 
@@ -264,12 +285,10 @@ needed to contain the atom cloud. The on-axis intensity varied by
 48-63\% of the peak value, so it was not uniform. Requirements~4
 and~5 (tests concerned with the two science-chamber mirrors) are deferred to future work (\nameref{sec:future_work}).
 
-The measured Bessel zone for each configuration is summarized in \autoref{tab:results_summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges. We evaluated four candidates, described in \autoref{tab:configs}. The QDHT simulation consistently predicted the starting point of the Bessel range for three candidates within $10\%$ agreement. In two of the three modeled candidates, the Bessel zone length was within $8\%$ agreement with the QDHT simulation. The geometric model consistently predicted the start of the Bessel zone within $3.6\%$ to $5.6\%$ agreement but overestimated the Bessel zone length by $+42\%$ to $+89\%$.
-
 \begin{figure*}[!t]
   \centering
-  \includegraphics[width=0.48\textwidth]{placement_cmp_report_jul29}\hfill
-  \includegraphics[width=0.48\textwidth]{placement_cmp_report_aug3}
+  \includegraphics[width=0.5\textwidth]{placement_cmp_report_jul29}\hfill
+  \includegraphics[width=0.5\textwidth]{placement_cmp_report_aug3}
   \caption{\label{fig:placement_cmp} Repeatability of the candidate \#2
     Bessel zone over five days. Left: initial alignment (July 29).
     Right: the same $z$ positions re-measured on Aug 3. Each half
@@ -286,6 +305,9 @@ The measured Bessel zone for each configuration is summarized in \autoref{tab:re
     did five days earlier. The slight astigmatism in Aug3 was likely caused by a slight horizontal shift compared to the original alignment.}
 \end{figure*}
 
+The measured Bessel zone for each configuration is summarized in \autoref{tab:results_summary} and \autoref{fig:measured_window_envelopes_lobe_diam_colored}, along with the modeled geometric and QDHT ranges. We evaluated four candidates, described in \autoref{tab:configs}. The QDHT simulation consistently predicted the starting point of the Bessel range for three candidates within $10\%$ agreement. In two of the three modeled candidates, the Bessel zone length was within $8\%$ agreement with the QDHT simulation. The geometric model consistently predicted the start of the Bessel zone within $3.6\%$ to $5.6\%$ agreement but overestimated the Bessel zone length by $+42\%$ to $+89\%$.
+
+
 Candidate \#1 was the baseline configuration, and it established how closely the models describe a well-aligned system. The measured zone length fell within \SI{1}{\centi\meter} of the QDHT prediction, the closest agreement of any candidate, and the core diameter and FWHM tracked the ideal $J_0^2$ values to within 2\% at every plane inside the Bessel zone.
 
 Candidate \#2 used a $2\times$ magnification telescope before axicon~1 to expand the Gaussian input beam. Expanding the input beam substantially increased the Bessel zone length ($\Delta Z_R > 0.83$ m), but at the cost of worse on-axis intensity ripples.
@@ -300,6 +322,7 @@ than stretching it by the expected longitudinal magnification. We
 examine this result in Sec.~\ref{sec:telescope}.
 
 \begin{figure*}[!t]
+  \centering
   \includegraphics[width=\textwidth]{measured_window_envelopes_lobe_diam_colored}
   \caption{\label{fig:measured_window_envelopes_lobe_diam_colored} Measured on-axis intensity $I(0,z)$ along the propagation direction for candidates (a)~\#1, (b)~\#2, (c)~\#3, and (d)~\#4 in \autoref{tab:configs}. Each panel normalized to its own peak intensity rate (counts/\si{\micro\second}). $z$ is measured from the last optical element. Points are $J_0^2$ amplitudes fit to cropped cross-section images of the plane transverse to the propagation direction. Points are colored by the deviation of the fitted central/core lobe diameter from the ideal value. The solid black line is the QDHT model, dashed red line indicates 50\% of the measured peak, and the grey shaded region is the measured Bessel zone $Z_R$ between the outermost 50\% crossings. The ripple metric is the peak-to-peak variation of the on-axis intensity within the measured Bessel zone. Candidate \#2's Bessel zone was not fully characterized due to space limitations on the optics table, so the measured $Z_R$ and $\Delta Z_R$ should be interpreted as lower bounds. No QDHT model was developed for candidate \#4, which placed a $2\times$ magnification telescope inside the Bessel zone.}
 \end{figure*}
