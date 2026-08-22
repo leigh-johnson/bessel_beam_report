@@ -1,4 +1,4 @@
-# Bessel Beam Optics for Interrogation of 1-Meter Vertical Strontium Optical Lattice Clock
+# Bessel Beam Optics for Interrogation of a 1-Meter Vertical Strontium Optical Lattice Clock
 
 Research supported by Berkeley Physics Innovators Initiative (Pi^2) program, Summer 2026 cohort.
 
